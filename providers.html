@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find a Provider | Whole Person Healing Center</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* ====================================
+   ROOT VARIABLES / DESIGN SYSTEM
+==================================== */
+:root {
+  --green: #3c6e5a;
+  --green-dark: #3f6f5c;
+  --peach: #e6a97e;
+  --peach-light: #f6c8a1;
+  --mint: #c7e4d5;
+  --cream: #f5efe9;
+  --card: #faf9f6;
+  --card-peach: #fff3ed;
+  --text: #2e2e2e;
+
+  --section-padding: 60px;
+  --section-padding-sm: 40px;
+  --section-gap: 30px;
+
+  --radius: 10px;
+  --radius-pill: 20px;
+
+  --shadow-soft: 0 3px 10px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ====================================
+   RESET
+==================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ====================================
+   GLOBAL BASE STYLES
+==================================== */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--cream);
+background-image: url("https://www.transparenttextures.com/patterns/egg-shell.png");
+  color: var(--text);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ====================================
+   LAYOUT SYSTEM
+==================================== */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.section {
+  padding: var(--section-padding) 0;
+}
+
+.section-tight {
+  padding: var(--section-padding-sm) 0;
+}
+
+.section-loose {
+  padding: 80px 0;
+}
+
+/* ====================================
+   BUTTON SYSTEM
+==================================== */
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  text-align: center;
+}
+
+.btn-primary {
+  background: var(--green-dark);
+  color: white;
+}
+
+.btn-accent {
+  background: var(--peach);
+  color: white;
+}
+
+.btn-light {
+  background: var(--peach-light);
+  color: #000;
+}
+
+/* ====================================
+   HEADER (GLOBAL)
+==================================== */
+header {
+  background: var(--green);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.logo-img {
+  width: 120px;
+  height: auto;
+}
+
+.logo-text {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.menu a {
+  margin-left: 25px;
+  font-size: 14px;
+}
+
+/* ====================================
+   FOOTER (GLOBAL)
+==================================== */
+footer {
+  background: var(--green);
+  color: white;
+  padding: 40px 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 50px;
+}
+
+.footer-grid h4 {
+  margin-bottom: 10px;
+}
+
+.footer-grid p,
+.footer-grid a {
+  font-size: 14px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* ====================================
+   RESPONSIVE SYSTEM 
+==================================== */
+
+/* TABLET */
+@media (max-width: 1024px) {
+
+  .home .info-section {
+    grid-template-columns: 1fr;
+  }
+
+  .home .find-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  .home .hero h1 {
+    font-size: 32px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+
+  .menu {
+    display: none;
+  }
+
+  .home .hero {
+    height: 70vh;
+    padding: 20px;
+  }
+
+  .home .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section {
+    padding: 40px 0;
+  }
+
+  .home .info-section {
+    padding: 25px;
+  }
+
+  .home .find-card {
+    padding: 20px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  footer {
+    text-align: center;
+  }
+}
+
+
+/* ---------- PAGE TITLE ---------- */
+.page-title {
+  text-align: center;
+  margin: 40px 0 10px;
+  font-size: 36px;
+  color: #2f5a4d;
+}
+
+.subtle {
+  text-align: center;
+  margin-bottom: 40px;
+  opacity: 0.8;
+}
+
+/* ---------- INTRO SECTION ---------- */
+.section {
+  margin: 50px auto;
+}
+
+.section h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #2f5a4d;
+}
+
+.section p {
+  text-align: center;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* ---------- OWNER CARDS ---------- */
+.owner-card {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  margin: 20px auto;
+  max-width: 900px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  display: flex;
+  gap: 25px;
+  align-items: flex-start;
+}
+
+.owner-photo {
+  flex-shrink: 0;
+  width: 150px;
+  height: 150px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.owner-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.owner-content {
+  flex: 1;
+}
+
+.owner-content strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 18px;
+  color: #2f5a4d;
+}
+
+/* ---------- PROVIDER CARDS (ACCORDION) ---------- */
+.provider-card {
+  background: white;
+  margin: 15px auto;
+  max-width: 900px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.provider-header {
+  padding: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.provider-photo {
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.provider-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.provider-info {
+  flex: 1;
+}
+
+.provider-title {
+  font-weight: 600;
+}
+
+.provider-sub {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.provider-body {
+  display: none;
+  padding: 20px;
+  border-top: 1px solid #eee;
+}
+
+/* ---------- CTA SECTION ---------- */
+.cta {
+  text-align: center;
+  margin: 60px 0;
+}
+
+.cta button {
+  background: #3c6e5a;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+/* ---------- RESPONSIVE OWNER CARDS ---------- */
+@media (max-width: 600px) {
+  .owner-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .provider-header {
+    flex-wrap: wrap;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="container nav">
+    <div class="logo">
+      <img src="https://ellietee.github.io/wholepersonhealingcenter/logo.png" class="logo-img">
+      <div class="logo-text">Whole Person<br>Healing Center</div>
+    </div>
+
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="join.html">Join Our Center</a>
+      <a href="providers.html">Find a Provider</a>
+      <a href="events.html">Events</a>
+      <a class="contact-btn" href="contactform.html">Contact Us</a>
+    </div>
+  </div>
+</header>
+
+
+<!-- ================= PAGE TITLE ================= -->
+<h1 class="page-title">Meet Our Providers</h1>
+<p class="subtle">We believe healing happens through connection. <br> <br> At WPHC, we've brought together a trusted team of professionals who offer compassionate, whole-person care across a wide range of specialties. <br> <br>
+Click on any provider below to learn more and book directly with them.</p>
+
+
+<!-- ================= INTRO ================= -->
+<section class="section">
+  <h2>The Heart Behind WPHC</h2>
+  <p>
+With over four decades of experience in integrative mind-body-spirit approaches to physical, emotional, psychological, and spiritual well-being, Dr. Robin and Dr. Jim founded Whole Person Healing Center to be a place of connection, collaboration, and care. Their vision continues to shape WPHC as a supportive home for clients and practitioners alike on the path to healing.
+  </p>
+</section>
+
+<!-- OWNER CARDS -->
+<div class="owner-card">
+  <div class="owner-photo">
+    <img src="https://via.placeholder.com/150x150/3c6e5a/ffffff?text=Dr.+Robin" alt="Dr. Robin Reeves-Oppenheim">
+  </div>
+  <div class="owner-content">
+    <strong>Dr. Robin Reeves-Oppenheim</strong>
+    <p>Dr. Robin Reeves-Oppenheim, ThD, LICSW-CP, LCSW, DCSW, BC-TMH, CHT, is a distinguished expert and author with over 42 years of clinical experience in mental health and substance abuse. As the creator of Bio-Intrinsic Transformational Therapy™, she merges Eastern and Western mysticism, Psychology, Energy Medicine, Quantum Physics, Neurotheology, and Biofield Therapies to foster holistic healing. She is the co-owner of Whole Person Healing Center and the President and CEO of Out-of-the-Box Solutions, Inc. in Georgia. Dr. Reeves-Oppenheim has served on numerous professional boards, trained with Dr. Brian Weiss in Past Life Regression Therapy, and presented internationally on spirituality and wellness. She is on the Advisory Board of the National Organization for Medical Intuition and a faculty member of HOLOS University. Dedicated to transforming lives, she integrates innovative therapeutic models to empower individuals on their path to healing and self-discovery. <br>
+<br> Contact:
+<br> Email: WholePersonHealingCenter@Hushmail.com</p>
+  </div>
+</div>
+
+<div class="owner-card">
+  <div class="owner-photo">
+    <img src="https://via.placeholder.com/150x150/3c6e5a/ffffff?text=Dr.+Jim" alt="Dr. Jim Oppenheim">
+  </div>
+  <div class="owner-content">
+    <strong>Dr. Jim Oppenheim</strong>
+    <p>Dr. Jim Oppenheim, DC, MPH, is a seasoned Chiropractor, educator, and innovator with 45 years of experience. With advanced training in Network Spinal Analysis and Sacro Occipital Technique, Dr. Oppenheim integrates structural, energetic, and neurological approaches to support deep healing and alignment. He is the co-owner of Whole Person Healing Center and a respected member of both the International Craniopathic Society and the Sacro Occipital Research Society International. Dr. Oppenheim holds a Doctor of Chiropractic from Life University and a Master of Public Health in Health Administration from the University of South Carolina. Based on over four decades of experience with cutting-edge, evidence-based chiropractic care, he brings a heart-centered approach that has empowered thousands of clients and students to reconnect with their innate healing capacity. His mission is to serve the community with compassion, excellence, and a spirit of unwavering commitment to growth. <br>
+<br> Contact:
+<br> Email: WholePersonHealingCenter@Hushmail.com</p>
+  </div>
+</div>
+
+
+<!-- ================= PROVIDERS ================= -->
+<section class="section">
+  <h2>Our Providers</h2>
+</section>
+
+<!-- PROVIDER 1 -->
+<div class="provider-card">
+  <div class="provider-header" onclick="toggle(this)">
+    <div class="provider-photo">
+      <img src="https://via.placeholder.com/100x100/e6a97e/ffffff?text=Dineen" alt="Dineen Carta">
+    </div>
+    <div class="provider-info">
+      <div class="provider-title">Dineen Carta</div>
+      <div class="provider-sub">Energy Healing, Touch & Sound Therapist | ACCE Board Certified Psychosynthesis Transformational Coach</div>
+    </div>
+    <div>▼</div>
+  </div>
+  <div class="provider-body">
+    <p>In today's challenging world, life can be hard. Dineen's specialty is to support you through both expected and unexpected life changes, helping you feel held physically, emotionally, mentally, and spiritually. Through Energy Healing and Sound Therapies, Dineen removes what blocks you, allowing you to experience an optimal, peaceful state through any challenge with ease and grace. Through life coaching, you are heard & guided through the steps to walk your best path forward. In addition to her training, her personal healing journey makes her uniquely qualified to help you. <br>
+<br> Contact:
+<br> Phone: (843) 481-0320
+<br> Email: Dineen.WholePersonHealing@Hushmail.com
+<br> Website: https://youtu.be/TjWfi8Nuc7Y?si=WUCp2IUk-AT-sKwR</p>
+  </div>
+</div>
+
+<!-- PROVIDER 2 -->
+<div class="provider-card">
+  <div class="provider-header" onclick="toggle(this)">
+    <div class="provider-photo">
+      <img src="https://via.placeholder.com/100x100/e6a97e/ffffff?text=Zahra" alt="Zahra Ghazi">
+    </div>
+    <div class="provider-info">
+      <div class="provider-title">Zahra Ghazi</div>
+      <div class="provider-sub">Energy Healer, Jungian Meditation Practitioner, & Yoga Teacher | Translator of Depth Psychology Texts</div>
+    </div>
+    <div>▼</div>
+  </div>
+  <div class="provider-body">
+    <p>Zahra's specialty lies in gently guiding you back to your natural state of wholeness. Through intuitive energy healing, guided meditation, sound, and intention, she works with the chakras, auric field, and soul vibration to release energetic blockages, balance emotions, and awaken the body's innate intelligence. Sessions are heart-centered and focused on inner awakening — creating a sacred space where healing flows naturally on all levels: emotional, mental, spiritual, and physical. With decades of experience in Jungian meditation, yoga, and energy healing, as well as a deep devotion to the path of light and transformation, she brings a powerful yet gentle presence to each session. She also offers individual and group work in both Persian and English and has translated the works of Jungian author Marie-Louise von Franz into Persian. <br>
+<br> Contact:
+<br> Phone: WhatsApp: +91-95456-06237
+<br> Email: wholepersonhealingcenter@hushmail.com</p>
+  </div>
+</div>
+
+<!-- PROVIDER 3 -->
+<div class="provider-card">
+  <div class="provider-header" onclick="toggle(this)">
+    <div class="provider-photo">
+      <img src="https://via.placeholder.com/100x100/e6a97e/ffffff?text=Meheru" alt="Meheru McPherson">
+    </div>
+    <div class="provider-info">
+      <div class="provider-title">Meheru McPherson</div>
+      <div class="provider-sub">Certified Reiki Practitioner | Feng Shui Consultant | Real Estate Professional</div>
+    </div>
+    <div>▼</div>
+  </div>
+  <div class="provider-body">
+    <p>Meheru brings over 30 years of experience in property maintenance and management, with a focus on creating spaces that are not only functional but deeply welcoming. Her 18 years as an environmental health inspector for the Los Angeles Department of Health and Human Services further deepened her dedication to quality, safety, and well-being. Through her business, Welcome Home Feng Shui and Real Estate, Meheru integrates energy healing and balanced design to foster harmony in every home. Certified in both Reiki and Feng Shui, she helps individuals and families cultivate environments that support healing, balance, and whole-person wellness.<br>
+<br> Contact:
+<br> Phone: (843) 331-0769
+<br> Email: meherumcpherson@gmail.com</p>
+  </div>
+</div>
+
+<!-- PROVIDER 4 -->
+<div class="provider-card">
+  <div class="provider-header" onclick="toggle(this)">
+    <div class="provider-photo">
+      <img src="https://via.placeholder.com/100x100/e6a97e/ffffff?text=Lenita" alt="Lenita C. Silveira">
+    </div>
+    <div class="provider-info">
+      <div class="provider-title">Lenita C. Silveira</div>
+      <div class="provider-sub">Certified Teacher of the Alexander Technique</div>
+    </div>
+    <div>▼</div>
+  </div>
+  <div class="provider-body">
+    <p>Lenita received graduate and post-graduate degrees in dance and dance teaching from the Catholic University of Brazil and has been immersed in movement research since 1975. She was certified in the Alexander Technique in 1995 by Joel Kendall, Director of the School for the Alexander Technique in New York City. In 2005, she completed post-graduate training at The Constructive Teaching Centre in London under Directors Walter and D.M.G. Carrington. She is a certified member of Alexander Technique International (ATI) and is currently teaching in Myrtle Beach, SC. Her work helps clients rediscover natural poise, balance, and coordination through conscious, efficient movement.<br>
+<br> Contact:
+<br> Phone: (347) 971-1286
+<br> Email: lenitacelias@gmail.com</p>
+  </div>
+</div>
+
+<!-- PROVIDER 5 -->
+<div class="provider-card">
+  <div class="provider-header" onclick="toggle(this)">
+    <div class="provider-photo">
+      <img src="https://via.placeholder.com/100x100/e6a97e/ffffff?text=Deb" alt="Deb Smith">
+    </div>
+    <div class="provider-info">
+      <div class="provider-title">Deb Smith</div>
+      <div class="provider-sub">Harmonic Bodywork</div>
+    </div>
+    <div>▼</div>
+  </div>
+  <div class="provider-body">
+    <p>When you're in need of help, Deb offers practiced skilled Clinical Massage and Harmonic Bodywork to support you. Harmonic Bodywork combines therapeutic massage with sound/music frequencies to bring resilience and harmony into the body. Sound is applied to the body with an array of Tuning forks & chimes, Tibetan bowls & bells, as well as Pulsed Electro Magnetic Frequency (PEMF) devices created by Dr. Bart Flick. True healing takes time, patience, and thoughtful application of skill whether one is coping with new or old injuries or dealing with demanding stressful situations. With 40+ yrs of experience, Deb knows how to attend clinically to your needs as well as restore a felt sense of being safe and at home in your body. Deb promises to bring all her experience to help you feel encouraged and refreshed. <br>
+<br>Contact:
+<br>Phone: (843) 246-3919  
+<br>Website: https://deborahsmith.massagetherapy.com/home</p>
+  </div>
+</div>
+
+<!-- PROVIDER 6 -->
+<div class="provider-card">
+  <div class="provider-header" onclick="toggle(this)">
+    <div class="provider-photo">
+      <img src="https://via.placeholder.com/100x100/e6a97e/ffffff?text=Mindi" alt="Mindi Stronzik">
+    </div>
+    <div class="provider-info">
+      <div class="provider-title">Mindi Stronzik</div>
+      <div class="provider-sub">LMBT, Electrons+ Plus Practitioner, AOPP Certified</div>
+    </div>
+    <div>▼</div>
+  </div>
+  <div class="provider-body">
+    <p>Mindi integrates a wide range of holistic, self-healing modalities and technologies into her bodywork practice, including trigger point therapy, lymphatic drainage, acupressure, aromatherapy, GOATA, and phototherapies. As a certified Electrons+ Plus Practitioner, she uses a PEMF generator to move electrons through the body during massage, helping to reduce inflammation, restore circulation, and promote optimal cell function. This technique activates the parasympathetic nervous system and allows for deep relaxation, regardless of massage pressure preference. Clients experience the benefits of deep tissue massage while supporting their body's innate healing capacity. <br>
+<br> Contact:
+<br> Phone: (843) 465-1557
+<br> Website: emassageandwellness.com</p>
+  </div>
+</div>
+
+<!-- PROVIDER 7 -->
+<div class="provider-card">
+  <div class="provider-header" onclick="toggle(this)">
+    <div class="provider-photo">
+      <img src="https://via.placeholder.com/100x100/e6a97e/ffffff?text=Dr.+Elle" alt="Dr. Elle Todd PT, DPT">
+    </div>
+    <div class="provider-info">
+      <div class="provider-title">Dr. Elle Todd PT, DPT</div>
+      <div class="provider-sub">Physical Therapist | Holistic Health Practitioner | Health and Wellness Coach | Personal Trainer | Reiki Master</div>
+    </div>
+    <div>▼</div>
+  </div>
+  <div class="provider-body">
+    <p>Elle is a licensed Doctor of Physical Therapy with over 15 years of healthcare experience, offering physical therapy services, holistic health and wellness coaching, personal training, and Reiki energy healing. She helps people reconnect with their bodies, energy, and purpose through personalized care and grounded healing work to achieve lasting results. Many of her clients come to her feeling stuck, burnt out, or out of alignment, struggling with issues like chronic pain, low energy, stress and anxiety, hormonal changes, or simply feeling disconnected from themselves.  Elle understands firsthand how it feels to navigate those challenges, and she integrates her lived experience, medical expertise, and holistic practices to help others improve their quality of life in real, sustainable ways. Whether you're tired of living with tension and fatigue, looking to heal after an injury, or longing to feel strong and at home in your body again, Elle meets you where you are and guides you toward balance, confidence, and wholeness in mind, body, and spirit. <br>
+<br>Contact:
+<br>Phone: (843) 564-3339
+<br>Email: elle@healingbeach.org  
+<br>Website: www.healingbeach.org</p>
+  </div>
+</div>
+
+
+<!-- ================= CTA ================= -->
+<div class="cta">
+  <h2>Start Your Healing Journey</h2>
+  <p>Reach out directly to a provider above or connect with us below.</p>
+
+  <!-- DROP YOUR FORM LINK HERE -->
+  <button onclick="location.href='contactform.html'">
+    Contact Us
+  </button>
+</div>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h4>Whole Person Healing Center</h4>
+	<p> 603 B Briarwood Drive<br>Myrtle Beach, SC 29572</p>
+        <a href="tel:18436633360">Tel: (843) 663-3360</a>
+        <p>Fax: (843) 663-3361</p>
+        <p>wholepersonhealingcenter@hushmail.com</p>
+      </div>
+
+      <div>
+        <h4>Socials</h4>
+        <a href="https://www.facebook.com/profile.php?id=61567455757501">Facebook</a>
+        <p>Instagram</p>
+      </div>
+
+      <div>
+        <h4>Menu</h4>
+        <a href="index.html">Home</a>
+        <a href="join.html">Join Our Center</a>
+        <a href="providers.html">Find a Provider</a>
+        <a href="events.html">Events</a>
+      </div>
+	
+	<div>
+        <p>Select imagery featured courtesy of Delwyn Windham<br>windtography@gmail.com</p>
+      </div>
+    </div>
+  </footer>
+
+
+<!-- ================= SCRIPT ================= -->
+<script>
+function toggle(el) {
+  const body = el.nextElementSibling;
+  body.style.display = body.style.display === "block" ? "none" : "block";
+}
+</script>
+
+</body>
+</html>

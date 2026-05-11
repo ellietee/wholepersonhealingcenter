@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upcoming Events | Whole Person Healing Center</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* ====================================
+   ROOT VARIABLES / DESIGN SYSTEM
+==================================== */
+:root {
+  --green: #3c6e5a;
+  --green-dark: #3f6f5c;
+  --peach: #e6a97e;
+  --peach-light: #f6c8a1;
+  --mint: #c7e4d5;
+  --cream: #f5efe9;
+  --card: #faf9f6;
+  --card-peach: #fff3ed;
+  --text: #2e2e2e;
+
+  --section-padding: 60px;
+  --section-padding-sm: 40px;
+  --section-gap: 30px;
+
+  --radius: 10px;
+  --radius-pill: 20px;
+
+  --shadow-soft: 0 3px 10px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ====================================
+   RESET
+==================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ====================================
+   GLOBAL BASE STYLES
+==================================== */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--cream);
+  background-image: url('field of flowers.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  color: var(--text);
+  line-height: 1.6;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(245, 239, 233, 0.85);
+  pointer-events: none;
+  z-index: -1;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ====================================
+   LAYOUT SYSTEM
+==================================== */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.section {
+  padding: var(--section-padding) 0;
+}
+
+.section-tight {
+  padding: var(--section-padding-sm) 0;
+}
+
+.section-loose {
+  padding: 80px 0;
+}
+
+/* ====================================
+   BUTTON SYSTEM
+==================================== */
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  text-align: center;
+}
+
+.btn-primary {
+  background: var(--green-dark);
+  color: white;
+}
+
+.btn-accent {
+  background: var(--peach);
+  color: white;
+}
+
+.btn-light {
+  background: var(--peach-light);
+  color: #000;
+}
+
+/* ====================================
+   HEADER (GLOBAL)
+==================================== */
+header {
+  background: var(--green);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.logo-img {
+  width: 120px;
+  height: auto;
+}
+
+.logo-text {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.menu a {
+  margin-left: 25px;
+  font-size: 14px;
+}
+
+/* ====================================
+   FOOTER (GLOBAL)
+==================================== */
+footer {
+  background: var(--green);
+  color: white;
+  padding: 40px 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 50px;
+}
+
+.footer-grid h4 {
+  margin-bottom: 10px;
+}
+
+.footer-grid p,
+.footer-grid a {
+  font-size: 14px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* ====================================
+   RESPONSIVE SYSTEM 
+==================================== */
+
+/* TABLET */
+@media (max-width: 1024px) {
+
+  .home .info-section {
+    grid-template-columns: 1fr;
+  }
+
+  .home .find-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  .home .hero h1 {
+    font-size: 32px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+
+  .menu {
+    display: none;
+  }
+
+  .home .hero {
+    height: 70vh;
+    padding: 20px;
+  }
+
+  .home .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section {
+    padding: 40px 0;
+  }
+
+  .home .info-section {
+    padding: 25px;
+  }
+
+  .home .find-card {
+    padding: 20px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  footer {
+    text-align: center;
+  }
+}
+
+
+/* ---------- PAGE WRAP ---------- */
+.page-content {
+  flex: 1; /* FIX: pushes footer down */
+  padding: 40px;
+}
+
+/* ---------- CALENDAR HEADER ---------- */
+h1 {
+  font-weight: 300;
+  font-size: 42px;
+  margin-bottom: 10px;
+  color: #2f5a4d;
+}
+
+.subtle {
+  opacity: 0.7;
+  margin-bottom: 30px;
+  color: #2f5a4d;
+}
+
+/* ---------- CALENDAR WRAPPER ---------- */
+.calendar {
+  max-width: 1100px;
+  margin: auto;
+
+  background: #f6fbf8;
+  border: 2px solid #3c6e5a;
+  border-radius: 22px;
+  padding: 20px;
+
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.calendar-header h2 {
+  font-weight: 400;
+  color: #2f5a4d;
+}
+
+.calendar-header button {
+  background: transparent;
+  border: 1px solid #3c6e5a;
+  padding: 8px 14px;
+  border-radius: 18px;
+  cursor: pointer;
+  color: #2f5a4d;
+}
+
+.calendar-header button:hover {
+  background: #3c6e5a;
+  color: #fff;
+}
+
+/* ---------- GRID ---------- */
+.days, .dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.days div {
+  text-align: center;
+  font-size: 12px;
+  color: #3c6e5a;
+  opacity: 0.7;
+  margin-bottom: 10px;
+}
+
+/* ---------- DAY BLOCK ---------- */
+.day {
+  min-height: 110px;
+  padding: 10px;
+  margin: 6px;
+
+  border-radius: 14px;
+
+  background: #f9fcfa;
+  border: 1px solid rgba(60,110,90,0.12);
+
+  position: relative;
+}
+
+.day:hover {
+  background: #eef6f1;
+  transform: translateY(-2px);
+}
+
+/* ---------- DATE ---------- */
+.date-number {
+  font-size: 13px;
+  color: #2f5a4d;
+  opacity: 0.85;
+  margin-bottom: 6px;
+}
+
+/* ---------- EVENTS ---------- */
+.event {
+  font-size: 12px;
+  margin-top: 3px;
+  line-height: 1.3;
+
+  color: #3c6e5a;
+  opacity: 0.95;
+  cursor: pointer;
+}
+
+/* ---------- EVENT DAY ---------- */
+.event-day {
+  background: rgba(107,191,177,0.08);
+  border-left: 3px solid #6bbfb1;
+}
+
+/* ---------- TODAY ---------- */
+.today {
+  outline: 2px solid #3c6e5a;
+  background: rgba(60,110,90,0.04);
+}
+
+/* ---------- MODAL ---------- */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-content {
+  background: #fff;
+  color: #2f5a4d;
+  padding: 25px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+  border: 1px solid #3c6e5a;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modal-content h3 {
+  margin-bottom: 15px;
+  color: #2f5a4d;
+}
+
+.modal-content strong {
+  color: #3c6e5a;
+  font-weight: 600;
+}
+
+.modal-content p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.payment-link {
+  display: inline-block;
+  background: #3c6e5a;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.3s ease;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.payment-link:hover {
+  background: #2f5a4d;
+}
+
+.close {
+  margin-top: 15px;
+  cursor: pointer;
+  color: #3c6e5a;
+  font-weight: 500;
+}
+
+.close:hover {
+  opacity: 0.7;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="container nav">
+    <div class="logo">
+      <img src="https://ellietee.github.io/wholepersonhealingcenter/logo.png" class="logo-img" alt="Logo">
+      <div class="logo-text">Whole Person<br>Healing Center</div>
+    </div>
+
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="join.html">Join Our Center</a>
+      <a href="providers.html">Find a Provider</a>
+      <a href="events.html">Events</a>
+      <a class="contact-btn" href="contactform.html">Contact Us</a>
+    </div>
+  </div>
+</header>
+
+<!-- PAGE CONTENT WRAPPER (FIX) -->
+<main class="page-content">
+
+<h1 style="text-align:center;">
+  Upcoming Events
+</h1>
+
+<div class="subtle" style="text-align:center;">
+  Here are the wonderful events unfolding this month. 
+</div>
+
+<div class="calendar">
+
+  <div class="calendar-header">
+    <button onclick="changeMonth(-1)">‹</button>
+    <h2 id="monthYear"></h2>
+    <button onclick="changeMonth(1)">›</button>
+  </div>
+
+  <div class="days">
+    <div>Sun</div><div>Mon</div><div>Tue</div>
+    <div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+  </div>
+
+  <div class="dates" id="dates"></div>
+
+</div>
+
+</main>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h3 id="modalDate"></h3>
+    <div id="modalEvents"></div>
+    <div class="close" onclick="closeModal()">Close</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container footer-grid">
+
+    <div>
+      <h4>Whole Person Healing Center</h4>
+      <p>603 B Briarwood Drive<br>Myrtle Beach, SC 29572</p>
+      <a href="tel:18436633360">Tel: (843) 663-3360</a>
+      <p>Fax: (843) 663-3361</p>
+      <p>wholepersonhealingcenter@hushmail.com</p>
+    </div>
+
+     <div>
+        <h4>Socials</h4>
+        <a href="https://www.facebook.com/profile.php?id=61567455757501">Facebook</a>
+        <p>Instagram</p>
+      </div>
+
+      <div>
+        <h4>Menu</h4>
+        <a href="index.html">Home</a>
+        <a href="join.html">Join Our Center</a>
+        <a href="providers.html">Find a Provider</a>
+        <a href="events.html">Events</a>
+      </div>
+
+    <div>
+      <p>
+        Select imagery featured courtesy of Delwyn Windham<br>
+        windtography@gmail.com
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+const events = {
+  "2026-05-05": [{ time: "9:00 AM - 10:00 AM", title: "MELT Method Class", description: "MELT Method Class with Terry 'T' Williams: LMBT, Structural Therapist, Personal Trainer, Corrective Exercise Specialist, $20 per session. Limited space. Click or call today to reserve your space - 646-344-0434", paymentLink: "https://square.link/u/your-melt-class" }],
+  "2026-05-12": [{ time: "9:00 AM - 10:00 AM", title: "MELT Method Class", description: "MELT Method Class with Terry 'T' Williams: LMBT, Structural Therapist, Personal Trainer, Corrective Exercise Specialist, $20 per session. Limited space. Click or call today to reserve your space - 646-344-0434", paymentLink: "https://square.link/u/your-melt-class" }],
+  "2026-05-19": [{ time: "9:00 AM - 10:00 AM", title: "MELT Method Class", description: "MELT Method Class with Terry 'T' Williams: LMBT, Structural Therapist, Personal Trainer, Corrective Exercise Specialist, $20 per session. Limited space. Click or call today to reserve your space - 646-344-0434", paymentLink: "https://square.link/u/your-melt-class" }],
+  "2026-05-26": [{ time: "9:00 AM - 10:00 AM", title: "MELT Method Class", description: "MELT Method Class with Terry 'T' Williams: LMBT, Structural Therapist, Personal Trainer, Corrective Exercise Specialist, $20 per session. Limited space. Click or call today to reserve your space - 646-344-0434", paymentLink: "https://square.link/u/your-melt-class" }],
+  "2026-05-11": [{ time: "7:00 PM - 8:30 PM", title: "Hafiz Study and Meditation Group", description: "Join us for a peaceful and inspiring Hafiz Study & Meditation Group, guided by Shahin Khorsandi. Experience the beauty of meditation as passed from Meher Baba to Esfandiar, and settle into a space of stillness, reflection, and connection. Suggested donation $5. Come as you are, all are welcome.", paymentLink: "https://square.link/u/your-hafiz-group" }],
+  "2026-05-25": [{ time: "11:00 AM - 2:00 PM", title: "Inspirational Hafiz & Feng Shui Personal Readings", description: "Inspirational Hafiz & Feng Shui Personal Readings by Mehernoush McPherson. 45-60 minute individual sessions. Sliding Scale available. 843-331-0769. Call for your appointment to reserve your spot.", paymentLink: "https://square.link/u/your-readings" }],
+  "2026-06-01": [{ time: "6:30 PM - 8:00 PM", title: "Reiki Share", description: "Join us for a heart-centered Reiki Share where you can give and receive healing energy in a supportive space. Open to all levels! Come relax, connect, and leave feeling restored and renewed.", paymentLink: "https://square.link/u/your-reiki-share" }],
+  "2026-06-07": [{ time: "3:00 PM - 4:30 PM", title: "Sound Bath & Vibrational Healing Session", description: "Sound Bath & Vibrational Healing Session with Dineen Carta, Psychosynthesis Transformational Coaching, Sound & Vibrational Healing, Therapeutic Touch, $35 per person. Limited space. Click or call today to reserve your space - 843-481-0320", paymentLink: "https://square.link/u/your-sound-bath" }],
+  "2026-06-29": [{ time: "6:30 PM - 8:00 PM", title: "Reiki Share", description: "Join us for a heart-centered Reiki Share where you can give and receive healing energy in a supportive space. Open to all levels! Come relax, connect, and leave feeling restored and renewed.", paymentLink: "https://square.link/u/your-reiki-share" }]
+};
+
+let currentDate = new Date();
+
+function renderCalendar() {
+  const datesEl = document.getElementById("dates");
+  datesEl.innerHTML = "";
+
+  const year = currentDate.getFullYear();
+  const month = currentDate.getMonth();
+
+  document.getElementById("monthYear").innerText =
+    currentDate.toLocaleString("default", { month: "long", year: "numeric" });
+
+  const firstDay = new Date(year, month, 1).getDay();
+  const lastDate = new Date(year, month + 1, 0).getDate();
+
+  const today = new Date();
+
+  for (let i = 0; i < firstDay; i++) {
+    datesEl.innerHTML += "<div></div>";
+  }
+
+  for (let d = 1; d <= lastDate; d++) {
+
+    const dateStr =
+      `${year}-${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+
+    const div = document.createElement("div");
+    div.className = "day";
+
+    let html = `<div class="date-number">${d}</div>`;
+
+    if (events[dateStr]) {
+      div.classList.add("event-day");
+
+      events[dateStr].forEach(ev => {
+        html += `
+          <div class="event"
+               onclick="event.stopPropagation(); openModal('${dateStr}')">
+               ${ev.time} · ${ev.title}
+          </div>
+        `;
+      });
+    }
+
+    div.innerHTML = html;
+
+    if (
+      d === today.getDate() &&
+      month === today.getMonth() &&
+      year === today.getFullYear()
+    ) {
+      div.classList.add("today");
+    }
+
+    div.onclick = () => openModal(dateStr);
+
+    datesEl.appendChild(div);
+  }
+}
+
+function changeMonth(offset) {
+  currentDate.setMonth(currentDate.getMonth() + offset);
+  renderCalendar();
+}
+
+function openModal(dateStr) {
+  const modal = document.getElementById("modal");
+  const modalEvents = document.getElementById("modalEvents");
+
+  modal.classList.add("active");
+  document.getElementById("modalDate").innerText = dateStr;
+
+  modalEvents.innerHTML = "";
+
+  if (!events[dateStr]) {
+    modalEvents.innerHTML = "<p>No events scheduled</p>";
+    return;
+  }
+
+  events[dateStr].forEach(ev => {
+    const div = document.createElement("div");
+    div.innerHTML = `
+      <strong>${ev.time}</strong><br>
+      <strong>${ev.title}</strong><br><br>
+      <p>${ev.description}</p><br>
+      <a href="${ev.paymentLink}" target="_blank" class="payment-link">Register & Pay</a>
+    `;
+    modalEvents.appendChild(div);
+  });
+}
+
+function closeModal() {
+  document.getElementById("modal").classList.remove("active");
+}
+
+renderCalendar();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Join Our Center | Whole Person Healing Center</title>
+
+<style>
+
+
+
+/* ---------- GLOBAL ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} 
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  color: #2f3e36;
+  background-color: #f8f6f2;
+}
+
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+h1, h2, h3 {
+  margin-bottom: 15px;
+}
+
+p {
+  max-width: 700px;
+  margin: 0 auto 20px;
+}
+    .container {
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+    }
+
+   /* HEADER */
+    header {
+      background:#3c6e5a;
+      color:white;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    .nav {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 0;
+    }
+
+    .logo {
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:6px;
+    }
+
+    .logo-img {
+      width:120px;
+      height:auto;
+    }
+
+    .logo-text {
+      font-weight:600;
+      font-size:16px;
+    }
+
+    .menu a {
+      margin-left:25px;
+      font-size:14px;
+    }
+
+    .contact-btn {
+      background:#f6c8a1;
+      padding:8px 14px;
+      border-radius:20px;
+      margin-left:20px;
+      color:#000;
+      font-weight:500;
+    }
+
+/* ---------- HERO ---------- */
+.hero {
+  background: url('your-tree-image.jpg') center/cover no-repeat;
+  color: #2f3e36;
+  padding: 120px 20px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+}
+
+.hero button {
+  padding: 10px 20px;
+  border: none;
+  background: #e6b8a2;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* ---------- WHY SECTION ---------- */
+.why {
+  background: #e7c7bd;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* ---------- INCLUDED ---------- */
+.included {
+  background: #f1f1f1;
+}
+
+.circle-box {
+  max-width: 500px;
+  margin: auto;
+  background: #d9e3dd;
+  padding: 30px;
+  border-radius: 50%;
+}
+
+/* ---------- LOOK INSIDE ---------- */
+.look {
+  background: url('your-texture-bg.jpg') center/cover no-repeat;
+}
+
+/* ---------- CAROUSEL ---------- */
+.carousel {
+  position: relative;
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+.carousel img {
+  width: 100%;
+  border-radius: 12px;
+  display: none;
+}
+
+.carousel img.active {
+  display: block;
+}
+
+/* ---------- RENTAL OPTIONS ---------- */
+.options {
+  background: #cfdcd5;
+}
+
+.option {
+  margin-top: 40px;
+}
+
+/* ---------- CONTACT ---------- */
+.contact {
+  background: linear-gradient(to right, #4e7c6d, #d8cfc4);
+  color: white;
+}
+
+form {
+  background: #f3e9df;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  margin: 20px auto;
+  color: black;
+}
+
+input, textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+button.submit {
+  background: #e6b8a2;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 6px;
+}
+
+    /* FOOTER */
+    footer {
+      background:#3c6e5a;
+      color:white;
+      padding:40px 0;
+    }
+
+    .footer-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr 1fr;
+      gap:50px;
+    }
+
+    .footer-grid h4 {
+      margin-bottom:10px;
+    }
+
+    .footer-grid p, .footer-grid a {
+      font-size:14px;
+      display:block;
+      margin-bottom:5px;
+    }
+
+    @media (max-width:900px) {
+      .info-section {
+        grid-template-columns:1fr;
+      }
+
+      .hero-buttons {
+        flex-direction:column;
+        align-items:center;
+      }
+    }
+
+    @media (max-width:600px) {
+      .menu { display:none; }
+      .hero { height:70vh; }
+      .info-section { padding:25px; }
+      .hero h1 { font-size:22px; }
+    }
+
+/* ---------- FOOTER SPACING FIX ---------- */
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+</style>
+</head>
+
+<body>
+
+ <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <img src="https://ellietee.github.io/wholepersonhealingcenter/logo.png" class="logo-img" alt="Logo">
+        <div class="logo-text">Whole Person<br>Healing Center</div>
+      </div>
+
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="join.html">Join Our Center</a>
+      <a href="providers.html">Find a Provider</a>
+      <a href="events.html">Events</a>
+      <a class="contact-btn" href="contactform.html">Contact Us</a>
+    </div>
+    </div>
+  </header>
+
+
+<div class="page-wrapper">
+<main>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>More Than a Rental —<br>A Healing Community</h1>
+  <p>Join a collaborative space for integrative care, professional growth, innovative research, and soul-aligned work.</p>
+  <button>Learn More</button>
+</section>
+
+<!-- WHY -->
+<section class="why">
+  <h2>Why Providers Choose to Practice Here</h2>
+  <p>A healing space is more than just a room. Here's what sets WPHC apart — and why so many providers choose to stay.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <h3>Built-In Community & Referrals</h3>
+      <p>You’re not alone here. We foster collaboration, connection, and shared purpose.</p>
+    </div>
+
+    <div class="card">
+      <h3>A Space That Honors Healing</h3>
+      <p>This isn’t a sterile clinic. It’s intentionally designed to nourish clients and providers.</p>
+    </div>
+
+    <div class="card">
+      <h3>Flexible Rental Options</h3>
+      <p>Hourly, weekly, or monthly — we adapt to your needs.</p>
+    </div>
+
+    <div class="card">
+      <h3>No Corporate Red Tape</h3>
+      <p>You run your business your way — we support your growth.</p>
+    </div>
+
+    <div class="card">
+      <h3>Soul-Aligned Environment</h3>
+      <p>A space built on trust, transformation, and holistic values.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INCLUDED -->
+<section class="included">
+  <h2>Included with Every Rental</h2>
+
+  <div class="circle-box">
+    <ul style="list-style:none;">
+      <li>• Furnished rooms available</li>
+      <li>• Unfurnished options</li>
+      <li>• Wi-Fi + utilities</li>
+      <li>• Cleaning service</li>
+      <li>• Kitchen access</li>
+      <li>• Website listing</li>
+      <li>• Free parking</li>
+      <li>• Flexible rental terms</li>
+      <li>• 24/7 access</li>
+      <li>• Referral community</li>
+    </ul>
+  </div>
+</section>
+
+<!-- LOOK INSIDE -->
+<section class="look">
+  <h2>Take a Look Inside</h2>
+  <p>Simple spaces with soul — and room to grow.</p>
+
+  <img src="your-main-room.jpg" style="max-width:400px; border-radius:12px;">
+</section>
+
+<!-- OPTIONS -->
+<section class="options">
+  <h2>Your Space, Your Way</h2>
+  <p>Flexible options to support your rhythm and growth.</p>
+
+  <!-- FLEXIBLE SHARED -->
+  <div class="option">
+    <h3>Flexible Shared Space</h3>
+
+    <div class="carousel">
+      <img src="img1.jpg" class="active">
+      <img src="img2.jpg">
+      <img src="img3.jpg">
+    </div>
+
+    <p>Furnished shared office<br>
+    Rented hourly, daily, or monthly<br>
+    Great for part-time providers</p>
+  </div>
+
+  <!-- PRIVATE -->
+  <div class="option">
+    <h3>Your Own Space, Your Own Way</h3>
+    <img src="private.jpg" style="max-width:300px; border-radius:12px;">
+    <p>Private office, rented monthly<br>
+    Unfurnished — bring your own touch<br>
+    Ideal for established practices</p>
+  </div>
+
+  <!-- PARTNERSHIP -->
+  <div class="option">
+    <h3>Shared Office Partnership</h3>
+    <p>Unfurnished, shared half-time<br>
+    Split with another provider<br>
+    Balance of privacy + community</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact">
+  <h2>Ready to Join Us?</h2>
+  <p>Let’s find the right fit for your practice.</p>
+
+  <form>
+    <input type="text" placeholder="First name*" required>
+    <input type="text" placeholder="Last name">
+    <input type="email" placeholder="Email*" required>
+    <textarea placeholder="Write a message"></textarea>
+    <button class="submit">Submit</button>
+  </form>
+</section>
+
+</main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h4>Whole Person Healing Center</h4>
+	<p> 603 B Briarwood Drive<br>Myrtle Beach, SC 29572</p>
+        <a href="tel:18436633360">Tel: (843) 663-3360</a>
+        <p>Fax: (843) 663-3361</p>
+        <p>wholepersonhealingcenter@hushmail.com</p>
+      </div>
+
+     <div>
+        <h4>Socials</h4>
+        <a href="https://www.facebook.com/profile.php?id=61567455757501">Facebook</a>
+        <p>Instagram</p>
+      </div>
+
+      <div>
+        <h4>Menu</h4>
+        <a href="index.html">Home</a>
+        <a href="join.html">Join Our Center</a>
+        <a href="providers.html">Find a Provider</a>
+        <a href="events.html">Events</a>
+      </div>
+	
+	<div>
+        <p>Select imagery featured courtesy of Delwyn Windham<br>windtography@gmail.com</p>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+// SIMPLE CAROUSEL (10s rotation)
+let slides = document.querySelectorAll(".carousel img");
+let index = 0;
+
+setInterval(() => {
+  slides[index].classList.remove("active");
+  index = (index + 1) % slides.length;
+  slides[index].classList.add("active");
+}, 10000);
+</script>
+
+</body>
+</html>

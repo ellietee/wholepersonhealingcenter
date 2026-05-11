@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Whole Person Healing Center</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family:'Montserrat', sans-serif;
+      background: linear-gradient(rgba(255,243,237,0.85), rgba(255,243,237,0.85)), url('https://images.unsplash.com/photo-1545389336-cf090694435e?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color:#2e2e2e;
+      line-height:1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { text-decoration:none; color:inherit; }
+
+    .container {
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    h1,h2,h3 {
+      font-family:'Playfair Display', serif;
+    }
+
+   /* HEADER */
+header {
+  background: #3c6e5a;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.logo-img {
+  width: 120px;
+  height: auto;
+}
+
+.logo-text {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.menu a {
+  margin-left: 25px;
+  font-size: 14px;
+  color: white;
+}
+
+.contact-btn {
+  background: #f6c8a1;
+  padding: 8px 14px;
+  border-radius: 20px;
+  margin-left: 20px;
+  color: #000;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+    /* PAGE WRAP */
+    .contact-page {
+      padding:60px 0;
+      text-align:center;
+    }
+
+    .intro {
+      max-width:700px;
+      margin:0 auto 30px;
+    }
+
+    /* CHOICE CARDS */
+    .choice-cards {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap:20px;
+      justify-content:center;
+      margin:30px 0;
+    }
+
+    .choice-card {
+      background:white;
+      padding:25px;
+      border-radius:16px;
+      cursor:pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow:0 3px 10px rgba(0,0,0,0.08);
+      text-align:center;
+      border:1px solid rgba(0,0,0,0.05);
+    }
+
+    .choice-card:hover {
+      transform: translateY(-6px);
+      box-shadow:0 10px 25px rgba(0,0,0,0.12);
+    }
+
+    .icon {
+      font-size:34px;
+      margin-bottom:10px;
+    }
+
+    
+.icon {
+      font-size:34px;
+      margin-bottom:10px;
+    }
+
+    /* CHOICE ACTIVE STATE */
+    .choice-card.active {
+      border: 1px solid #3c6e5a;
+      box-shadow: 0 12px 30px rgba(60,110,90,0.25);
+      transform: translateY(-6px) scale(1.02);
+    }
+
+    /* INTERACTIVE PROVIDER LAYOUT */
+    .two-col {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:0;
+      margin-top:10px;
+      background:#fff;
+      border:1px solid #eee;
+      border-radius:10px;
+      overflow:hidden;
+    }
+
+    .col {
+      background:transparent;
+      padding:14px;
+    }
+
+    .col:first-child {
+      border-right:1px solid #eee;
+    }
+
+    .pill {
+      display:flex;
+      align-items:center;
+      justify-content:flex-start;
+      gap:4px;
+      margin-top:4px;
+      font-size:14px;
+      cursor:pointer;
+      text-align:left;
+    }
+
+    #rentalPreferences {
+      background:transparent;
+    }
+
+    /* FORM ROW LAYOUT */
+    .row {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+
+    /* FORMS */
+    .form-section {
+      display:none;
+      max-width:800px;
+      margin:30px auto;
+      text-align:left;
+      background:white;
+      padding:30px;
+      border-radius:12px;
+      box-shadow:0 3px 12px rgba(0,0,0,0.08);
+      opacity:0;
+      transform: translateY(10px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    .form-section.show {
+      opacity:1;
+      transform: translateY(0);
+    }
+
+    .form-section h3 {
+      margin-bottom:15px;
+      text-align:center;
+    }
+
+    label {
+      display:block;
+      margin-top:12px;
+      font-size:14px;
+    }
+
+    input, textarea {
+      width:100%;
+      padding:10px;
+      margin-top:5px;
+      border-radius:8px;
+      border:1px solid #ccc;
+    }
+
+    /* FIX checkbox stretching */
+    input[type="checkbox"] {
+      width:auto;
+      margin:0 6px 0 0;
+      flex-shrink:0;
+    }
+
+    input[type="checkbox"] {
+      margin:0;
+      flex-shrink:0;
+    }
+
+    .checkbox-group {
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:5px;
+    }
+
+    .checkbox-group label {
+      font-size:13px;
+      display:flex;
+      align-items:center;
+      gap:6px;
+    }
+
+    button.submit {
+      margin-top:20px;
+      width:100%;
+      background:#e6a97e;
+      border:none;
+      padding:12px;
+      border-radius:25px;
+      cursor:pointer;
+      font-weight:600;
+    }
+
+
+/* FOOTER */
+footer {
+  background: #3c6e5a;
+  color: white;
+  padding: 40px 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 50px;
+}
+
+.footer-grid h4 {
+  margin-bottom: 10px;
+}
+
+.footer-grid p,
+.footer-grid a {
+  font-size: 14px;
+  display: block;
+  margin-bottom: 5px;
+  color: white;
+  text-decoration: none;
+}
+
+  /* ensures proper footer behavior */
+  margin-top: auto;
+}
+
+      /* STICKY FOOTER SETUP */
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+/* =========================================================
+   TYPOGRAPHY LAYER (HEADER + FOOTER ONLY)
+========================================================= */
+
+/* Base font consistency */
+header, footer {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+}
+
+/* Headings inside header/footer */
+header h1, header h2, header h3,
+footer h1, footer h2, footer h3,
+footer h4 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+/* Logo refinement (override existing weight) */
+.logo-text {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400; /* overrides your 600 */
+  letter-spacing: 0.3px;
+}
+
+/* Links (clean + consistent) */
+header a {
+  font-family: 'Montserrat', sans-serif;
+}
+
+footer a {
+  font-size: 14px;
+}
+
+/* subtle hover polish */
+header a:hover,
+footer a:hover {
+  opacity: 0.8;
+}
+
+
+    @media (max-width:900px) {
+      .info-section {
+        grid-template-columns:1fr;
+      }
+
+      .hero-buttons {
+        flex-direction:column;
+        align-items:center;
+      }
+    }
+
+    @media (max-width:600px) {
+      .menu { display:none; }
+      .hero { height:70vh; }
+      .info-section { padding:25px; }
+      .hero h1 { font-size:22px; }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="container nav">
+    <div class="logo">
+      <img src="https://ellietee.github.io/wholepersonhealingcenter/logo.png" class="logo-img" alt="Logo">
+      <div class="logo-text">Whole Person<br>Healing Center</div>
+    </div>
+
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="join.html">Join Our Center</a>
+      <a href="providers.html">Find a Provider</a>
+      <a href="events.html">Events</a>
+      <a class="contact-btn" href="contactform.html">Contact Us</a>
+    </div>
+  </div>
+</header>
+
+
+<!-- PAGE -->
+<section class="contact-page container">
+
+  <div class="intro">
+    <h1>Connect With Us</h1>
+    <p>Choose the path that best describes you so we can get you to the right place.</p>
+  </div>
+
+    <!-- CHOICE CARDS -->
+  <div class="choice-cards">
+
+    <div class="choice-card" onclick="showForm('provider')">
+      <div class="icon">🧘‍♀️</div>
+      <h3>I'm a Provider</h3>
+      <p>Join our collaborative healing space</p>
+    </div>
+
+    <div class="choice-card" onclick="showForm('client')">
+      <div class="icon">🫶</div>
+      <h3>I'm Seeking Care</h3>
+      <p>Find the right practitioner for you</p>
+    </div>
+
+  </div>
+
+  <!-- PROVIDER FORM -->
+  <div id="provider" class="form-section">
+    <h3>Practitioner Inquiry</h3>
+
+    <form action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY">
+      <input type="hidden" name="form_type" value="Practitioner Inquiry">
+
+      <div class="row">
+        <div>
+          <label>First Name</label>
+          <input type="text" name="first_name" required>
+        </div>
+        <div>
+          <label>Last Name</label>
+          <input type="text" name="last_name" required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label>Email</label>
+          <input type="email" name="email" required>
+        </div>
+        <div>
+          <label>Phone</label>
+          <input type="tel" name="phone" required>
+        </div>
+      </div>
+
+      <label>Message</label>
+      <textarea name="message" required></textarea>
+
+      <!-- INTEREST SECTION -->
+      <div class="two-col">
+
+        <div class="col">
+          <label><strong>I am interested in:</strong></label>
+
+          <label class="pill">
+            <input type="checkbox" name="interest_rent" value="Rent Office" onchange="toggleRent(this)">
+            Renting Office Space
+          </label>
+
+          <label class="pill">
+            <input type="checkbox" name="interest_host" value="Host Event">
+            Hosting a Class/Event
+          </label>
+        </div>
+
+        <div class="col" id="rentalPreferences" style="display:none;">
+          <label><strong>Rental Preferences</strong></label>
+
+          <label class="pill">
+            <input type="checkbox" name="rental_type" value="Full Time">
+            Full Time
+          </label>
+
+          <label class="pill">
+            <input type="checkbox" name="rental_type" value="Part Time">
+            Part Time
+          </label>
+
+          <label class="pill">
+            <input type="checkbox" name="rental_type" value="Daily">
+            Daily
+          </label>
+
+          <label class="pill">
+            <input type="checkbox" name="rental_type" value="Hourly">
+            Hourly
+          </label>
+        </div>
+
+      </div>
+
+      <label>Services Provided</label>
+      <textarea name="services"></textarea>
+
+      <label>How did you hear about us?</label>
+      <input type="text" name="referral">
+
+      <button class="submit" type="submit">Submit Inquiry</button>
+    </form>
+  </div>
+
+  <!-- CLIENT FORM -->
+  <div id="client" class="form-section">
+    <h3>Client Inquiry</h3>
+
+    <form action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY">
+      <input type="hidden" name="form_type" value="Client Inquiry">
+
+      <div class="row">
+        <div>
+          <label>First Name</label>
+          <input type="text" name="first_name" required>
+        </div>
+        <div>
+          <label>Last Name</label>
+          <input type="text" name="last_name" required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label>Email</label>
+          <input type="email" name="email" required>
+        </div>
+        <div>
+          <label>Phone</label>
+          <input type="tel" name="phone" required>
+        </div>
+      </div>
+
+      <label>Message</label>
+      <textarea name="message" required></textarea>
+
+      <label>Services Interested In</label>
+      <textarea name="interest"></textarea>
+
+      <label>Preferred Practitioner</label>
+      <input type="text" name="preferred_practitioner">
+
+      <label>How did you hear about us?</label>
+      <input type="text" name="referral">
+
+      <button class="submit" type="submit">Submit Inquiry</button>
+    </form>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container footer-grid">
+    
+    <div>
+      <h4>Whole Person Healing Center</h4>
+      <p>603 B Briarwood Drive<br>Myrtle Beach, SC 29572</p>
+      <a href="tel:18436633360">Tel: (843) 663-3360</a>
+      <p>Fax: (843) 663-3361</p>
+      <p>wholepersonhealingcenter@hushmail.com</p>
+    </div>
+
+     <div>
+        <h4>Socials</h4>
+        <a href="https://www.facebook.com/profile.php?id=61567455757501">Facebook</a>
+        <p>Instagram</p>
+      </div>
+
+      <div>
+        <h4>Menu</h4>
+        <a href="index.html">Home</a>
+        <a href="join.html">Join Our Center</a>
+        <a href="providers.html">Find a Provider</a>
+        <a href="events.html">Events</a>
+      </div>
+
+    <div>
+      <p>
+        Select imagery featured courtesy of Delwyn Windham<br>
+        windtography@gmail.com
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+function showForm(type) {
+  const provider = document.getElementById('provider');
+  const client = document.getElementById('client');
+
+  // hide both forms + reset animation class
+  if (provider) {
+    provider.style.display = 'none';
+    provider.classList.remove('show');
+  }
+  if (client) {
+    client.style.display = 'none';
+    client.classList.remove('show');
+  }
+
+  const target = document.getElementById(type);
+  if (target) {
+    target.style.display = 'block';
+
+    // trigger fade-in animation
+    requestAnimationFrame(() => {
+      target.classList.add('show');
+    });
+  }
+
+  // active card state
+  const cards = document.querySelectorAll('.choice-card');
+  cards.forEach(card => card.classList.remove('active'));
+
+  const clicked = event && event.currentTarget;
+  if (clicked) clicked.classList.add('active');
+
+  if (target) {
+    window.scrollTo({
+      top: target.offsetTop - 100,
+      behavior: 'smooth'
+    });
+  }
+}
+
+function toggleRent(el) {
+  const panel = document.getElementById('rentalPreferences');
+  if (!panel) return;
+
+  const rentChecked = document.querySelector('input[name="interest_rent"]:checked');
+
+  if (rentChecked) {
+    panel.style.display = 'block';
+  } else {
+    panel.style.display = 'none';
+  }
+}
+</script>
+
+</body>
+</html>

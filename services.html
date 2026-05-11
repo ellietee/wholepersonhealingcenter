@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Services | Whole Person Healing Center</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* ====================================
+   ROOT VARIABLES / DESIGN SYSTEM
+==================================== */
+:root {
+  --green: #3c6e5a;
+  --green-dark: #3f6f5c;
+  --peach: #e6a97e;
+  --peach-light: #f6c8a1;
+  --mint: #c7e4d5;
+  --cream: #f5efe9;
+  --card: #faf9f6;
+  --card-peach: #fff3ed;
+  --text: #2e2e2e;
+
+  --section-padding: 60px;
+  --section-padding-sm: 40px;
+  --section-gap: 30px;
+
+  --radius: 10px;
+  --radius-pill: 20px;
+
+  --shadow-soft: 0 3px 10px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ====================================
+   RESET
+==================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ====================================
+   GLOBAL BASE STYLES
+==================================== */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ====================================
+   LAYOUT SYSTEM
+==================================== */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.section {
+  padding: var(--section-padding) 0;
+}
+
+.section-tight {
+  padding: var(--section-padding-sm) 0;
+}
+
+.section-loose {
+  padding: 80px 0;
+}
+
+/* ====================================
+   BUTTON SYSTEM
+==================================== */
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  text-align: center;
+}
+
+.btn-primary {
+  background: var(--green-dark);
+  color: white;
+}
+
+.btn-accent {
+  background: var(--peach);
+  color: white;
+}
+
+.btn-light {
+  background: var(--peach-light);
+  color: #000;
+}
+
+/* ====================================
+   HEADER (GLOBAL)
+==================================== */
+header {
+  background: var(--green);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.logo-img {
+  width: 120px;
+  height: auto;
+}
+
+.logo-text {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.menu a {
+  margin-left: 25px;
+  font-size: 14px;
+}
+
+/* ====================================
+   FOOTER (GLOBAL)
+==================================== */
+footer {
+  background: var(--green);
+  color: white;
+  padding: 40px 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 50px;
+}
+
+.footer-grid h4 {
+  margin-bottom: 10px;
+}
+
+.footer-grid p,
+.footer-grid a {
+  font-size: 14px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* ====================================
+   PAGE TITLE
+==================================== */
+.page-title {
+  text-align: center;
+  margin: 40px 0 10px;
+  font-size: 36px;
+  color: #2f5a4d;
+}
+
+.subtle {
+  text-align: center;
+  margin-bottom: 40px;
+  opacity: 0.8;
+}
+
+/* ====================================
+   INTRO SECTION
+==================================== */
+.intro-section {
+  margin: 50px auto;
+}
+
+.intro-section h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #2f5a4d;
+}
+
+.intro-section p {
+  text-align: center;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* ====================================
+   SERVICES GRID
+==================================== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin: 50px auto;
+  max-width: 1200px;
+  width: 90%;
+}
+
+.service-card {
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.service-header {
+  padding: 25px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 0;
+  background: linear-gradient(135deg, #f5efe9 0%, #fff3ed 100%);
+  transition: background 0.3s ease;
+}
+
+.service-header:hover {
+  background: linear-gradient(135deg, #e6a97e 0%, #f6c8a1 100%);
+}
+
+.service-icon {
+  font-size: 32px;
+  margin-right: 15px;
+}
+
+.service-title {
+  font-weight: 600;
+  font-size: 16px;
+  color: #2f5a4d;
+}
+
+.service-toggle {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.service-card.expanded .service-toggle {
+  transform: rotate(180deg);
+}
+
+.service-body {
+  display: none;
+  padding: 20px;
+  border-top: 1px solid #eee;
+  flex-grow: 1;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.service-body.show {
+  display: block;
+}
+
+.service-body strong {
+  color: #3c6e5a;
+}
+
+/* ====================================
+   CTA SECTION
+==================================== */
+.cta {
+  text-align: center;
+  margin: 60px 0;
+}
+
+.cta h2 {
+  color: #2f5a4d;
+  margin-bottom: 10px;
+}
+
+.cta p {
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta button {
+  background: #3c6e5a;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.cta button:hover {
+  background: #2f5a4d;
+}
+
+.cta button.secondary {
+  background: #e6a97e;
+}
+
+.cta button.secondary:hover {
+  background: #d9945f;
+}
+
+/* ====================================
+   RESPONSIVE SYSTEM 
+==================================== */
+
+/* TABLET */
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .menu {
+    display: none;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .service-header {
+    padding: 20px;
+  }
+
+  .service-body {
+    padding: 15px;
+    font-size: 13px;
+  }
+
+  .page-title {
+    font-size: 28px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  footer {
+    text-align: center;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta button {
+    width: 100%;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="container nav">
+    <div class="logo">
+      <img src="https://ellietee.github.io/wholepersonhealingcenter/logo.png" class="logo-img">
+      <div class="logo-text">Whole Person<br>Healing Center</div>
+    </div>
+
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="join.html">Join Our Center</a>
+      <a href="providers.html">Find a Provider</a>
+      <a href="services.html">Our Services</a>
+      <a href="events.html">Events</a>
+      <a class="contact-btn" href="contactform.html">Contact Us</a>
+    </div>
+  </div>
+</header>
+
+
+<!-- ================= PAGE TITLE ================= -->
+<h1 class="page-title">Our Services</h1>
+<p class="subtle">Explore the diverse healing modalities available at Whole Person Healing Center. <br><br> Whether you're seeking physical healing, emotional support, spiritual growth, or holistic wellness, we offer a comprehensive range of services to meet you where you are. <br><br>
+Click on any service below to learn more.</p>
+
+
+<!-- ================= INTRO SECTION ================= -->
+<section class="intro-section">
+  <h2>Healing for the Whole Person</h2>
+  <p>
+At Whole Person Healing Center, we believe true healing addresses body, mind, heart, and spirit. Our integrated team of practitioners offers evidence-based and time-honored modalities to support your journey toward wellness, vitality, and wholeness.
+  </p>
+</section>
+
+
+<!-- ================= SERVICES GRID ================= -->
+<div class="services-grid">
+
+  <!-- SERVICE 1 -->
+  <div class="service-card">
+    <div class="service-header" onclick="toggleService(this)">
+      <div style="display: flex; align-items: center; width: 100%;">
+        <span class="service-icon">✨</span>
+        <span class="service-title">Energy Healing</span>
+      </div>
+      <span class="service-toggle">▼</span>
+    </div>
+    <div class="service-body">
+      <p>Energy healing works with the body's subtle energy systems (chakras, meridians, and auric field) to remove blockages, restore balance, and activate your innate healing capacity. Through intuitive guidance and hands-on or distance techniques, practitioners help you return to a state of wholeness and vitality. <strong>Offered by:</strong> Dineen Carta, Zahra Ghazi</p>
+    </div>
+  </div>
+
+  <!-- SERVICE 2 -->
+  <div class="service-card">
+    <div class="service-header" onclick="toggleService(this)">
+      <div style="display: flex; align-items: center; width: 100%;">
+        <span class="service-icon">🔊</span>
+        <span class="service-title">Sound & Vibrational Therapy</span>
+      </div>
+      <span class="service-toggle">▼</span>
+    </div>
+    <div class="service-body">
+      <p>Sound therapy uses the healing power of frequency, vibration, and resonance to release tension, calm the nervous system, and promote deep healing. Through Tibetan bowls, tuning forks, chimes, voice, and PEMF devices, sound reaches the deepest layers of body and consciousness. <strong>Offered by:</strong> Dineen Carta, Zahra Ghazi, Deb Smith, Mindi Stronzik</p>
+    </div>
+  </div>
+
+  <!-- SERVICE 3 -->
+  <div class="service-card">
+    <div class="service-header" onclick="toggleService(this)">
+      <div style="display: flex; align-items: center; width: 100%;">
+        <span class="service-icon">💆</span>
+        <span class="service-title">Therapeutic Massage & Bodywork</span>
+      </div>
+      <span class="service-toggle">▼</span>
+    </div>
+    <div class="service-body">
+      <p>From clinical massage and trigger point therapy to integrative bodywork, our massage practitioners use skilled touch to release tension, improve circulation, reduce pain, and restore ease to the body. Many sessions incorporate modalities like lymphatic drainage, acupressure, and PEMF technology for enhanced healing. <strong>Offered by:</strong> Mindi Stronzik, Deb Smith</p>
+    </div>
+  </div>
+
+  <!-- SERVICE 4 -->
+  <div class="service-card">
+    <div class="service-header" onclick="toggleService(this)">
+      <div style="display: flex; align-items: center; width: 100%;">
+        <span class="service-icon">🧘</span>
+        <span class="service-title">Movement & Somatic Practices</span>
+      </div>
+      <span class="service-toggle">▼</span>
+    </div>
+    <div class="service-body">
+      <p>Gentle, conscious movement practices like the Alexander Technique and yoga help you reconnect with your body's natural poise, balance, and coordination. These practices build awareness, release held tension, and restore the body's innate wisdom—supporting both physical healing and emotional well-being. <strong>Offered by:</strong> Lenita C. Silveira, Zahra Ghazi</p>
+    </div>
+  </div>
+
+  <!-- SERVICE 5 -->
+  <div class="service-card">
+    <div class="service-header" onclick="toggleService(this)">
+      <div style="display: flex; align-items: center; width: 100%;">
+        <span class="service-icon">🧠</span>
+        <span class="service-title">Meditation & Mindfulness</span>
+      </div>
+      <span class="service-toggle">▼</span>
+    </div>
+    <div class="service-body">
+      <p>Guided meditation and mindfulness practices calm the mind, reduce stress and anxiety, and deepen your connection to inner peace and clarity. Through breath work, guided imagery, and present-moment awareness, these practices support emotional resilience and spiritual awakening. <strong>Offered by:</strong> Zahra Ghazi, Dr. Elle Todd</p>
+    </div>
+  </div>
+
+  <!-- SERVICE 6 -->
+  <div class="service-card">
+    <div class="service-header" onclick="toggleService(this)">
+      <div style="display: flex; align-items: center; width: 100%;">
+        <span class="service-icon">💫</span>
+        <span class="service-title">Reiki Energy Healing</span>
+      </div>
+      <span class="service-toggle">▼</span>
+    </div>
+    <div class="service-body">
+      <p>Reiki is a gentle, non-invasive energy healing practice that supports the body's natural healing responses. Through hands-on or distance techniques, Reiki practitioners channel healing energy to release blockages, reduce stress, and promote balance across physical, emotional, and spiritual dimensions. <strong>Offered by:</strong> Meheru McPherson, Dr. Elle Todd</p>
+    </div>
+  </div>
+
+  <!-- SERVICE 7 -->
+  <div class="service-card">
+    <div class="service-header" onclick="toggleService(this)">
+      <div style="display: flex; align-items: center; width: 100%;">
+        <span class="service-icon">💚</span>
+        <span class="service-title">Life Coaching & Transformational Guidance</span>
+      </div>
+      <span class="service-toggle">▼</span>
+    </div>
+    <div class="service-body">
+      <p>Life coaching and transformational coaching support you through life changes, challenges, and transitions. Coaches provide guidance, accountability, and practical tools to help you clarify your path, overcome obstacles, and walk forward with confidence and grace. <strong>Offered by:</strong> Dineen Carta</p>
+    </div>
+  </div>
+
+  <!-- SERVICE 8 -->
+  <div class="service-card">
+    <div class="service-header" onclick="toggleService(this)">
+      <div style="display: flex; align-items: center; width: 100%;">
+        <span class="service-icon">🏥</span>
+        <span class="service-title">Physical Therapy & Wellness Coaching</span>
+      </div>
+      <span class="service-toggle">▼</span>
+    </div>
+    <div class="service-body">
+      <p>Our licensed Doctor of Physical Therapy offers integrative care combining clinical expertise with holistic approaches. Services include injury recovery, chronic pain management, movement education, personal training, and comprehensive wellness coaching to help you rebuild strength, resilience, and vitality. <strong>Offered by:</strong> Dr. Elle Todd</p>
+    </div>
+  </div>
+
+  <!-- SERVICE 9 -->
+  <div class="service-card">
+    <div class="service-header" onclick="toggleService(this)">
+      <div style="display: flex; align-items: center; width: 100%;">
+        <span class="service-icon">🦴</span>
+        <span class="service-title">Chiropractic & Structural Alignment</span>
+      </div>
+      <span class="service-toggle">▼</span>
+    </div>
+    <div class="service-body">
+      <p>Advanced chiropractic care combining structural alignment with energetic and neurological approaches. Through Network Spinal Analysis and Sacro Occipital Technique, practitioners help restore proper alignment, improve nervous system function, and support your body's innate healing capacity. <strong>Offered by:</strong> Dr. Jim Oppenheim</p>
+    </div>
+  </div>
+
+  <!-- SERVICE 10 -->
+  <div class="service-card">
+    <div class="service-header" onclick="toggleService(this)">
+      <div style="display: flex; align-items: center; width: 100%;">
+        <span class="service-icon">🔮</span>
+        <span class="service-title">Holistic Mental Health & Psychotherapy</span>
+      </div>
+      <span class="service-toggle">▼</span>
+    </div>
+    <div class="service-body">
+      <p>Integrative mental health services that merge clinical psychology with holistic modalities like Bio-Intrinsic Transformational Therapy™, Past Life Regression, and energy medicine. Comprehensive support for emotional healing, trauma recovery, substance abuse, and spiritual growth. <strong>Offered by:</strong> Dr. Robin Reeves-Oppenheim</p>
+    </div>
+  </div>
+
+  <!-- SERVICE 11 -->
+  <div class="service-card">
+    <div class="service-header" onclick="toggleService(this)">
+      <div style="display: flex; align-items: center; width: 100%;">
+        <span class="service-icon">🏡</span>
+        <span class="service-title">Feng Shui & Environmental Healing</span>
+      </div>
+      <span class="service-toggle">▼</span>
+    </div>
+    <div class="service-body">
+      <p>Feng Shui consultation and environmental design create spaces that support healing, balance, and well-being. By harmonizing energy flow and intentional placement, your home becomes a sanctuary that supports your wellness journey and nurtures your whole-person health. <strong>Offered by:</strong> Meheru McPherson</p>
+    </div>
+  </div>
+
+  <!-- SERVICE 12 -->
+  <div class="service-card">
+    <div class="service-header" onclick="toggleService(this)">
+      <div style="display: flex; align-items: center; width: 100%;">
+        <span class="service-icon">🌟</span>
+        <span class="service-title">Depth Psychology & Spiritual Direction</span>
+      </div>
+      <span class="service-toggle">▼</span>
+    </div>
+    <div class="service-body">
+      <p>Explore the depths of consciousness, soul wisdom, and spiritual awakening through Jungian meditation, depth psychology, and spiritual direction. These practices guide inner transformation, self-discovery, and reconnection with your authentic purpose and wholeness. <strong>Offered by:</strong> Zahra Ghazi</p>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ================= CTA ================= -->
+<div class="container">
+  <div class="cta">
+    <h2>Ready to Begin Your Healing?</h2>
+    <p>Explore individual providers to book directly, or reach out to connect with the right practitioner for your needs.</p>
+    <div class="cta-buttons">
+      <button onclick="location.href='providers.html'">Find a Provider</button>
+      <button class="secondary" onclick="location.href='contactform.html'">Contact Us</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <h4>Whole Person Healing Center</h4>
+      <p>603 B Briarwood Drive<br>Myrtle Beach, SC 29572</p>
+      <a href="tel:18436633360">Tel: (843) 663-3360</a>
+      <p>Fax: (843) 663-3361</p>
+      <p>wholepersonhealingcenter@hushmail.com</p>
+    </div>
+
+    <div>
+      <h4>Socials</h4>
+      <a href="https://www.facebook.com/profile.php?id=61567455757501">Facebook</a>
+      <p>Instagram</p>
+    </div>
+
+    <div>
+      <h4>Menu</h4>
+      <a href="index.html">Home</a>
+      <a href="join.html">Join Our Center</a>
+      <a href="providers.html">Find a Provider</a>
+      <a href="services.html">Our Services</a>
+      <a href="events.html">Events</a>
+    </div>
+
+    <div>
+      <p>Select imagery featured courtesy of Delwyn Windham<br>windtography@gmail.com</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ================= SCRIPT ================= -->
+<script>
+function toggleService(el) {
+  const card = el.closest('.service-card');
+  const body = card.querySelector('.service-body');
+  
+  // Close all other cards
+  document.querySelectorAll('.service-card').forEach(c => {
+    if (c !== card) {
+      c.classList.remove('expanded');
+      c.querySelector('.service-body').classList.remove('show');
+    }
+  });
+  
+  // Toggle current card
+  card.classList.toggle('expanded');
+  body.classList.toggle('show');
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": "Whole Person Healing Center",
+  "image": "https://ellietee.github.io/wholepersonhealingcenter/entrance.png",
+  "url": "https://wholepersonhealingcenter.com/",
+  "telephone": "+1-843-663-3360",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "603 B Briarwood Drive",
+    "addressLocality": "Myrtle Beach",
+    "addressRegion": "SC",
+    "postalCode": "29572",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 33.6891,
+    "longitude": -78.8867
+  },
+  "description": "Whole Person Healing Center is a collaborative wellness space in Myrtle Beach offering integrative care for body, mind, and spirit, along with practitioner office rentals."
+}
+</script>
+  <title>Whole Person Healing Center</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+
+    /* ====================================
+   ROOT VARIABLES / DESIGN SYSTEM
+==================================== */
+:root {
+  --green: #3c6e5a;
+  --green-dark: #3f6f5c;
+  --peach: #e6a97e;
+  --peach-light: #f6c8a1;
+  --mint: #c7e4d5;
+  --cream: #f5efe9;
+  --card: #faf9f6;
+  --card-peach: #fff3ed;
+  --text: #2e2e2e;
+
+  --section-padding: 60px;
+  --section-padding-sm: 40px;
+  --section-gap: 30px;
+
+  --radius: 10px;
+  --radius-pill: 20px;
+
+  --shadow-soft: 0 3px 10px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ====================================
+   RESET
+==================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ====================================
+   GLOBAL BASE STYLES
+==================================== */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ====================================
+   LAYOUT SYSTEM
+==================================== */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.section {
+  padding: var(--section-padding) 0;
+}
+
+.section-tight {
+  padding: var(--section-padding-sm) 0;
+}
+
+.section-loose {
+  padding: 80px 0;
+}
+
+/* ====================================
+   BUTTON SYSTEM
+==================================== */
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  text-align: center;
+}
+
+.btn-primary {
+  background: var(--green-dark);
+  color: white;
+}
+
+.btn-accent {
+  background: var(--peach);
+  color: white;
+}
+
+.btn-light {
+  background: var(--peach-light);
+  color: #000;
+}
+
+/* ====================================
+   HEADER (GLOBAL)
+==================================== */
+header {
+  background: var(--green);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.logo-img {
+  width: 120px;
+  height: auto;
+}
+
+.logo-text {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.menu a {
+  margin-left: 25px;
+  font-size: 14px;
+}
+
+/* ====================================
+   FOOTER (GLOBAL)
+==================================== */
+footer {
+  background: var(--green);
+  color: white;
+  padding: 40px 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 50px;
+}
+
+.footer-grid h4 {
+  margin-bottom: 10px;
+}
+
+.footer-grid p,
+.footer-grid a {
+  font-size: 14px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* ====================================
+   RESPONSIVE SYSTEM 
+==================================== */
+
+/* TABLET */
+@media (max-width: 1024px) {
+
+  .home .info-section {
+    grid-template-columns: 1fr;
+  }
+
+  .home .find-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  .home .hero h1 {
+    font-size: 32px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+
+  .menu {
+    display: none;
+  }
+
+  .home .hero {
+    height: 70vh;
+    padding: 20px;
+  }
+
+  .home .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section {
+    padding: 40px 0;
+  }
+
+  .home .info-section {
+    padding: 25px;
+  }
+
+  .home .find-card {
+    padding: 20px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  footer {
+    text-align: center;
+  }
+}
+
+
+
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background:#f5efe9;
+      color:#2e2e2e;
+      line-height:1.6;
+    }
+
+    img {
+      max-width:100%;
+      height:auto;
+      display:block;
+    }
+
+    h1,h2,h3 { font-family:'Playfair Display', serif; }
+
+    a { text-decoration:none; color:inherit; }
+
+    .container {
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    /* HEADER */
+    header {
+      background:#3c6e5a;
+      color:white;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    .nav {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 0;
+    }
+
+    .logo {
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:6px;
+    }
+
+    .logo-img {
+      width:120px;
+      height:auto;
+    }
+
+    .logo-text {
+      font-weight:600;
+      font-size:16px;
+    }
+
+    .menu a {
+      margin-left:25px;
+      font-size:14px;
+    }
+
+    .contact-btn {
+      background:#f6c8a1;
+      padding:8px 14px;
+      border-radius:20px;
+      margin-left:20px;
+      color:#000;
+      font-weight:500;
+    }
+
+    /* HERO - VIDEO SAFE UPGRADE */
+    .hero {
+      position:relative;
+      height:80vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:white;
+      overflow:hidden;
+    }
+
+    .hero-video {
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      z-index:0;
+    }
+
+    .hero-overlay {
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.45);
+      z-index:1;
+    }
+
+    .hero-content {
+      position:relative;
+      z-index:2;
+      max-width:800px;
+      padding:0 15px;
+    }
+
+    .hero h1 {
+      font-size: clamp(22px, 4vw, 40px);
+      margin-bottom:20px;
+      line-height:1.3;
+    }
+
+    .hero-buttons {
+      display:flex;
+      justify-content:center;
+      gap:25px;
+      margin-top:25px;
+      flex-wrap:wrap;
+    }
+
+    .hero-buttons div {
+      text-align:center;
+      min-width:160px;
+    }
+
+    .hero-buttons button {
+      background:#e6a97e;
+      border:none;
+      padding:10px 18px;
+      border-radius:20px;
+      margin-top:8px;
+      cursor:pointer;
+      width:100%;
+      max-width:200px;
+    }
+
+    /* INFO SECTION */
+    .info-section {
+      background:#c7e4d5;
+      padding:40px;
+      margin:40px auto;
+      border-radius:10px;
+      display:grid;
+      grid-template-columns:1.2fr 1fr;
+      gap:30px;
+      align-items:center;
+    }
+
+    .info-section img {
+      width:500px;
+      border-radius:10px;
+    }
+
+    /* CENTER BLOCK */
+    .center-block {
+      text-align:center;
+      margin:60px 0;
+    }
+
+    .center-block img {
+      width:600px;
+      border-radius:10px;
+      margin-bottom:20px;
+    }
+
+    .why-card {
+      background:#faf9f6;
+      padding:20px;
+      width:700px;
+      margin:auto;
+      border-radius:10px;
+      box-shadow:0 3px 10px rgba(0,0,0,0.05);
+    }
+
+    /* FIND SECTION */
+    .peach-section {
+    background-color: #f6c8a1;
+    background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+      padding:60px 0;
+      text-align:center;
+    }
+
+    .find-card {
+      background:#fff3ed;
+      padding:30px;
+      width:840px;
+      margin:auto;
+      border-radius:10px;
+      box-shadow:0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .find-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+      margin-top:20px;
+    }
+
+    .directory-btn {
+      margin-top:20px;
+      background:#3f6f5c;
+      color:white;
+      border:none;
+      padding:8px 16px;
+      border-radius:20px;
+      cursor:pointer;
+    }
+
+    /* LOTUS */
+    .lotus {
+      height:550px;
+      background:url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1920') center/cover no-repeat;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:white;
+      position:relative;
+    }
+
+    .lotus::after {
+      content:'';
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.4);
+    }
+
+    .lotus-text {
+      position:relative;
+      z-index:2;
+      max-width:600px;
+      font-size:18px;
+    }
+.lotus {
+  position: relative;
+}
+
+.lotus .contact-btn {
+  position: relative;
+  z-index: 3;
+  pointer-events: auto;
+}
+    .contact-btn {
+     margin-top:20px;
+      background:#e6a97e;
+      color:white;
+      border:none;
+      padding:8px 16px;
+      border-radius:20px;
+      cursor:pointer;
+    }
+
+    /* FOOTER */
+    footer {
+      background:#3c6e5a;
+      color:white;
+      padding:40px 0;
+    }
+
+    .footer-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr 1fr;
+      gap:50px;
+    }
+
+    .footer-grid h4 {
+      margin-bottom:10px;
+    }
+
+    .footer-grid p, .footer-grid a {
+      font-size:14px;
+      display:block;
+      margin-bottom:5px;
+    }
+
+    @media (max-width:900px) {
+      .info-section {
+        grid-template-columns:1fr;
+      }
+
+      .hero-buttons {
+        flex-direction:column;
+        align-items:center;
+      }
+    }
+
+    @media (max-width:600px) {
+      .menu { display:none; }
+      .hero { height:70vh; }
+      .info-section { padding:25px; }
+      .hero h1 { font-size:22px; }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <img src="https://ellietee.github.io/wholepersonhealingcenter/logo.png" class="logo-img" alt="Logo">
+        <div class="logo-text">Whole Person<br>Healing Center</div>
+      </div>
+
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="join.html">Join Our Center</a>
+      <a href="providers.html">Find a Provider</a>
+      <a href="events.html">Events</a>
+      <a class="contact-btn" href="contactform.html">Contact Us</a>
+    </div>
+    </div>
+  </header>
+
+  <!-- HERO VIDEO -->
+  <section class="hero">
+
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="assets/hero-video.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <h1>Welcome to a healing home for body, mind, and spirit — at every stage of life.</h1>
+
+      <div class="hero-buttons">
+        <div>
+          <p>I'm a Practitioner</p>
+          <button>Rent a Room</button>
+        </div>
+        <div>
+          <p>I'm Seeking Care</p>
+          <button>Find a Provider</button>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- INFO -->
+  <section class="container">
+    <div class="info-section">
+      <div>
+        <h2>Whole Person Healing Center is a collaborative wellness space for body, mind, and spirit - supporting people across all stages of life.</h2>
+        <p>Located in Myrtle Beach next to Myrtle Beach Mall, Whole Person Healing Center offers a trusted space where clients can access personalized integrative care under one roof, and private office rentals for licensed and certified health professionals. We believe healing happens best in connection, and that everyone deserves to feel at home on their path to wellness.</p>
+        </div>
+      <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1200">
+    </div>
+</section>
+
+  <!-- BUILDING -->
+  <section class="center-block">
+    <div class="why-card">
+      <h3>Why Choose Whole Person Healing Center?</h3>
+      <p>Whole Person Healing Center is dedicated to providing an integrative approach to healthcare, offering a wide range of holistic services and experienced practitioners. We focus on treating the mind, body, and spirit to promote overall well-being.</p>
+
+<b>Healing for the Whole Self</b><br>
+Body, mind, and spirit support — in one welcoming space<br>
+<b>~</b><br>
+<b>Personalized, Heart-Led Care</b><br>
+You're never just a case file — care here is deeply human<br>
+<b>~</b><br>
+<b>Professionals You Can Trust</b><br>
+Carefully vetted, certified, and aligned with our mission<br>
+<b>~</b><br>
+<b>One Location, So Many Possibilities</b><br>
+Access multiple services without driving all over town<br>
+<b>~</b><br>
+<b>A Community That Feels Like Home</b><br>
+Not just appointments — real connection and support
+     </div>
+
+  </section>
+
+  <!-- FIND -->
+  <section class="peach-section">
+    <div class="find-card">
+      <h3>What You'll Find Here</h3>
+	
+      <p>
+        At Whole Person Healing Center, we believe healing takes many forms. That’s why we offer a space where practitioners and clients alike can show up as their whole selves — mind, body, and spirit.
+      </p>
+
+      <div class="find-grid">
+   <div>
+        <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=400">
+	<p><strong>Diverse Healing Modalities</strong><br>
+          From licensed therapy to energy work, body-based practices, and holistic services - all under one roof.</p>
+        </div>
+
+   <div>
+        <img src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?q=80&w=400">
+	<p><strong>A Welcoming Space</strong><br>
+         Beautiful, funtional offices designed with both healing and human connection in mind.</p>
+        </div>
+
+   <div>
+        <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=400">
+	<p><strong>A Collaborative Spirit</strong><br>
+          A culture of mutual respect, cross-referral, and co-creation among practitioners.</p>
+        </div>
+
+   <div>
+        <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=400">
+	<p><strong>Growth Opportunities</strong><br>
+          Workshops, events, and gatherings to nourish your personal or professional journey.</p>
+        </div>
+
+      </div>
+
+     </div>
+      <button class="directory-btn">See Provider Directory</button>
+    </div>
+
+
+  </section>
+
+  <!-- LOTUS -->
+  <section class="lotus">
+    <div class="lotus-text">
+      "Whole person health means looking at the whole human -<br>
+not just body parts or symptoms -<br>
+and supporting the <br>
+physical,<br>
+emotional,<br>
+social,<br>
+and spiritual layers of healing.<br>
+It's about empowering individuals,<br>
+families, and communities <br>
+to restore wellness, <br>
+build resilience, <br>
+and prevent disease across a lifetime"<br>
+- Adapted from the National Center for Complementary and Integrative Health<br>
+    </div>
+
+     </div>
+    <a class="contact-btn" href="contactform.html">Reach Out</a>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h4>Whole Person Healing Center</h4>
+	<p> 603 B Briarwood Drive<br>Myrtle Beach, SC 29572</p>
+        <a href="tel:18436633360">Tel: (843) 663-3360</a>
+        <p>Fax: (843) 663-3361</p>
+        <p>wholepersonhealingcenter@hushmail.com</p>
+      </div>
+
+     <div>
+        <h4>Socials</h4>
+        <a href="https://www.facebook.com/profile.php?id=61567455757501">Facebook</a>
+        <p>Instagram</p>
+      </div>
+
+      <div>
+        <h4>Menu</h4>
+        <a href="index.html">Home</a>
+        <a href="join.html">Join Our Center</a>
+        <a href="providers.html">Find a Provider</a>
+        <a href="events.html">Events</a>
+      </div>
+	
+	<div>
+        <p>Select imagery featured courtesy of Delwyn Windham<br>windtography@gmail.com</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
