@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -27,11 +28,9 @@
   "description": "Whole Person Healing Center is a collaborative wellness space in Myrtle Beach offering integrative care for body, mind, and spirit, along with practitioner office rentals."
 }
 </script>
-  <title>Whole Person Healing Center</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <style>
+<title>Whole Person Healing Center</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&amp;family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
     :root { --green:#3c6e5a; --green-dark:#3f6f5c; --peach:#e6a97e; --peach-light:#f6c8a1; --mint:#c7e4d5; --cream:#f5efe9; --card:#faf9f6; --card-peach:#fff3ed; --text:#2e2e2e; }
     * { box-sizing:border-box; }
     html { scroll-behavior:smooth; }
@@ -79,131 +78,247 @@
     .find-grid img { width:100%; height:195px; object-fit:cover; border-radius:8px; }
     .find-grid p { margin:12px 0 0; }
     .find-grid strong { display:block; }
-    .lotus { min-height:550px; background:linear-gradient(rgba(0,0,0,.43),rgba(0,0,0,.43)),url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1920') center/cover; color:white; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:25px; padding:65px 20px; }
-    .lotus-text { max-width:750px; font-size:clamp(16px,2vw,19px); }
-    .lotus-text p { margin:0 0 16px; }
-    .lotus-text .attribution { font-size:14px; }
+    .lotus { min-height:550px; background:linear-gradient(rgba(13,32,26,.56),rgba(13,32,26,.61)),url('https://static.wixstatic.com/media/79ffb4_5c3216ea7ae54d0dbbe8f4707a1c19b3~mv2.jpg') center/cover; color:white; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:25px; padding:65px 20px; }
+    .lotus-text { max-width:780px; font-size:clamp(18px,2.1vw,25px); line-height:1.75; font-weight:400; text-shadow:0 2px 12px rgba(0,0,0,.4); }
+    .lotus-text p { margin:0 0 25px; }
+    /* Two distinctly separated quote columns, stacked diagonally over the photo. */
+    .lotus-text { width:min(100%, 1120px); max-width:1120px; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); column-gap:clamp(36px,6vw,100px); row-gap:30px; }
+    .lotus-text .quote-first { grid-column:2; text-align:left; justify-self:start; }
+    .lotus-text .quote-second { grid-column:1; text-align:right; justify-self:end; }
+    .lotus-text .quote-first,.lotus-text .quote-second { margin:0; }
+    .lotus-text .attribution { grid-column:1 / -1; text-align:center; font-size:clamp(12px,1.3vw,14px); line-height:1.6; opacity:.95; margin:4px 0 0; }
+    @media(max-width:700px) {
+      .lotus-text { display:block; width:min(100%,560px); }
+      .lotus-text .quote-first,.lotus-text .quote-second { text-align:center; margin:0 0 28px; }
+      .lotus-text .attribution { margin-top:16px; }
+    }
+    @media(max-width:600px) { .lotus { min-height:580px; padding:70px 24px; background-position:center; } .lotus-text { font-size:18px; line-height:1.7; } .lotus-text br { display:none; } }
     footer { background:var(--green); color:white; padding:40px 0; }
-    .footer-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:35px; }
+    .footer-grid { display:grid; grid-template-columns:1.6fr 0.8fr 0.8fr 1fr; gap:25px; align-items:start; }
     .footer-grid h4 { margin:0 0 10px; }
     .footer-grid p,.footer-grid a { font-size:14px; display:block; margin:0 0 5px; overflow-wrap:anywhere; }
+    .footer-grid a[href^="mailto:"] { white-space:nowrap; overflow-wrap:normal; }
+    @media(max-width:1024px) { .footer-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:30px; } .footer-grid a[href^="mailto:"] { white-space:normal; overflow-wrap:anywhere; } }
     @media(max-width:950px) { .info-section { grid-template-columns:1fr; } .footer-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .nav { align-items:flex-start; flex-direction:column; } .menu { justify-content:flex-start; } }
     @media(max-width:600px) { .hero { min-height:65vh; } .hero-buttons { flex-direction:column; align-items:center; gap:18px; } .info-section { padding:25px; } .why-card { padding:24px; } .find-card { padding:22px; } .find-grid { grid-template-columns:1fr; } .footer-grid { grid-template-columns:1fr; text-align:center; } .menu { gap:10px 16px; } .menu a { font-size:14px; } .logo-img { width:60px; } }
     @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
-  </style>
+
+    /* Homepage services — compact, accessible accordion cards */
+    .home-services { padding:76px 0 80px; background:linear-gradient(160deg,#e4eee5 0%,#f5efe9 65%,#fff3ed 100%); }
+    .home-services-intro { max-width:780px; margin:0 auto 38px; text-align:center; }
+    .home-services-eyebrow { display:block; color:#47745d; font-size:12px; font-weight:600; letter-spacing:.16em; margin-bottom:10px; }
+    .home-services-intro h2 { font-size:clamp(30px,3.5vw,43px); color:#315f4d; margin:0 0 14px; }
+    .home-services-intro p { margin:0 auto 12px; }
+    .home-services-intro .home-services-hint { color:#4d695b; font-size:13px; font-weight:600; margin-top:18px; }
+    .home-services-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; align-items:start; }
+    .home-service-card { background:#fffdf9; border:1px solid #dce7dd; border-radius:14px; box-shadow:0 4px 16px rgba(34,73,53,.07); overflow:hidden; min-width:0; }
+    .home-service-card summary { list-style:none; display:flex; align-items:center; gap:12px; padding:21px 18px; min-height:94px; cursor:pointer; transition:background .2s ease; }
+    .home-service-card summary::-webkit-details-marker { display:none; }
+    .home-service-card summary:hover,.home-service-card[open] summary { background:#f8eee7; }
+    .home-service-card summary:focus-visible { outline:3px solid #b35d21; outline-offset:-3px; }
+    .home-service-icon { display:grid; place-items:center; width:42px; height:42px; flex:0 0 42px; border-radius:50%; background:#e8f0e8; font-size:24px; }
+    .home-service-name { flex:1; font-weight:600; font-size:15px; color:#315f4d; line-height:1.4; }
+    .home-service-chevron { color:#315f4d; font-size:26px; line-height:1; transition:transform .2s; }
+    .home-service-card[open] .home-service-chevron { transform:rotate(180deg); }
+    .home-service-detail { border-top:1px solid #e9e5df; padding:0 19px 20px; font-size:13px; line-height:1.75; }
+    .home-service-detail p { margin:17px 0 13px; }
+    .home-service-detail a { color:#315f4d; font-weight:600; text-decoration:underline; text-underline-offset:3px; }
+    .home-service-detail a:focus-visible { outline:3px solid #b35d21; outline-offset:3px; }
+    .home-services-cta { margin:36px auto 0; text-align:center; }
+    .home-services-cta p { margin:0 0 15px; font-weight:500; }
+    @media(max-width:950px) { .home-services-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media(max-width:600px) { .home-services { padding:54px 0 60px; } .home-services-grid { grid-template-columns:1fr; gap:12px; } .home-service-card summary { min-height:74px; padding:15px 17px; } .home-services-intro { margin-bottom:27px; } }
+    @media(prefers-reduced-motion:reduce) { .home-service-card summary,.home-service-chevron { transition:none; } }
+  
+    /* Directory-matched provider links in service descriptions */
+    .home-service-detail .home-service-providers { margin:10px 0 14px; }
+    .home-service-providers a { display:inline; }
+
+/* Refined Why Choose WPHC section — airy, concise, and responsive */
+.center-block { padding:clamp(52px,7vw,90px) 0 clamp(60px,7vw,88px); }
+.why-intro { text-align:center; max-width:750px; margin:0 auto 36px; }
+.why-eyebrow { display:block; color:#3c6e5a; font-size:12px; font-weight:700; letter-spacing:.15em; margin-bottom:13px; }
+.why-intro h2 { font-family:'Playfair Display',serif; color:#2f5a4d; font-size:clamp(28px,3.5vw,39px); line-height:1.25; margin:0 0 15px; }
+.why-intro p { max-width:610px; margin:0 auto; font-size:clamp(15px,1.6vw,17px); line-height:1.75; }
+.why-benefits { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:18px; max-width:1050px; margin:0 auto; }
+.why-benefit { grid-column:span 2; background:#faf9f6; border:1px solid rgba(60,110,90,.14); border-radius:15px; padding:28px 25px 30px; text-align:left; box-shadow:0 5px 18px rgba(44,70,56,.045); }
+.why-benefit:nth-child(4) { grid-column:2 / span 2; }
+.why-benefit:nth-child(5) { grid-column:4 / span 2; }
+.why-icon { display:inline-flex; align-items:center; justify-content:center; color:#315f4d; font-family:Georgia,serif; font-size:29px; line-height:1; height:34px; margin-bottom:13px; }
+.why-benefit h3 { font-family:'Playfair Display',serif; color:#315f4d; font-size:clamp(19px,2vw,23px); line-height:1.3; margin:0 0 10px; }
+.why-benefit p { font-size:14px; line-height:1.75; margin:0; }
+@media(max-width:800px) { .why-benefits { grid-template-columns:repeat(2,minmax(0,1fr)); } .why-benefit,.why-benefit:nth-child(4),.why-benefit:nth-child(5) { grid-column:auto; } .why-benefit:last-child { grid-column:1 / -1; max-width:500px; width:100%; justify-self:center; } }
+@media(max-width:600px) { .center-block { padding:48px 0 58px; } .why-intro { margin-bottom:26px; } .why-benefits { grid-template-columns:1fr; gap:13px; } .why-benefit,.why-benefit:last-child { grid-column:1; max-width:none; padding:22px 23px; } .why-icon { margin-bottom:8px; } }
+</style>
 </head>
 <body>
-  <!-- HEADER -->
-  <header>
-    <div class="container nav">
-      <div class="logo">
-        <img src="https://ellietee.github.io/wholepersonhealingcenter/logo.png" class="logo-img" alt="Logo">
-        <div class="logo-text">Whole Person<br>Healing Center</div>
-      </div>
+<!-- HEADER -->
+<header>
+<div class="container nav">
+<div class="logo">
+<img alt="Logo" class="logo-img" src="https://ellietee.github.io/wholepersonhealingcenter/logo.png"/>
+<div class="logo-text">Whole Person<br/>Healing Center</div>
+</div>
+<div class="menu">
+<a href="index.html">Home</a>
+<a href="join.html">Join Our Center</a>
+<a href="providers.html">Find a Provider</a>
+<a href="events.html">Events</a>
+<a class="contact-btn" href="contactform.html">Contact Us</a>
+</div>
+</div>
+</header>
+<!-- HERO: video asset path is from your draft -->
+<section class="hero">
+<video aria-hidden="true" autoplay="" class="hero-video" loop="" muted="" playsinline=""><source src="assets/hero-video.mp4" type="video/mp4"/></video>
+<div class="hero-overlay"></div>
+<div class="hero-content">
+<h1>Welcome to a healing home for body, mind, and spirit — at every stage of life.</h1>
+<div class="hero-buttons">
+<div><p>I'm a Practitioner</p><a class="btn btn-accent" href="join.html">Rent a Room</a></div>
+<div><p>I'm Seeking Care</p><a class="btn btn-accent" href="providers.html">Find a Provider</a></div>
+</div>
+</div>
+</section>
+<!-- INTRO: stock image retained temporarily; replace with your new photo -->
+<section class="container">
+<div class="info-section">
+<div>
+<h2>Whole Person Healing Center is a collaborative wellness space for body, mind, and spirit — supporting people across all stages of life.</h2>
+<p>Located in Myrtle Beach next to Myrtle Beach Mall, Whole Person Healing Center offers a trusted space where clients can access personalized integrative care under one roof, and private office rentals for licensed and certified health professionals. We believe healing happens best in connection — and that everyone deserves to feel at home on their path to wellness.</p>
+</div>
+<img alt="Welcoming interior space" loading="lazy" src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&amp;w=1200"/>
+</div>
+</section>
+<!-- WHY CHOOSE US -->
+<section aria-labelledby="why-wphc-heading" class="center-block container">
+<div class="why-intro">
+<span class="why-eyebrow">A DIFFERENT KIND OF HEALING SPACE</span>
+<h2 id="why-wphc-heading">Why Choose Whole Person Healing Center?</h2>
+<p>Thoughtful care, meaningful connection, and room to explore what wellness means to you.</p>
+</div>
+<div class="why-benefits">
+<article class="why-benefit"><span aria-hidden="true" class="why-icon">✿</span><h3>Care for the Whole You</h3><p>Support that considers physical, emotional, and spiritual well-being.</p></article>
+<article class="why-benefit"><span aria-hidden="true" class="why-icon">♡</span><h3>Care That Feels Personal</h3><p>Compassionate practitioners who take time to understand your goals.</p></article>
+<article class="why-benefit"><span aria-hidden="true" class="why-icon">✧</span><h3>Independent Practitioners</h3><p>Explore different specialties and connect directly with the provider who fits your needs.</p></article>
+<article class="why-benefit"><span aria-hidden="true" class="why-icon">❋</span><h3>Many Paths, One Place</h3><p>A variety of wellness approaches in one welcoming Myrtle Beach location.</p></article>
+<article class="why-benefit"><span aria-hidden="true" class="why-icon">☼</span><h3>A Place to Belong</h3><p>A warm, collaborative environment built around community and connection.</p></article>
+</div>
+</section>
+<!-- EXPLORE OUR SERVICES: interactive overview integrated into homepage -->
+<section aria-labelledby="home-services-title" class="home-services" id="our-services">
+<div class="container">
+<div class="home-services-intro">
+<span class="home-services-eyebrow">DISCOVER YOUR PATH TO WELLNESS</span>
+<h2 id="home-services-title">Explore Our Services</h2>
+<p>Healing takes many forms. Explore the different ways our independent practitioners support body, mind, heart, and spirit — and discover what resonates with you.</p>
+<p class="home-services-hint">Select any service to learn more.</p>
+</div>
+<div class="home-services-grid">
 
-    <div class="menu">
-      <a href="index.html">Home</a>
-      <a href="join.html">Join Our Center</a>
-      <a href="providers.html">Find a Provider</a>
-      <a href="events.html">Events</a>
-      <a class="contact-btn" href="contactform.html">Contact Us</a>
-    </div>
-    </div>
-  </header>
 
-  <!-- HERO: video asset path is from your draft -->
-  <section class="hero">
-    <video class="hero-video" autoplay muted loop playsinline aria-hidden="true"><source src="assets/hero-video.mp4" type="video/mp4"></video>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1>Welcome to a healing home for body, mind, and spirit — at every stage of life.</h1>
-      <div class="hero-buttons">
-        <div><p>I'm a Practitioner</p><a class="btn btn-accent" href="join.html">Rent a Room</a></div>
-        <div><p>I'm Seeking Care</p><a class="btn btn-accent" href="providers.html">Find a Provider</a></div>
-      </div>
-    </div>
-  </section>
 
-  <!-- INTRO: stock image retained temporarily; replace with your new photo -->
-  <section class="container">
-    <div class="info-section">
-      <div>
-        <h2>Whole Person Healing Center is a collaborative wellness space for body, mind, and spirit — supporting people across all stages of life.</h2>
-        <p>Located in Myrtle Beach next to Myrtle Beach Mall, Whole Person Healing Center offers a trusted space where clients can access personalized integrative care under one roof, and private office rentals for licensed and certified health professionals. We believe healing happens best in connection — and that everyone deserves to feel at home on their path to wellness.</p>
-      </div>
-      <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&amp;w=1200" alt="Welcoming interior space" loading="lazy">
-    </div>
-  </section>
 
-  <!-- WHY CHOOSE US -->
-  <section class="center-block container">
-    <div class="why-card">
-      <h2>Why Choose Whole Person Healing Center?</h2>
-      <p>Whole Person Healing Center is dedicated to providing an integrative approach to healthcare, offering a wide range of holistic services and experienced practitioners. We focus on treating the mind, body, and spirit to promote overall well-being.</p>
-      <div class="benefit"><strong>Healing for the Whole Self</strong><p>Body, mind, and spirit support — in one welcoming space</p></div><div class="divider-mark" aria-hidden="true">~</div>
-      <div class="benefit"><strong>Personalized, Heart-Led Care</strong><p>You're never just a case file — care here is deeply human</p></div><div class="divider-mark" aria-hidden="true">~</div>
-      <div class="benefit"><strong>Professionals You Can Trust</strong><p>Carefully vetted, certified, and aligned with our mission</p></div><div class="divider-mark" aria-hidden="true">~</div>
-      <div class="benefit"><strong>One Location, So Many Possibilities</strong><p>Access multiple services without driving all over town</p></div><div class="divider-mark" aria-hidden="true">~</div>
-      <div class="benefit"><strong>A Community That Feels Like Home</strong><p>Not just appointments — real connection and support</p></div>
-      <a class="btn btn-primary" href="providers.html">Explore Our Providers</a>
-    </div>
-  </section>
 
-  <!-- WHAT YOU'LL FIND: image URLs are temporary placeholders -->
-  <section class="peach-section">
-    <div class="find-card">
-      <h2>What You'll Find Here</h2>
-      <p>At Whole Person Healing Center, we believe healing takes many forms. That’s why we offer a space where practitioners and clients alike can show up as their whole selves — mind, body, and spirit. Whether you're here to offer your gifts or receive support, here’s what you’ll find:</p>
-      <div class="find-grid">
-        <div><img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&amp;w=400" alt="Greenery" loading="lazy"><p><strong>Diverse Healing Modalities</strong>From licensed therapy to energy work, body-based practices, and holistic services — all under one roof.</p></div>
-        <div><img src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?q=80&amp;w=400" alt="Flowers" loading="lazy"><p><strong>A Welcoming Space</strong>Beautiful, functional offices designed with both healing and human connection in mind.</p></div>
-        <div><img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&amp;w=400" alt="Nature landscape" loading="lazy"><p><strong>A Collaborative Spirit</strong>A culture of mutual respect, cross-referral, and co-creation among practitioners.</p></div>
-        <div><img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&amp;w=400" alt="Flowers in bloom" loading="lazy"><p><strong>Growth Opportunities</strong>Workshops, events, and gatherings to nourish your personal or professional journey.</p></div>
-      </div>
-      <a class="btn btn-primary" href="providers.html">See Provider Directory</a>
-    </div>
-  </section>
 
-  <!-- WHOLE PERSON HEALTH QUOTATION -->
-  <section class="lotus">
-    <div class="lotus-text">
-      <p>“Whole person health means looking at the whole human —<br>not just body parts or symptoms —<br>and supporting the physical,<br>emotional,<br>social,<br>and spiritual layers of healing.</p>
-      <p>It’s about empowering individuals,<br>families, and communities<br>to restore wellness,<br>build resilience,<br>and prevent disease across a lifetime.”</p>
-      <p class="attribution">— Adapted from the National Center for Complementary and Integrative Health</p>
-    </div>
-    <a class="btn btn-accent" href="contactform.html">Reach Out</a>
-  </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container footer-grid">
-      <div>
-        <h4>Whole Person Healing Center</h4>
-	<p> 603 B Briarwood Drive<br>Myrtle Beach, SC 29572</p>
-        <a href="tel:18436633360">Tel: (843) 663-3360</a>
-        <p>Fax: (843) 663-3361</p>
+
+
+
+
+
+<details class="home-service-card">
+<summary><span aria-hidden="true" class="home-service-icon">🔮</span><span class="home-service-name">Counseling, Psychotherapy &amp; Hypnotherapy</span><span aria-hidden="true" class="home-service-chevron">⌄</span></summary>
+<div class="home-service-detail"><p>Explore professional mental health counseling and psychotherapy, including support with anxiety, life transitions, and emotional well-being. The directory also includes practitioners offering hypnotherapy and integrative therapeutic approaches; credentials and services differ by provider.</p><a href="providers.html">Find a Provider →</a></div>
+</details><details class="home-service-card">
+<summary><span aria-hidden="true" class="home-service-icon">🦴</span><span class="home-service-name">Chiropractic &amp; Structural Alignment</span><span aria-hidden="true" class="home-service-chevron">⌄</span></summary>
+<div class="home-service-detail"><p>Chiropractic services include structural and hands-on approaches informed by Network Spinal Analysis and Sacro Occipital Technique. Connect directly with the provider to discuss your needs and available care.</p><a href="providers.html">Find a Provider →</a></div>
+</details><details class="home-service-card">
+<summary><span aria-hidden="true" class="home-service-icon">🏥</span><span class="home-service-name">Physical Therapy &amp; Wellness Coaching</span><span aria-hidden="true" class="home-service-chevron">⌄</span></summary>
+<div class="home-service-detail"><p>Individualized physical therapy, movement education, injury recovery support, personal training, and wellness coaching grounded in licensed clinical practice and tailored to your goals.</p><a href="providers.html">Find a Provider →</a></div>
+</details><details class="home-service-card">
+<summary><span aria-hidden="true" class="home-service-icon">🧘</span><span class="home-service-name">Movement &amp; Somatic Practices</span><span aria-hidden="true" class="home-service-chevron">⌄</span></summary>
+<div class="home-service-detail"><p>Develop greater ease and awareness through conscious movement. Alexander Technique instruction, yoga, and individualized movement education can help you explore posture, coordination, and everyday movement.</p><a href="providers.html">Find a Provider →</a></div>
+</details><details class="home-service-card">
+<summary><span aria-hidden="true" class="home-service-icon">💆</span><span class="home-service-name">Therapeutic Touch &amp; Relaxation</span><span aria-hidden="true" class="home-service-chevron">⌄</span></summary>
+<div class="home-service-detail"><p>Explore supportive touch, energy-based relaxation, and restorative wellness experiences. Offerings vary by practitioner and may include Therapeutic Touch and gentle approaches to settling the body and mind.</p><a href="providers.html">Find a Provider →</a></div>
+</details><details class="home-service-card">
+<summary><span aria-hidden="true" class="home-service-icon">💚</span><span class="home-service-name">Life Coaching &amp; Transformational Guidance</span><span aria-hidden="true" class="home-service-chevron">⌄</span></summary>
+<div class="home-service-detail"><p>Receive supportive coaching while navigating transitions, clarifying goals, and exploring next steps. Approaches include psychosynthesis transformational coaching and holistic health and wellness coaching.</p><a href="providers.html">Find a Provider →</a></div>
+</details><details class="home-service-card">
+<summary><span aria-hidden="true" class="home-service-icon">🧠</span><span class="home-service-name">Meditation &amp; Mindfulness</span><span aria-hidden="true" class="home-service-chevron">⌄</span></summary>
+<div class="home-service-detail"><p>Explore guided meditation, mindful awareness, and contemplative practices that encourage reflection and relaxation. Sessions may incorporate Jungian meditation, yoga-informed awareness, or wellness coaching.</p><a href="providers.html">Find a Provider →</a></div>
+</details><details class="home-service-card">
+<summary><span aria-hidden="true" class="home-service-icon">🔊</span><span class="home-service-name">Sound &amp; Vibrational Therapy</span><span aria-hidden="true" class="home-service-chevron">⌄</span></summary>
+<div class="home-service-detail"><p>Explore sound-based relaxation with singing bowls, vibration, and other sound experiences. Sessions may offer a calming space for rest, reflection, and stress relief.</p><a href="providers.html">Find a Provider →</a></div>
+</details><details class="home-service-card">
+<summary><span aria-hidden="true" class="home-service-icon">💫</span><span class="home-service-name">Reiki Energy Healing</span><span aria-hidden="true" class="home-service-chevron">⌄</span></summary>
+<div class="home-service-detail"><p>Reiki is a complementary, gentle energy-based wellness practice that some people use for relaxation and a sense of well-being. Ask the practitioner about their approach and what a session involves.</p><a href="providers.html">Find a Provider →</a></div>
+</details><details class="home-service-card">
+<summary><span aria-hidden="true" class="home-service-icon">✨</span><span class="home-service-name">Energy Healing</span><span aria-hidden="true" class="home-service-chevron">⌄</span></summary>
+<div class="home-service-detail"><p>Energy-focused sessions are offered as complementary wellness practices, including intuitive energy work and supportive touch. Practitioners describe their work as promoting relaxation, reflection, and a sense of balance.</p><a href="providers.html">Find a Provider →</a></div>
+</details><details class="home-service-card">
+<summary><span aria-hidden="true" class="home-service-icon">🏡</span><span class="home-service-name">Feng Shui &amp; Environmental Wellness</span><span aria-hidden="true" class="home-service-chevron">⌄</span></summary>
+<div class="home-service-detail"><p>Explore how intentional arrangement, design, and Feng Shui principles can help create spaces that feel welcoming, balanced, and supportive of your everyday well-being.</p><a href="providers.html">Find a Provider →</a></div>
+</details><details class="home-service-card">
+<summary><span aria-hidden="true" class="home-service-icon">🌟</span><span class="home-service-name">Depth Psychology &amp; Spiritual Exploration</span><span aria-hidden="true" class="home-service-chevron">⌄</span></summary>
+<div class="home-service-detail"><p>Explore Jungian meditation, depth-oriented reflection, and spiritual self-inquiry in a supportive setting. These offerings focus on personal meaning, inner awareness, and self-discovery.</p><a href="providers.html">Find a Provider →</a></div>
+</details></div>
+<div class="home-services-cta">
+<p>Ready to connect with someone who understands your goals?</p>
+<a class="btn btn-primary" href="providers.html">Find a Provider →</a>
+</div>
+</div>
+</section>
+<!-- WHAT YOU'LL FIND: image URLs are temporary placeholders -->
+<section class="peach-section">
+<div class="find-card">
+<h2>What You'll Find Here</h2>
+<p>At Whole Person Healing Center, we believe healing takes many forms. That’s why we offer a space where practitioners and clients alike can show up as their whole selves — mind, body, and spirit. Whether you're here to offer your gifts or receive support, here’s what you’ll find:</p>
+<div class="find-grid">
+<div><img alt="Greenery" loading="lazy" src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&amp;w=400"/><p><strong>Diverse Healing Modalities</strong>From licensed therapy to energy work, body-based practices, and holistic services — all under one roof.</p></div>
+<div><img alt="Flowers" loading="lazy" src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?q=80&amp;w=400"/><p><strong>A Welcoming Space</strong>Beautiful, functional offices designed with both healing and human connection in mind.</p></div>
+<div><img alt="Nature landscape" loading="lazy" src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&amp;w=400"/><p><strong>A Collaborative Spirit</strong>A culture of mutual respect, cross-referral, and co-creation among practitioners.</p></div>
+<div><img alt="Flowers in bloom" loading="lazy" src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&amp;w=400"/><p><strong>Growth Opportunities</strong>Workshops, events, and gatherings to nourish your personal or professional journey.</p></div>
+</div>
+<a class="btn btn-primary" href="providers.html">See Provider Directory</a>
+</div>
+</section>
+<!-- WHOLE PERSON HEALTH QUOTATION -->
+<section class="lotus">
+<div class="lotus-text">
+<p class="quote-first">“Whole person health means looking at the whole human —<br/>not just body parts or symptoms —<br/>and supporting the physical,<br/>emotional,<br/>social,<br/>and spiritual layers of healing.</p>
+<p class="quote-second">It’s about empowering individuals,<br/>families, and communities<br/>to restore wellness,<br/>build resilience,<br/>and prevent disease across a lifetime.”</p>
+<p class="attribution">— Adapted from the National Center for Complementary and Integrative Health</p>
+</div>
+<a class="btn btn-accent" href="contactform.html">Reach Out</a>
+</section>
+<!-- FOOTER -->
+<footer>
+<div class="container footer-grid">
+<div>
+<h4>Whole Person Healing Center</h4>
+<p> 603 B Briarwood Drive<br/>Myrtle Beach, SC 29572</p>
+<a href="tel:18436633360">Tel: (843) 663-3360</a>
+<p>Fax: (843) 663-3361</p>
 <a href="mailto:wholepersonhealingcenter@hushmail.com">wholepersonhealingcenter@hushmail.com</a>
-      </div>
-
-     <div>
-        <h4>Socials</h4>
-        <a href="https://www.facebook.com/profile.php?id=61567455757501">Facebook</a>
-        <p>Instagram</p>
-      </div>
-
-      <div>
-        <h4>Menu</h4>
-        <a href="index.html">Home</a>
-        <a href="join.html">Join Our Center</a>
-        <a href="providers.html">Find a Provider</a>
-        <a href="events.html">Events</a>
-      </div>
-	
-	<div>
-        <p>Select imagery featured courtesy of Delwyn Windham<br>windtography@gmail.com</p>
-      </div>
-    </div>
-  </footer>
-
+</div>
+<div>
+<h4>Socials</h4>
+<a href="https://www.facebook.com/profile.php?id=61567455757501">Facebook</a>
+<p>Instagram</p>
+</div>
+<div>
+<h4>Menu</h4>
+<a href="index.html">Home</a>
+<a href="join.html">Join Our Center</a>
+<a href="providers.html">Find a Provider</a>
+<a href="events.html">Events</a>
+</div>
+<div>
+<p>Select imagery featured courtesy of Delwyn Windham<br/>windtography@gmail.com</p>
+</div>
+</div>
+</footer>
 </body>
 </html>
