@@ -1,13 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us | Whole Person Healing Center</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact Us | Whole Person Healing Center</title><meta content="Contact Whole Person Healing Center in Myrtle Beach, SC. Inquire about joining our practitioner community or finding integrative care." name="description"/><meta content="index, follow" name="robots"/><link href="https://www.wholepersonhealingcenter.com/contactform.html" rel="canonical"/><meta content="website" property="og:type"/><meta content="Contact Us | Whole Person Healing Center" property="og:title"/><meta content="Connect with Whole Person Healing Center about practitioner opportunities or finding care." property="og:description"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&amp;family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
     * { margin:0; padding:0; box-sizing:border-box; }
 
     body {
@@ -347,278 +346,293 @@
       }
     }
 
-  </style>
+  
+/* Shared site navigation and footer */
+:root{--green:#3c6e5a;--peach-light:#f6c8a1}
+header{background:var(--green);color:white;position:sticky;top:0;z-index:1000}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0}
+.logo{display:flex;flex-direction:row;align-items:center;gap:8px}
+.logo-img{width:75px;height:auto}
+.logo-text{font-family:'Playfair Display',serif;font-weight:400;font-size:16px;line-height:1.2;letter-spacing:.3px}
+.menu{display:flex;align-items:center;flex-wrap:wrap;justify-content:flex-end;gap:12px 25px}
+.menu a{margin-left:0;font-size:16px;color:white;font-family:'Montserrat',sans-serif}
+.menu .contact-btn{background:var(--peach-light);padding:8px 14px;border-radius:20px;color:#000;font-weight:500}
+footer{background:var(--green);color:white;padding:40px 0;margin-top:auto}
+.footer-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:35px}
+.footer-grid h4{margin:0 0 10px;font-family:'Playfair Display',serif}
+.footer-grid p,.footer-grid a{font-size:14px;display:block;margin:0 0 5px;color:white;overflow-wrap:anywhere;font-family:'Montserrat',sans-serif}
+@media(max-width:900px){.footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.nav{align-items:flex-start;flex-direction:column}.logo-img{width:60px}.menu{justify-content:flex-start}.menu a{font-size:14px}.footer-grid{grid-template-columns:1fr;text-align:left}}
+/* Accessible choice controls */
+.choice-card{font:inherit;color:inherit;width:100%;appearance:none;display:block}
+.choice-card:focus-visible,.menu a:focus-visible,.submit:focus-visible{outline:3px solid #a56b45;outline-offset:3px}
+.choice-card[aria-expanded="true"]{border:2px solid #3c6e5a;box-shadow:0 12px 30px rgba(60,110,90,.25)}
+@media(prefers-reduced-motion:reduce){.choice-card,.form-section{transition:none!important;scroll-behavior:auto!important}}
+
+.form-section{scroll-margin-top:120px}
+
+/* Gentle privacy notice for both inquiry forms */
+.privacy-note{background:#f3f7f1;border-left:4px solid #749581;border-radius:8px;padding:14px 16px;margin:20px 0 4px;color:#2f5545;font-size:13px;line-height:1.65}
+.privacy-note strong{font-weight:600}
+
+.inquiry-feedback{margin:18px 0 0;padding:18px 20px;border-radius:12px;background:#eef5ed;border:1px solid #9db9a6;color:#315f4d;text-align:center}
+.inquiry-feedback h4{font-size:1.4rem;margin:0 0 7px}
+.inquiry-feedback p{margin:0;font-size:14px;line-height:1.7}
+.inquiry-feedback.error{background:#fff3ec;border-color:#d8a68e;color:#78452f}
+.submit:disabled{opacity:.65;cursor:wait}
+
+.inquiry-feedback[hidden], .form-section form[hidden]{display:none!important}
+</style>
 </head>
-
 <body>
-
 <!-- HEADER -->
 <header>
-  <div class="container nav">
-    <div class="logo">
-      <img src="https://ellietee.github.io/wholepersonhealingcenter/logo.png" class="logo-img" alt="Logo">
-      <div class="logo-text">Whole Person<br>Healing Center</div>
-    </div>
-
-    <div class="menu">
-      <a href="index.html">Home</a>
-      <a href="join.html">Join Our Center</a>
-      <a href="providers.html">Find a Provider</a>
-      <a href="events.html">Events</a>
-      <a class="contact-btn" href="contactform.html">Contact Us</a>
-    </div>
-  </div>
+<div class="container nav">
+<div class="logo">
+<img alt="Logo" class="logo-img" src="https://ellietee.github.io/wholepersonhealingcenter/logo.png"/>
+<div class="logo-text">Whole Person<br/>Healing Center</div>
+</div>
+<div class="menu">
+<a href="index.html">Home</a>
+<a href="join.html">Join Our Center</a>
+<a href="providers.html">Find a Provider</a>
+<a href="events.html">Events</a>
+<a class="contact-btn" href="contactform.html">Contact Us</a>
+</div>
+</div>
 </header>
-
-
 <!-- PAGE -->
 <section class="contact-page container">
-
-  <div class="intro">
-    <h1>Connect With Us</h1>
-    <p>Choose the path that best describes you so we can get you to the right place.</p>
-  </div>
-
-  <!-- CHOICE CARDS -->
-  <div class="choice-cards">
-
-    <div class="choice-card" onclick="showForm('provider')">
-      <div class="icon">🧘‍♀️</div>
-      <h3>I'm a Provider</h3>
-      <p>Join our collaborative healing space</p>
-    </div>
-
-    <div class="choice-card" onclick="showForm('client')">
-      <div class="icon">🫶</div>
-      <h3>I'm Seeking Care</h3>
-      <p>Find the right practitioner for you</p>
-    </div>
-
-  </div>
-
-  <!-- PROVIDER FORM -->
-  <div id="provider" class="form-section">
-    <h3>Practitioner Inquiry</h3>
-
-    <form action="https://api.web3forms.com/submit" method="POST">
-      <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY">
-      <input type="hidden" name="form_type" value="Practitioner Inquiry">
-
-      <div class="row">
-        <div>
-          <label>First Name</label>
-          <input type="text" name="first_name" required>
-        </div>
-        <div>
-          <label>Last Name</label>
-          <input type="text" name="last_name" required>
-        </div>
-      </div>
-
-      <div class="row">
-        <div>
-          <label>Email</label>
-          <input type="email" name="email" required>
-        </div>
-        <div>
-          <label>Phone</label>
-          <input type="tel" name="phone" required>
-        </div>
-      </div>
-
-      <label>Message</label>
-      <textarea name="message" required></textarea>
-
-      <!-- INTEREST SECTION -->
-      <div class="two-col">
-
-        <div class="col">
-          <label><strong>I am interested in:</strong></label>
-
-          <label class="pill">
-            <input type="checkbox" name="interest_rent" value="Rent Office" onchange="toggleRent(this)">
+<div class="intro">
+<h1>Connect With Us</h1>
+<p>Choose the path that best describes you so we can get you to the right place.</p>
+</div>
+<!-- CHOICE CARDS -->
+<div class="choice-cards">
+<button aria-controls="provider" aria-expanded="false" class="choice-card" data-form="provider" type="button">
+<div class="icon">🧘‍♀️</div>
+<h3>I'm a Provider</h3>
+<p>Join our collaborative healing space</p>
+</button>
+<button aria-controls="client" aria-expanded="false" class="choice-card" data-form="client" type="button">
+<div class="icon">🫶</div>
+<h3>I'm Seeking Care</h3>
+<p>Find the right practitioner for you</p>
+</button>
+</div>
+<!-- PROVIDER FORM -->
+<div class="form-section" id="provider">
+<h3>Practitioner Inquiry</h3>
+<form action="https://api.web3forms.com/submit" method="POST">
+<input name="access_key" type="hidden" value="YOUR_ACCESS_KEY"/>
+<input name="form_type" type="hidden" value="Practitioner Inquiry"/>
+<div class="row">
+<div>
+<label for="provider-first_name-0">First Name</label>
+<input id="provider-first_name-0" name="first_name" required="" type="text"/>
+</div>
+<div>
+<label for="provider-last_name-1">Last Name</label>
+<input id="provider-last_name-1" name="last_name" required="" type="text"/>
+</div>
+</div>
+<div class="row">
+<div>
+<label for="provider-email-2">Email</label>
+<input id="provider-email-2" name="email" required="" type="email"/>
+</div>
+<div>
+<label for="provider-phone-3">Phone</label>
+<input id="provider-phone-3" name="phone" required="" type="tel"/>
+</div>
+</div>
+<label for="provider-message-4">Message</label>
+<textarea id="provider-message-4" name="message" required=""></textarea>
+<!-- INTEREST SECTION -->
+<div class="two-col">
+<div class="col">
+<label><strong>I am interested in:</strong></label>
+<label class="pill">
+<input name="interest_rent" onchange="toggleRent(this)" type="checkbox" value="Rent Office"/>
             Renting Office Space
           </label>
-
-          <label class="pill">
-            <input type="checkbox" name="interest_host" value="Host Event">
+<label class="pill">
+<input name="interest_host" type="checkbox" value="Host Event"/>
             Hosting a Class/Event
           </label>
-        </div>
-
-        <div class="col" id="rentalPreferences" style="display:none;">
-          <label><strong>Rental Preferences</strong></label>
-
-          <label class="pill">
-            <input type="checkbox" name="rental_type" value="Full Time">
+</div>
+<div class="col" id="rentalPreferences" style="display:none;">
+<label><strong>Rental Preferences</strong></label>
+<label class="pill">
+<input name="rental_type" type="checkbox" value="Full Time"/>
             Full Time
           </label>
-
-          <label class="pill">
-            <input type="checkbox" name="rental_type" value="Part Time">
+<label class="pill">
+<input name="rental_type" type="checkbox" value="Part Time"/>
             Part Time
           </label>
-
-          <label class="pill">
-            <input type="checkbox" name="rental_type" value="Daily">
+<label class="pill">
+<input name="rental_type" type="checkbox" value="Daily"/>
             Daily
           </label>
-
-          <label class="pill">
-            <input type="checkbox" name="rental_type" value="Hourly">
+<label class="pill">
+<input name="rental_type" type="checkbox" value="Hourly"/>
             Hourly
           </label>
-        </div>
-
-      </div>
-
-      <label>Services Provided</label>
-      <textarea name="services"></textarea>
-
-      <label>How did you hear about us?</label>
-      <input type="text" name="referral">
-
-      <button class="submit" type="submit">Submit Inquiry</button>
-    </form>
-  </div>
-
-  <!-- CLIENT FORM -->
-  <div id="client" class="form-section">
-    <h3>Client Inquiry</h3>
-
-    <form action="https://api.web3forms.com/submit" method="POST">
-      <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY">
-      <input type="hidden" name="form_type" value="Client Inquiry">
-
-      <div class="row">
-        <div>
-          <label>First Name</label>
-          <input type="text" name="first_name" required>
-        </div>
-        <div>
-          <label>Last Name</label>
-          <input type="text" name="last_name" required>
-        </div>
-      </div>
-
-      <div class="row">
-        <div>
-          <label>Email</label>
-          <input type="email" name="email" required>
-        </div>
-        <div>
-          <label>Phone</label>
-          <input type="tel" name="phone" required>
-        </div>
-      </div>
-
-      <label>Message</label>
-      <textarea name="message" required></textarea>
-
-      <label>Services Interested In</label>
-      <textarea name="interest"></textarea>
-
-      <label>Preferred Practitioner</label>
-      <input type="text" name="preferred_practitioner">
-
-      <label>How did you hear about us?</label>
-      <input type="text" name="referral">
-
-      <button class="submit" type="submit">Submit Inquiry</button>
-    </form>
-  </div>
-
+</div>
+</div>
+<label for="provider-services-13">Services Provided</label>
+<textarea id="provider-services-13" name="services"></textarea>
+<label for="provider-referral-14">How did you hear about us?</label>
+<input id="provider-referral-14" name="referral" type="text"/>
+<p class="privacy-note"><strong>A note about your privacy: </strong>Please do not include medical histories, diagnoses, treatment details, or other sensitive health information in this form. It is intended for general inquiries only. If you need to share confidential health information, please contact our office to arrange a secure method of communication.</p><button class="submit" type="submit">Submit Inquiry</button>
+</form><div aria-live="polite" class="inquiry-feedback" hidden="" role="status"></div>
+</div>
+<!-- CLIENT FORM -->
+<div class="form-section" id="client">
+<h3>Client Inquiry</h3>
+<form action="https://api.web3forms.com/submit" method="POST">
+<input name="access_key" type="hidden" value="YOUR_ACCESS_KEY"/>
+<input name="form_type" type="hidden" value="Client Inquiry"/>
+<div class="row">
+<div>
+<label for="client-first_name-0">First Name</label>
+<input id="client-first_name-0" name="first_name" required="" type="text"/>
+</div>
+<div>
+<label for="client-last_name-1">Last Name</label>
+<input id="client-last_name-1" name="last_name" required="" type="text"/>
+</div>
+</div>
+<div class="row">
+<div>
+<label for="client-email-2">Email</label>
+<input id="client-email-2" name="email" required="" type="email"/>
+</div>
+<div>
+<label for="client-phone-3">Phone</label>
+<input id="client-phone-3" name="phone" required="" type="tel"/>
+</div>
+</div>
+<label for="client-message-4">Message</label>
+<textarea id="client-message-4" name="message" required=""></textarea>
+<label for="client-interest-5">Services Interested In</label>
+<textarea id="client-interest-5" name="interest"></textarea>
+<label for="client-preferred_practitioner-6">Preferred Practitioner</label>
+<input id="client-preferred_practitioner-6" name="preferred_practitioner" type="text"/>
+<label for="client-referral-7">How did you hear about us?</label>
+<input id="client-referral-7" name="referral" type="text"/>
+<p class="privacy-note"><strong>A note about your privacy: </strong>Please do not include medical histories, diagnoses, treatment details, or other sensitive health information in this form. It is intended for general inquiries only. If you need to share confidential health information, please contact our office to arrange a secure method of communication.</p><button class="submit" type="submit">Submit Inquiry</button>
+</form><div aria-live="polite" class="inquiry-feedback" hidden="" role="status"></div>
+</div>
 </section>
-
 <!-- FOOTER -->
 <footer>
-  <div class="container footer-grid">
-    
-    <div>
-      <h4>Whole Person Healing Center</h4>
-      <p>603 B Briarwood Drive<br>Myrtle Beach, SC 29572</p>
-      <a href="tel:18436633360">Tel: (843) 663-3360</a>
-      <p>Fax: (843) 663-3361</p>
-      <p>wholepersonhealingcenter@hushmail.com</p>
-    </div>
-
-     <div>
-        <h4>Socials</h4>
-        <a href="https://www.facebook.com/profile.php?id=61567455757501">Facebook</a>
-        <p>Instagram</p>
-      </div>
-
-      <div>
-        <h4>Menu</h4>
-        <a href="index.html">Home</a>
-        <a href="join.html">Join Our Center</a>
-        <a href="providers.html">Find a Provider</a>
-        <a href="events.html">Events</a>
-      </div>
-
-    <div>
-      <p>
-        Select imagery featured courtesy of Delwyn Windham<br>
-        windtography@gmail.com
-      </p>
-    </div>
-
-  </div>
+<div class="container footer-grid">
+<div>
+<h4>Whole Person Healing Center</h4>
+<p> 603 B Briarwood Drive<br/>Myrtle Beach, SC 29572</p>
+<a href="tel:18436633360">Tel: (843) 663-3360</a>
+<p>Fax: (843) 663-3361</p>
+<a href="mailto:wholepersonhealingcenter@hushmail.com">wholepersonhealingcenter@hushmail.com</a>
+</div>
+<div>
+<h4>Socials</h4>
+<a href="https://www.facebook.com/profile.php?id=61567455757501">Facebook</a>
+<p>Instagram</p>
+</div>
+<div>
+<h4>Menu</h4>
+<a href="index.html">Home</a>
+<a href="join.html">Join Our Center</a>
+<a href="providers.html">Find a Provider</a>
+<a href="events.html">Events</a>
+</div>
+<div>
+<p>Select imagery featured courtesy of Delwyn Windham<br/>windtography@gmail.com</p>
+</div>
+</div>
 </footer>
-
 <script>
-function showForm(type) {
+function showForm(type, options = {}) {
+  if (!['provider', 'client'].includes(type)) return;
   const provider = document.getElementById('provider');
   const client = document.getElementById('client');
-
-  // hide both forms + reset animation class
-  if (provider) {
-    provider.style.display = 'none';
-    provider.classList.remove('show');
-  }
-  if (client) {
-    client.style.display = 'none';
-    client.classList.remove('show');
-  }
-
+  [provider, client].forEach(section => {
+    if (!section) return;
+    section.style.display = section.id === type ? 'block' : 'none';
+    section.classList.toggle('show', section.id === type);
+  });
+  document.querySelectorAll('.choice-card').forEach(card => {
+    const selected = card.dataset.form === type;
+    card.classList.toggle('active', selected);
+    card.setAttribute('aria-expanded', String(selected));
+  });
   const target = document.getElementById(type);
-  if (target) {
-    target.style.display = 'block';
-
-    // trigger fade-in animation
-    requestAnimationFrame(() => {
-      target.classList.add('show');
-    });
-  }
-
-  // active card state
-  const cards = document.querySelectorAll('.choice-card');
-  cards.forEach(card => card.classList.remove('active'));
-
-  const clicked = event && event.currentTarget;
-  if (clicked) clicked.classList.add('active');
-
-  if (target) {
-    window.scrollTo({
-      top: target.offsetTop - 100,
-      behavior: 'smooth'
-    });
+  if (target && options.scroll !== false) {
+    requestAnimationFrame(() => target.scrollIntoView({
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+      block: 'start'
+    }));
   }
 }
-
 function toggleRent(el) {
   const panel = document.getElementById('rentalPreferences');
-  if (!panel) return;
-
-  const rentChecked = document.querySelector('input[name="interest_rent"]:checked');
-
-  if (rentChecked) {
-    panel.style.display = 'block';
-  } else {
-    panel.style.display = 'none';
-  }
+  if (panel) panel.style.display = el.checked ? 'block' : 'none';
 }
-</script>
+document.querySelectorAll('.choice-card').forEach(card => {
+  card.addEventListener('click', () => showForm(card.dataset.form));
+});
+const inquiry = new URLSearchParams(window.location.search).get('inquiry');
+if (inquiry === 'practitioner' || inquiry === 'provider') {
+  showForm('provider');
+} else if (inquiry === 'client') {
+  showForm('client');
+}
 
+
+document.querySelectorAll('.form-section form').forEach(form => {
+  const feedback = form.nextElementSibling;
+  const button = form.querySelector('button[type="submit"]');
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+    feedback.hidden = true;
+    feedback.classList.remove('error');
+    const accessKey = form.querySelector('[name="access_key"]')?.value.trim();
+    if (!accessKey || accessKey === 'YOUR_ACCESS_KEY') {
+      feedback.classList.add('error');
+      feedback.innerHTML = '<h4>Almost ready!</h4><p>This form is being connected. Please contact us at <a href="mailto:wholepersonhealingcenter@hushmail.com">wholepersonhealingcenter@hushmail.com</a> in the meantime.</p>';
+      feedback.hidden = false;
+      return;
+    }
+    button.disabled = true;
+    button.textContent = 'Sending your inquiry…';
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      const result = await response.json();
+      if (!response.ok || !result.success) throw new Error('Submission unsuccessful');
+      form.reset();
+      const rental = document.getElementById('rentalPreferences');
+      if (rental && form.closest('#provider')) rental.style.display = 'none';
+      form.hidden = true;
+      feedback.innerHTML = '<h4>Thank you for reaching out! 🌿</h4><p>Your message has been sent to Whole Person Healing Center. We appreciate you connecting with us and look forward to being in touch soon.</p>';
+      feedback.hidden = false;
+      feedback.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } catch (error) {
+      feedback.classList.add('error');
+      feedback.innerHTML = '<h4>We couldn’t send your message just yet.</h4><p>Please try again, or email us directly at <a href="mailto:wholepersonhealingcenter@hushmail.com">wholepersonhealingcenter@hushmail.com</a>. Your information is still in the form.</p>';
+      feedback.hidden = false;
+    } finally {
+      button.disabled = false;
+      button.textContent = 'Submit Inquiry';
+    }
+  });
+});
+</script>
 </body>
 </html>
