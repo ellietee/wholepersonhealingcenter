@@ -133,55 +133,20 @@ img {
 }
 
 /* ====================================
-   HEADER (GLOBAL)
+   HEADER — matches the current homepage
 ==================================== */
-    /* HEADER */
-    header {
-      background:#3c6e5a;
-      color:white;
-      position:sticky;
-      top:0;
-      z-index:1000;
-    }
+header { background:var(--green); color:white; position:sticky; top:0; z-index:1000; }
+.nav { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:14px 0; }
+.logo { display:flex; flex-direction:row; align-items:center; gap:8px; flex-shrink:0; }
+.logo-img { width:75px; height:auto; }
+.logo-text { font-family:'Playfair Display',serif; font-weight:400; font-size:16px; line-height:1.2; letter-spacing:.3px; }
+.menu { display:flex; align-items:center; flex-wrap:wrap; justify-content:flex-end; gap:12px 25px; }
+.menu a { margin-left:0; font-size:16px; color:white; font-family:'Montserrat',sans-serif; }
+.menu .contact-btn { background:var(--peach-light); padding:8px 14px; border-radius:20px; color:#000; font-weight:500; margin-left:0; }
+header a:focus-visible { outline:3px solid var(--peach-light); outline-offset:4px; }
+@media(max-width:950px){.nav{align-items:flex-start;flex-direction:column}.menu{justify-content:flex-start}}
+@media(max-width:600px){.menu{display:flex;gap:10px 16px}.menu a{font-size:14px}.logo-img{width:60px}}
 
-    .nav {
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:18px 0;
-    }
-
-    .logo {
-      display:flex;
-      flex-direction:column;
-      align-items:flex-start;
-      gap:6px;
-    }
-
-    .logo-img {
-      width:120px;
-      height:auto;
-    }
-
-    .logo-text {
-      font-weight:600;
-      font-size:16px;
-    }
-
-    .menu a {
-      margin-left:25px;
-      font-size:14px;
-    }
-
-    .contact-btn {
-      background:#f6c8a1;
-      padding:8px 14px;
-      border-radius:20px;
-      margin-left:20px;
-      color:#000;
-      font-weight:500;
-    }
-   
 /* ====================================
    FOOTER (GLOBAL)
 ==================================== */
@@ -236,9 +201,7 @@ footer {
 /* MOBILE */
 @media (max-width: 600px) {
 
-  .menu {
-    display: none;
-  }
+  /* Keep navigation visible on mobile, matching the homepage. */
 
   .home .hero {
     height: 70vh;
@@ -476,12 +439,11 @@ h1 {
 }
 
 
-/* Shared navigation and calendar mobile refinements */
-.logo {flex-shrink:0} .menu {display:flex;align-items:center;flex-wrap:wrap;justify-content:flex-end;gap:8px 18px}
+/* Calendar mobile refinements */
 .menu a {margin-left:0} .contact-btn {margin-left:0} .footer-grid a[href^="mailto:"] {overflow-wrap:anywhere;text-decoration:underline;text-underline-offset:3px}
 .page-content {padding:40px 18px 70px} .day {margin:3px;min-width:0;overflow-wrap:anywhere} .event {overflow-wrap:anywhere}
 .close {background:transparent;border:0;font:inherit;padding:8px 0}
-@media(max-width:750px){.nav{flex-direction:column;gap:14px}.menu{display:flex;justify-content:center}.menu a{font-size:12px}.logo{align-items:center}.calendar{padding:10px;border-radius:14px}.day{padding:6px 3px;min-height:65px;margin:2px;border-radius:8px}.event{font-size:10px}.dates{gap:0}.calendar-header h2{font-size:22px}.page-content h1{font-size:34px}}
+@media(max-width:750px){.calendar{padding:10px;border-radius:14px}.day{padding:6px 3px;min-height:65px;margin:2px;border-radius:8px}.event{font-size:10px}.dates{gap:0}.calendar-header h2{font-size:22px}.page-content h1{font-size:34px}}
 @media(max-width:440px){.day{min-height:48px}.event{font-size:9px}.date-number{font-size:11px}.days div{font-size:10px}.footer-grid{grid-template-columns:1fr}}
 
 /* Give the contact column room for the full email address on desktop. */
@@ -579,6 +541,13 @@ h1 {
   .footer-grid { grid-template-columns: 1fr; gap: 22px; }
   .footer-grid a[href^="mailto:"] { white-space: normal; overflow-wrap: anywhere; }
 }
+/* Welcome banner: readable, warm, and visually separated from the photo */
+.events-intro { padding:54px 22px; min-height:300px; background-image:linear-gradient(rgba(245,239,233,.58),rgba(245,239,233,.66)),url('events-banner.jpg'); }
+.events-intro-inner { max-width:790px; padding:28px 38px 30px; background:rgba(255,252,248,.93); border:1px solid rgba(60,110,90,.16); border-radius:18px; box-shadow:0 8px 28px rgba(34,65,50,.10); }
+.events-intro h1 { font-size:clamp(27px,3.2vw,38px); font-weight:600; line-height:1.24; margin-bottom:17px; color:#28513f; }
+.events-intro p { font-size:16px; line-height:1.85; font-weight:400; color:#2b453b; }
+.events-intro p .events-signoff { display:block; margin-top:14px; font-weight:600; color:#315f4b; }
+@media(max-width:600px){.events-intro{padding:30px 14px;min-height:0}.events-intro-inner{padding:24px 19px;border-radius:14px}.events-intro h1{font-size:27px}.events-intro p{font-size:15px;line-height:1.75}}
 </style>
 </head>
 <body>
@@ -603,7 +572,7 @@ h1 {
 <section class="events-intro" aria-labelledby="events-welcome-heading">
   <div class="events-intro-inner">
   <h1 id="events-welcome-heading">Welcome to our community calendar!</h1>
-  <p>This is a space where healing, connection, and transformation come to life. Here you'll find events hosted by Whole Person Healing Center as well as offerings from our independent providers. From workshops and classes to sacred circles and seasonal gatherings, each event is an invitation to deepen your well-being and explore new paths to wholeness. <br> We look forward to seeing you there!</p>
+  <p>This is a space where healing, connection, and transformation come to life. Here you'll find events hosted by Whole Person Healing Center as well as offerings from our independent providers. From workshops and classes to sacred circles and seasonal gatherings, each event is an invitation to deepen your well-being and explore new paths to wholeness. <span class="events-signoff">We look forward to seeing you there!</span></p>
   </div>
 </section>
 <h2 class="events-calendar-title">Upcoming Events</h2>
