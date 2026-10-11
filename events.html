@@ -1,12 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Upcoming Events | Whole Person Healing Center</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&amp;family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
 <style>
 
 /* ====================================
@@ -476,215 +475,293 @@ h1 {
   opacity: 0.7;
 }
 
+
+/* Shared navigation and calendar mobile refinements */
+.logo {flex-shrink:0} .menu {display:flex;align-items:center;flex-wrap:wrap;justify-content:flex-end;gap:8px 18px}
+.menu a {margin-left:0} .contact-btn {margin-left:0} .footer-grid a[href^="mailto:"] {overflow-wrap:anywhere;text-decoration:underline;text-underline-offset:3px}
+.page-content {padding:40px 18px 70px} .day {margin:3px;min-width:0;overflow-wrap:anywhere} .event {overflow-wrap:anywhere}
+.close {background:transparent;border:0;font:inherit;padding:8px 0}
+@media(max-width:750px){.nav{flex-direction:column;gap:14px}.menu{display:flex;justify-content:center}.menu a{font-size:12px}.logo{align-items:center}.calendar{padding:10px;border-radius:14px}.day{padding:6px 3px;min-height:65px;margin:2px;border-radius:8px}.event{font-size:10px}.dates{gap:0}.calendar-header h2{font-size:22px}.page-content h1{font-size:34px}}
+@media(max-width:440px){.day{min-height:48px}.event{font-size:9px}.date-number{font-size:11px}.days div{font-size:10px}.footer-grid{grid-template-columns:1fr}}
+
+/* Give the contact column room for the full email address on desktop. */
+@media (min-width: 1025px) {
+  .footer-grid { grid-template-columns: 365px 110px 125px minmax(170px, 1fr); gap: 16px; }
+  .footer-grid a[href^="mailto:"] { white-space: nowrap; overflow-wrap: normal; }
+}
+@media (min-width: 601px) and (max-width: 1024px) {
+  .footer-grid { grid-template-columns: minmax(365px, 1fr) minmax(160px, 1fr); gap: 18px; }
+  .footer-grid a[href^="mailto:"] { white-space: nowrap; overflow-wrap: normal; }
+}
+@media (max-width: 600px) {
+  .footer-grid a[href^="mailto:"] { overflow-wrap: anywhere; }
+}
+
+/* Calendar event usability */
+.calendar-header button{min-width:44px;min-height:44px;font-size:24px}
+.day.has-event{cursor:pointer}
+.day.has-event:focus-visible,.event:focus-visible,.calendar-header button:focus-visible,.modal button:focus-visible{outline:3px solid #e6a97e;outline-offset:2px}
+.event{background:#dcefe5;border-radius:8px;padding:7px 8px;font-weight:600;opacity:1}
+.modal{z-index:2000;visibility:hidden;transition:opacity .2s ease,visibility .2s ease}
+.modal.active{visibility:visible}
+.modal-content{position:relative;box-shadow:0 18px 45px rgba(0,0,0,.2)}
+.modal-content .close{border:0;background:#f6c8a1;padding:12px 20px;border-radius:24px;color:#284c40;font:600 14px Montserrat,sans-serif;min-height:44px}
+.modal-content .close:hover{opacity:1;background:#efb88e}
+.event-detail{padding:4px 0 12px}
+.event-detail h4{font-family:'Playfair Display',serif;font-size:24px;line-height:1.25;margin:8px 0 14px;color:#2f5a4d}
+.event-detail .event-meta{margin:6px 0;font-size:14px}
+.event-detail .event-description{margin:16px 0}
+.event-detail .payment-link{margin-top:6px}
+.event-admission{display:inline-block;background:#e7f3e9;color:#2f5a4d;border:1px solid #b5d4bd;border-radius:20px;padding:7px 12px;font-size:12px;font-weight:700;letter-spacing:.04em;margin-top:12px}
+.modal-open{overflow:hidden}
+@media(max-width:700px){
+ .page-content{padding:28px 10px 48px}
+ .page-content h1{font-size:34px}
+ .calendar{padding:12px 5px;border-radius:16px}
+ .calendar-header{padding:0 10px;margin-bottom:15px}
+ .calendar-header h2{font-size:23px}
+ .days div{font-size:11px}
+ .day{min-height:68px;margin:2px;padding:5px 3px;border-radius:9px}
+ .date-number{font-size:12px}
+ .event{font-size:10px;line-height:1.2;padding:5px 3px;overflow-wrap:anywhere}
+ .modal{align-items:flex-end}
+ .modal-content{width:100%;max-width:none;max-height:86dvh;overflow:auto;border-radius:22px 22px 0 0;padding:24px 22px calc(24px + env(safe-area-inset-bottom));transform:translateY(35px);transition:transform .22s ease}
+ .modal.active .modal-content{transform:translateY(0)}
+ .modal-content:before{content:'';display:block;width:46px;height:5px;border-radius:5px;background:#c7e4d5;margin:-10px auto 18px}
+ .modal-content .close{display:block;width:100%;margin-top:12px}
+}
+@media(prefers-reduced-motion:reduce){.modal,.modal-content{transition:none}}
+.events-intro{max-width:840px;margin:0 auto 25px;text-align:center}
+.events-intro h1{font-size:clamp(25px,3vw,33px);font-weight:400;line-height:1.25;margin-bottom:10px;color:#2f5a4d}
+.events-intro p{font-size:14px;line-height:1.7;color:#36584c;margin:0}
+.events-calendar-title{text-align:center;font-size:clamp(24px,2.8vw,30px);font-weight:400;color:#2f5a4d;margin:0 0 15px}
+@media(max-width:600px){.events-intro{margin-bottom:22px}.events-intro h1{font-size:25px}.events-intro p{font-size:13px;line-height:1.6}.events-calendar-title{font-size:24px;margin-bottom:12px}}
+
+/* Full-bleed photo placeholder behind the welcome message.
+   Upload your chosen photo as events-banner.jpg next to events.html. */
+.events-intro{
+  width:100vw;
+  max-width:none;
+  margin: -40px 0 28px;
+  margin-left:calc(50% - 50vw);
+  padding:48px 20px;
+  min-height:245px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background-image:linear-gradient(rgba(245,239,233,.82),rgba(245,239,233,.86)),url('events-banner.jpg');
+  background-color:#dce9dc;
+  background-size:cover;
+  background-position:center;
+}
+.events-intro-inner{max-width:850px;margin:auto;text-align:center}
+.events-intro h1{font-size:clamp(25px,3vw,34px)}
+.events-intro p{font-size:14px;line-height:1.7}
+@media(max-width:600px){
+  .events-intro{padding:34px 19px;min-height:0;margin-top:-40px;margin-bottom:24px}
+  .events-intro p{font-size:13px;line-height:1.6}
+}
+
+/* Balanced footer: contact has space for the full email, other columns evenly distributed. */
+@media (min-width: 1025px) {
+  .footer-grid {
+    grid-template-columns: minmax(355px, 1.65fr) repeat(3, minmax(0, 1fr));
+    column-gap: 28px;
+    align-items: start;
+  }
+  .footer-grid a[href^="mailto:"] { white-space: nowrap; overflow-wrap: normal; }
+}
+@media (min-width: 601px) and (max-width: 1024px) {
+  .footer-grid { grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 26px; }
+  .footer-grid a[href^="mailto:"] { white-space: normal; overflow-wrap: anywhere; }
+}
+@media (max-width: 600px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 22px; }
+  .footer-grid a[href^="mailto:"] { white-space: normal; overflow-wrap: anywhere; }
+}
 </style>
-
 </head>
-
 <body>
-
 <!-- HEADER -->
 <header>
-  <div class="container nav">
-    <div class="logo">
-      <img src="https://ellietee.github.io/wholepersonhealingcenter/logo.png" class="logo-img" alt="Logo">
-      <div class="logo-text">Whole Person<br>Healing Center</div>
-    </div>
-
-    <div class="menu">
-      <a href="index.html">Home</a>
-      <a href="join.html">Join Our Center</a>
-      <a href="providers.html">Find a Provider</a>
-      <a href="events.html">Events</a>
-      <a class="contact-btn" href="contactform.html">Contact Us</a>
-    </div>
-  </div>
+<div class="container nav">
+<div class="logo">
+<img alt="Logo" class="logo-img" src="https://ellietee.github.io/wholepersonhealingcenter/logo.png"/>
+<div class="logo-text">Whole Person<br/>Healing Center</div>
+</div>
+<div class="menu">
+<a href="index.html">Home</a>
+<a href="join.html">Join Our Center</a>
+<a href="providers.html">Find a Provider</a>
+<a href="events.html">Events</a>
+<a class="contact-btn" href="contactform.html">Contact Us</a>
+</div>
+</div>
 </header>
-
 <!-- PAGE CONTENT WRAPPER (FIX) -->
 <main class="page-content">
-
-<h1 style="text-align:center;">
-  Upcoming Events
-</h1>
-
-<div class="subtle" style="text-align:center;">
-  Here are the wonderful events unfolding this month. 
-</div>
-
+<section class="events-intro" aria-labelledby="events-welcome-heading">
+  <div class="events-intro-inner">
+  <h1 id="events-welcome-heading">Welcome to our community calendar!</h1>
+  <p>This is a space where healing, connection, and transformation come to life. Here you'll find events hosted by Whole Person Healing Center as well as offerings from our independent providers. From workshops and classes to sacred circles and seasonal gatherings, each event is an invitation to deepen your well-being and explore new paths to wholeness. We look forward to seeing you there!</p>
+  </div>
+</section>
+<h2 class="events-calendar-title">Upcoming Events</h2>
 <div class="calendar">
-
-  <div class="calendar-header">
-    <button onclick="changeMonth(-1)">‹</button>
-    <h2 id="monthYear"></h2>
-    <button onclick="changeMonth(1)">›</button>
-  </div>
-
-  <div class="days">
-    <div>Sun</div><div>Mon</div><div>Tue</div>
-    <div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
-  </div>
-
-  <div class="dates" id="dates"></div>
-
+<div class="calendar-header">
+<button aria-label="Previous month" onclick="changeMonth(-1)">‹</button>
+<h2 id="monthYear"></h2>
+<button aria-label="Next month" onclick="changeMonth(1)">›</button>
 </div>
-
+<div class="days">
+<div>Sun</div><div>Mon</div><div>Tue</div>
+<div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+</div>
+<div class="dates" id="dates"></div>
+</div>
 </main>
-
 <!-- MODAL -->
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <h3 id="modalDate"></h3>
-    <div id="modalEvents"></div>
-    <div class="close" onclick="closeModal()">Close</div>
-  </div>
+<div aria-label="Event details" aria-labelledby="modalDate" aria-modal="true" class="modal" id="modal" role="dialog">
+<div class="modal-content">
+<h3 id="modalDate"></h3>
+<div id="modalEvents"></div>
+<button class="close" onclick="closeModal()" type="button">← Back to Calendar</button>
 </div>
-
+</div>
 <!-- FOOTER -->
 <footer>
-  <div class="container footer-grid">
-
-    <div>
-      <h4>Whole Person Healing Center</h4>
-      <p>603 B Briarwood Drive<br>Myrtle Beach, SC 29572</p>
-      <a href="tel:18436633360">Tel: (843) 663-3360</a>
-      <p>Fax: (843) 663-3361</p>
-      <p>wholepersonhealingcenter@hushmail.com</p>
-    </div>
-
-     <div>
-        <h4>Socials</h4>
-        <a href="https://www.facebook.com/profile.php?id=61567455757501">Facebook</a>
-        <p>Instagram</p>
-      </div>
-
-      <div>
-        <h4>Menu</h4>
-        <a href="index.html">Home</a>
-        <a href="join.html">Join Our Center</a>
-        <a href="providers.html">Find a Provider</a>
-        <a href="events.html">Events</a>
-      </div>
-
-    <div>
-      <p>
-        Select imagery featured courtesy of Delwyn Windham<br>
+<div class="container footer-grid">
+<div>
+<h4>Whole Person Healing Center</h4>
+<p>603 B Briarwood Drive<br/>Myrtle Beach, SC 29572</p>
+<a href="tel:18436633360">Tel: (843) 663-3360</a>
+<p>Fax: (843) 663-3361</p>
+<a href="mailto:wholepersonhealingcenter@hushmail.com">wholepersonhealingcenter@hushmail.com</a>
+</div>
+<div>
+<h4>Socials</h4>
+<a href="https://www.facebook.com/profile.php?id=61567455757501">Facebook</a>
+<p>Instagram</p>
+</div>
+<div>
+<h4>Menu</h4>
+<a href="index.html">Home</a>
+<a href="join.html">Join Our Center</a>
+<a href="providers.html">Find a Provider</a>
+<a href="events.html">Events</a>
+</div>
+<div>
+<p>
+        Select imagery featured courtesy of Delwyn Windham<br/>
         windtography@gmail.com
       </p>
-    </div>
-
-  </div>
+</div>
+</div>
 </footer>
-
-<script>
+<script>// Edit events here. Add a Square checkout URL to paymentLink when available.
 const events = {
-  "2026-05-05": [{ time: "9:00 AM - 10:00 AM", title: "MELT Method Class", description: "MELT Method Class with Terry 'T' Williams: LMBT, Structural Therapist, Personal Trainer, Corrective Exercise Specialist, $20 per session. Limited space. Click or call today to reserve your space - 646-344-0434", paymentLink: "https://square.link/u/your-melt-class" }],
-  "2026-05-12": [{ time: "9:00 AM - 10:00 AM", title: "MELT Method Class", description: "MELT Method Class with Terry 'T' Williams: LMBT, Structural Therapist, Personal Trainer, Corrective Exercise Specialist, $20 per session. Limited space. Click or call today to reserve your space - 646-344-0434", paymentLink: "https://square.link/u/your-melt-class" }],
-  "2026-05-19": [{ time: "9:00 AM - 10:00 AM", title: "MELT Method Class", description: "MELT Method Class with Terry 'T' Williams: LMBT, Structural Therapist, Personal Trainer, Corrective Exercise Specialist, $20 per session. Limited space. Click or call today to reserve your space - 646-344-0434", paymentLink: "https://square.link/u/your-melt-class" }],
-  "2026-05-26": [{ time: "9:00 AM - 10:00 AM", title: "MELT Method Class", description: "MELT Method Class with Terry 'T' Williams: LMBT, Structural Therapist, Personal Trainer, Corrective Exercise Specialist, $20 per session. Limited space. Click or call today to reserve your space - 646-344-0434", paymentLink: "https://square.link/u/your-melt-class" }],
-  "2026-05-11": [{ time: "7:00 PM - 8:30 PM", title: "Hafiz Study and Meditation Group", description: "Join us for a peaceful and inspiring Hafiz Study & Meditation Group, guided by Shahin Khorsandi. Experience the beauty of meditation as passed from Meher Baba to Esfandiar, and settle into a space of stillness, reflection, and connection. Suggested donation $5. Come as you are, all are welcome.", paymentLink: "https://square.link/u/your-hafiz-group" }],
-  "2026-05-25": [{ time: "11:00 AM - 2:00 PM", title: "Inspirational Hafiz & Feng Shui Personal Readings", description: "Inspirational Hafiz & Feng Shui Personal Readings by Mehernoush McPherson. 45-60 minute individual sessions. Sliding Scale available. 843-331-0769. Call for your appointment to reserve your spot.", paymentLink: "https://square.link/u/your-readings" }],
-  "2026-06-01": [{ time: "6:30 PM - 8:00 PM", title: "Reiki Share", description: "Join us for a heart-centered Reiki Share where you can give and receive healing energy in a supportive space. Open to all levels! Come relax, connect, and leave feeling restored and renewed.", paymentLink: "https://square.link/u/your-reiki-share" }],
-  "2026-06-07": [{ time: "3:00 PM - 4:30 PM", title: "Sound Bath & Vibrational Healing Session", description: "Sound Bath & Vibrational Healing Session with Dineen Carta, Psychosynthesis Transformational Coaching, Sound & Vibrational Healing, Therapeutic Touch, $35 per person. Limited space. Click or call today to reserve your space - 843-481-0320", paymentLink: "https://square.link/u/your-sound-bath" }],
-  "2026-06-29": [{ time: "6:30 PM - 8:00 PM", title: "Reiki Share", description: "Join us for a heart-centered Reiki Share where you can give and receive healing energy in a supportive space. Open to all levels! Come relax, connect, and leave feeling restored and renewed.", paymentLink: "https://square.link/u/your-reiki-share" }]
+  '2026-10-24': [{
+    time: '10:00 AM – 2:00 PM',
+    title: 'Whole Person Healing Center Health Fair',
+    description: 'Everyone is welcome! Join us for a free community Health Fair featuring many of the practitioners at Whole Person Healing Center alongside other local vendors. Stop by anytime between 10 AM and 2 PM — no registration or sign-up required. More details coming soon!',
+    location: '603 B Briarwood Drive, Myrtle Beach, SC 29572',
+    paymentLink: '',
+    admission: 'FREE ADMISSION · NO SIGN-UP NEEDED'
+  }],
+  '2026-10-25': [{
+    time: '3:00 PM – 4:30 PM',
+    title: 'Group Sound Bath & Vibrational Healing — Last Sound Bath of 2026',
+    description: 'Group Sound Bath & Vibrational Healing with Dineen Carta, offering Psychosynthesis Transformational Coaching, Sound & Vibrational Healing, and Therapeutic Touch. $35 per person. Please bring a mat and pillows if desired. Limited space. To reserve your space, please use the Contact Us form.',
+    location: '603 B Briarwood Drive, Myrtle Beach, SC 29572',
+    paymentLink: '',
+    inquiryLink: 'contactform.html?inquiry=client'
+  }]
 };
-
 let currentDate = new Date();
-
+let lastFocusedElement = null;
+const modal = document.getElementById('modal');
+const modalEvents = document.getElementById('modalEvents');
+const backButton = modal.querySelector('.close');
+function formatDate(dateStr) {
+  const [year, month, day] = dateStr.split('-').map(Number);
+  return new Date(year, month - 1, day).toLocaleDateString('en-US', {weekday:'long',month:'long',day:'numeric',year:'numeric'});
+}
 function renderCalendar() {
-  const datesEl = document.getElementById("dates");
-  datesEl.innerHTML = "";
-
+  const datesEl = document.getElementById('dates');
+  datesEl.replaceChildren();
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();
-
-  document.getElementById("monthYear").innerText =
-    currentDate.toLocaleString("default", { month: "long", year: "numeric" });
-
-  const firstDay = new Date(year, month, 1).getDay();
-  const lastDate = new Date(year, month + 1, 0).getDate();
-
+  document.getElementById('monthYear').textContent = currentDate.toLocaleDateString('en-US',{month:'long',year:'numeric'});
+  const firstDay = new Date(year,month,1).getDay();
+  const lastDate = new Date(year,month+1,0).getDate();
   const today = new Date();
-
-  for (let i = 0; i < firstDay; i++) {
-    datesEl.innerHTML += "<div></div>";
-  }
-
-  for (let d = 1; d <= lastDate; d++) {
-
-    const dateStr =
-      `${year}-${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
-
-    const div = document.createElement("div");
-    div.className = "day";
-
-    let html = `<div class="date-number">${d}</div>`;
-
-    if (events[dateStr]) {
-      div.classList.add("event-day");
-
-      events[dateStr].forEach(ev => {
-        html += `
-          <div class="event"
-               onclick="event.stopPropagation(); openModal('${dateStr}')">
-               ${ev.time} · ${ev.title}
-          </div>
-        `;
-      });
+  for(let i=0;i<firstDay;i++) datesEl.appendChild(document.createElement('div'));
+  for(let day=1;day<=lastDate;day++) {
+    const dateStr = `${year}-${String(month+1).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
+    const cell = document.createElement('div');
+    cell.className = 'day';
+    const number = document.createElement('div');
+    number.className='date-number';number.textContent=day;
+    cell.appendChild(number);
+    if(day===today.getDate()&&month===today.getMonth()&&year===today.getFullYear()) cell.classList.add('today');
+    if(events[dateStr]) {
+      cell.classList.add('event-day','has-event');
+      for(const ev of events[dateStr]) {
+        const item=document.createElement('button');
+        item.type='button';item.className='event';
+        item.textContent=ev.title;
+        item.setAttribute('aria-label',`${formatDate(dateStr)}: ${ev.title}. View details`);
+        item.style.border='0';item.style.width='100%';item.style.textAlign='left';item.style.fontFamily='inherit';
+        item.addEventListener('click',()=>openModal(dateStr));
+        cell.appendChild(item);
+      }
     }
-
-    div.innerHTML = html;
-
-    if (
-      d === today.getDate() &&
-      month === today.getMonth() &&
-      year === today.getFullYear()
-    ) {
-      div.classList.add("today");
-    }
-
-    div.onclick = () => openModal(dateStr);
-
-    datesEl.appendChild(div);
+    datesEl.appendChild(cell);
   }
 }
-
 function changeMonth(offset) {
-  currentDate.setMonth(currentDate.getMonth() + offset);
+  currentDate.setDate(1);
+  currentDate.setMonth(currentDate.getMonth()+offset);
   renderCalendar();
 }
-
 function openModal(dateStr) {
-  const modal = document.getElementById("modal");
-  const modalEvents = document.getElementById("modalEvents");
-
-  modal.classList.add("active");
-  document.getElementById("modalDate").innerText = dateStr;
-
-  modalEvents.innerHTML = "";
-
-  if (!events[dateStr]) {
-    modalEvents.innerHTML = "<p>No events scheduled</p>";
-    return;
+  if(!events[dateStr]) return;
+  lastFocusedElement=document.activeElement;
+  document.getElementById('modalDate').textContent=formatDate(dateStr);
+  modalEvents.replaceChildren();
+  for(const ev of events[dateStr]) {
+    const section=document.createElement('section');section.className='event-detail';
+    const title=document.createElement('h4');title.textContent=ev.title;section.appendChild(title);
+    const time=document.createElement('p');time.className='event-meta';time.textContent='🕒 '+ev.time;section.appendChild(time);
+    if(ev.location){const loc=document.createElement('p');loc.className='event-meta';loc.textContent='📍 '+ev.location;section.appendChild(loc);}
+    if(ev.admission){const admission=document.createElement('p');admission.className='event-admission';admission.textContent=ev.admission;section.appendChild(admission);}
+    const desc=document.createElement('p');desc.className='event-description';desc.textContent=ev.description;section.appendChild(desc);
+    if(ev.paymentLink){const pay=document.createElement('a');pay.className='payment-link';pay.href=ev.paymentLink;pay.target='_blank';pay.rel='noopener noreferrer';pay.textContent='Register & Pay with Square';section.appendChild(pay);}
+    if(ev.inquiryLink){const inquire=document.createElement('a');inquire.className='payment-link';inquire.href=ev.inquiryLink;inquire.textContent='Contact Us to Reserve';section.appendChild(inquire);}
+    modalEvents.appendChild(section);
   }
-
-  events[dateStr].forEach(ev => {
-    const div = document.createElement("div");
-    div.innerHTML = `
-      <strong>${ev.time}</strong><br>
-      <strong>${ev.title}</strong><br><br>
-      <p>${ev.description}</p><br>
-      <a href="${ev.paymentLink}" target="_blank" class="payment-link">Register & Pay</a>
-    `;
-    modalEvents.appendChild(div);
-  });
+  modal.classList.add('active');
+  document.body.classList.add('modal-open');
+  backButton.focus();
 }
-
-function closeModal() {
-  document.getElementById("modal").classList.remove("active");
+function closeModal(){
+  if(!modal.classList.contains('active')) return;
+  modal.classList.remove('active');
+  document.body.classList.remove('modal-open');
+  if(lastFocusedElement?.isConnected) lastFocusedElement.focus();
 }
-
+modal.addEventListener('click',e=>{if(e.target===modal) closeModal();});
+document.addEventListener('keydown',e=>{
+  if(!modal.classList.contains('active'))return;
+  if(e.key==='Escape')closeModal();
+  if(e.key==='Tab'){
+    const focusable=[...modal.querySelectorAll('a[href],button:not([disabled])')];
+    const first=focusable[0],last=focusable[focusable.length-1];
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+  }
+});
 renderCalendar();
 </script>
-
 </body>
 </html>
