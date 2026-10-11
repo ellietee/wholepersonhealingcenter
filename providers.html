@@ -128,9 +128,7 @@ details[open] .chevron { transform:rotate(180deg); }
 .provider-hero .subtle {color:var(--text)}
 .cta {
   --cta-floral-image:none; /* Example: url("assets/healing-journey-floral.jpg") */
-    width: 100vw;
-margin-left: calc(50% - 50vw);
-max-width: none;
+  width:100%; max-width:none; margin:65px 0 0; padding:75px 20px;
   background-color:#f0e4da;
   background-image:linear-gradient(rgba(245,239,233,.84),rgba(245,239,233,.84)),var(--cta-floral-image);
   background-size:cover; background-position:center;
@@ -141,6 +139,22 @@ max-width: none;
 @media(max-width:600px){
  .provider-hero {margin:0 0 35px; border-radius:0; padding:55px 20px}
  .cta {margin-top:45px; padding:55px 20px}
+}
+
+/* Shared WPHC footer: balanced desktop columns and responsive spacing */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 0.8fr 0.8fr 1fr;
+  gap: 25px;
+  align-items: start;
+}
+.footer-grid a[href^="mailto:"] { white-space: nowrap; }
+@media (max-width: 1024px) {
+  .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px; }
+  .footer-grid a[href^="mailto:"] { white-space: normal; overflow-wrap: anywhere; }
+}
+@media (max-width: 600px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 25px; text-align: center; }
 }
 </style><meta content="Meet independent wellness practitioners at Whole Person Healing Center in Myrtle Beach, SC. Explore counseling, physical therapy, energy healing, bodywork and more." name="description"/><link href="https://www.wholepersonhealingcenter.com/find-a-provider" rel="canonical"/><meta content="website" property="og:type"/><meta content="Find a Provider | Whole Person Healing Center" property="og:title"/><meta content="Explore the practitioners at Whole Person Healing Center in Myrtle Beach, SC." property="og:description"/><meta content="https://www.wholepersonhealingcenter.com/find-a-provider" property="og:url"/><meta content="summary" name="twitter:card"/><meta content="index,follow" name="robots"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Find a Provider | Whole Person Healing Center", "url": "https://www.wholepersonhealingcenter.com/find-a-provider", "about": {"@type": "Organization", "name": "Whole Person Healing Center", "address": {"@type": "PostalAddress", "streetAddress": "603 B Briarwood Drive", "addressLocality": "Myrtle Beach", "addressRegion": "SC", "postalCode": "29572"}}}</script><style>
 /* Founder portrait and name share one row; biography follows below. */
@@ -233,7 +247,7 @@ With over four decades of experience in integrative mind-body-spirit approaches 
 <br/>Email: <a href="mailto:elle@healingbeach.org">elle@healingbeach.org</a>
 <br/>Website: <a href="https://www.healingbeach.org" rel="noopener noreferrer" target="_blank">www.healingbeach.org</a></p>
 </div></details>
-<section class="cta" aria-label="Start your healing journey"><div class="cta-content"><h2>Start Your Healing Journey</h2><p>Reach out directly to a provider above or connect with us below.</p><a href="contactform.html">Contact Us</a></div></section>
+<section class="cta" aria-label="Start your healing journey"><div class="cta-content"><h2>Start Your Healing Journey</h2><p>Reach out directly to a provider above or connect with us below.</p><a href="contactform.html?inquiry=client">Contact Us</a></div></section>
 </main><footer>
 <div class="container footer-grid">
 <div>
