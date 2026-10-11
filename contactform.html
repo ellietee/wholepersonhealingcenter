@@ -382,6 +382,22 @@ footer{background:var(--green);color:white;padding:40px 0;margin-top:auto}
 .submit:disabled{opacity:.65;cursor:wait}
 
 .inquiry-feedback[hidden], .form-section form[hidden]{display:none!important}
+
+/* Balanced site-wide footer layout */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 0.8fr 0.8fr 1fr;
+  gap: 25px;
+  align-items: start;
+}
+.footer-grid a[href^="mailto:"] { white-space: nowrap; }
+@media (max-width: 1024px) {
+  .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px; }
+  .footer-grid a[href^="mailto:"] { white-space: normal; overflow-wrap: anywhere; }
+}
+@media (max-width: 600px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 25px; text-align: center; }
+}
 </style>
 </head>
 <body>
