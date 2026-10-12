@@ -163,7 +163,7 @@ section{padding:clamp(65px,7vw,100px) 20px;text-align:center}section h2{font-siz
    btn.setAttribute('aria-label',offset===0?item.label:'Show '+item.label);
    if(offset===0)btn.setAttribute('aria-current','true');
    const empty=document.createElement('span');empty.className='tour-empty';
-   empty.innerHTML='<strong>'+item.label+'</strong><small>Replace with your center photo</small>';
+   empty.textContent=''; // No visible placeholder labels; accessible photo names remain in aria-label/alt.
    btn.appendChild(empty);
 
    const img=new Image();img.alt=item.label;img.loading=offset===0?'eager':'lazy';
