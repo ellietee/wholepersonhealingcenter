@@ -134,6 +134,23 @@
     .home-service-detail .home-service-providers { margin:10px 0 14px; }
     .home-service-providers a { display:inline; }
 
+/* Subtle photograph behind only the Why Choose section */
+.center-block.why-photo-section {
+  position:relative;
+  isolation:isolate;
+  width:100%;
+  max-width:none;
+}
+.center-block.why-photo-section::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background-image:linear-gradient(rgba(245,239,233,.86),rgba(245,239,233,.86)),url("why choose WPHC.jpg");
+  background-position:center;
+  background-size:cover;
+  border-radius:0;
+}
 /* Refined Why Choose WPHC section — airy, concise, and responsive */
 .center-block { padding:clamp(52px,7vw,90px) 0 clamp(60px,7vw,88px); }
 .why-intro { text-align:center; max-width:750px; margin:0 auto 36px; }
@@ -191,7 +208,8 @@
 </div>
 </section>
 <!-- WHY CHOOSE US -->
-<section aria-labelledby="why-wphc-heading" class="center-block container">
+<section aria-labelledby="why-wphc-heading" class="center-block why-photo-section">
+<div class="container">
 <div class="why-intro">
 <span class="why-eyebrow">A DIFFERENT KIND OF HEALING SPACE</span>
 <h2 id="why-wphc-heading">Why Choose Whole Person Healing Center?</h2>
@@ -203,6 +221,7 @@
 <article class="why-benefit"><span aria-hidden="true" class="why-icon">✧</span><h3>Independent Practitioners</h3><p>Explore different specialties and connect directly with the provider who fits your needs.</p></article>
 <article class="why-benefit"><span aria-hidden="true" class="why-icon">❋</span><h3>Many Paths, One Place</h3><p>A variety of wellness approaches in one welcoming Myrtle Beach location.</p></article>
 <article class="why-benefit"><span aria-hidden="true" class="why-icon">☼</span><h3>A Place to Belong</h3><p>A warm, collaborative environment built around community and connection.</p></article>
+</div>
 </div>
 </section>
 <!-- EXPLORE OUR SERVICES: interactive overview integrated into homepage -->
