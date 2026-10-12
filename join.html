@@ -154,6 +154,18 @@ section{padding:clamp(65px,7vw,100px) 20px;text-align:center}section h2{font-siz
  const root=document.querySelector('.center-tour');
  if(!root)return;
  const items=[...root.querySelectorAll('.tour-sources [data-photo]')].map(el=>({src:el.dataset.photo,label:el.dataset.label}));
+ // Start downloading all 11 carousel images immediately, rather than waiting for navigation.
+ // Prioritize the initially visible images (last, first, second); browser cache is reused.
+ const preloadOrder=[items.length-1,0,1,...items.map((_,i)=>i).filter(i=>i!==items.length-1&&i!==0&&i!==1)];
+ const preloadedImages=new Map();
+ preloadOrder.forEach((index,position)=>{
+   const image=new Image();
+   image.loading='eager';
+   image.decoding='async';
+   if(position<3) image.fetchPriority='high';
+   image.src=items[index].src;
+   preloadedImages.set(index,image);
+ });
  const track=root.querySelector('#tour-track'),counter=root.querySelector('#tour-count'),toggle=root.querySelector('#tour-toggle');
  let current=0,paused=window.matchMedia('(prefers-reduced-motion: reduce)').matches,timer;
  function photo(offset){
@@ -166,7 +178,7 @@ section{padding:clamp(65px,7vw,100px) 20px;text-align:center}section h2{font-siz
    empty.textContent=''; // No visible placeholder labels; accessible photo names remain in aria-label/alt.
    btn.appendChild(empty);
 
-   const img=new Image();img.alt=item.label;img.loading=offset===0?'eager':'lazy';
+   const img=new Image();img.alt=item.label;img.loading='eager';
    img.onload=()=>{if(btn.isConnected){btn.replaceChildren(img)}};
    img.src=item.src;
    if(offset!==0)btn.addEventListener('click',()=>move(offset));
