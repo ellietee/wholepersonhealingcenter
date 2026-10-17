@@ -439,9 +439,10 @@ footer{background:var(--green);color:white;padding:40px 0;margin-top:auto}
 <!-- PROVIDER FORM -->
 <div class="form-section" id="provider">
 <h3>Practitioner Inquiry</h3>
-<form action="https://api.web3forms.com/submit" method="POST">
-<input name="access_key" type="hidden" value="YOUR_ACCESS_KEY"/>
-<input name="form_type" type="hidden" value="Practitioner Inquiry"/>
+<form action="https://formsubmit.co/ajax/wholepersonhealingcenter@hushmail.com" method="POST">
+<input type="hidden" name="_subject" value="WPHC - Provider Inquiry"/>
+<input type="hidden" name="_captcha" value="true"/>
+<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true"/>
 <div class="row">
 <div>
 <label for="provider-first_name-0">First Name</label>
@@ -507,9 +508,10 @@ footer{background:var(--green);color:white;padding:40px 0;margin-top:auto}
 <!-- CLIENT FORM -->
 <div class="form-section" id="client">
 <h3>Client Inquiry</h3>
-<form action="https://api.web3forms.com/submit" method="POST">
-<input name="access_key" type="hidden" value="YOUR_ACCESS_KEY"/>
-<input name="form_type" type="hidden" value="Client Inquiry"/>
+<form action="https://formsubmit.co/ajax/wholepersonhealingcenter@hushmail.com" method="POST">
+<input type="hidden" name="_subject" value="WPHC - Client Inquiry"/>
+<input type="hidden" name="_captcha" value="true"/>
+<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true"/>
 <div class="row">
 <div>
 <label for="client-first_name-0">First Name</label>
@@ -615,13 +617,6 @@ document.querySelectorAll('.form-section form').forEach(form => {
     if (!form.reportValidity()) return;
     feedback.hidden = true;
     feedback.classList.remove('error');
-    const accessKey = form.querySelector('[name="access_key"]')?.value.trim();
-    if (!accessKey || accessKey === 'YOUR_ACCESS_KEY') {
-      feedback.classList.add('error');
-      feedback.innerHTML = '<h4>Almost ready!</h4><p>This form is being connected. Please contact us at <a href="mailto:wholepersonhealingcenter@hushmail.com">wholepersonhealingcenter@hushmail.com</a> in the meantime.</p>';
-      feedback.hidden = false;
-      return;
-    }
     button.disabled = true;
     button.textContent = 'Sending your inquiry…';
     try {
@@ -631,7 +626,7 @@ document.querySelectorAll('.form-section form').forEach(form => {
         headers: { 'Accept': 'application/json' }
       });
       const result = await response.json();
-      if (!response.ok || !result.success) throw new Error('Submission unsuccessful');
+      if (!response.ok || (result.success !== true && result.success !== 'true')) throw new Error('Submission unsuccessful');
       form.reset();
       const rental = document.getElementById('rentalPreferences');
       if (rental && form.closest('#provider')) rental.style.display = 'none';
