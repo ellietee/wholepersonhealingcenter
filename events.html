@@ -547,6 +547,15 @@ h1 {
 .events-intro p { font-size:16px; line-height:1.85; font-weight:400; color:#2b453b; }
 .events-intro p .events-signoff { display:block; margin-top:14px; font-weight:600; color:#315f4b; }
 @media(max-width:600px){.events-intro{padding:30px 14px;min-height:0}.events-intro-inner{padding:24px 19px;border-radius:14px}.events-intro h1{font-size:27px}.events-intro p{font-size:15px;line-height:1.75}}
+
+/* October Fall Health Fest calendar detail styling */
+.event-provider-heading{font-family:'Playfair Display',serif;font-size:19px;color:#2f5a4d;margin:16px 0 8px}
+.event-providers{padding-left:21px;margin:0 0 16px;color:#2f5a4d;font-size:14px;line-height:1.65}
+.event-providers li{margin:5px 0}
+.event-vendor{padding:12px 14px;background:#fff3ed;border-left:4px solid #e6a97e;border-radius:8px;font-weight:600}
+.event-extra{margin:12px 0!important}
+.event-extra a{color:#285d4a;text-decoration:underline;overflow-wrap:anywhere}
+
 </style>
 </head>
 <body>
@@ -630,11 +639,27 @@ h1 {
 const events = {
   '2026-10-24': [{
     time: '10:00 AM – 2:00 PM',
-    title: 'Whole Person Healing Center Health Fest',
-    description: 'Everyone is welcome! Join us for a free community Health Fest featuring many of the practitioners at Whole Person Healing Center alongside other local vendors. Stop by anytime between 10 AM and 2 PM for free demonstrations — no registration or sign-up required. More details coming soon!',
+    title: 'October Fall Health Fest',
+    description: 'A Celebration of Wellness & Community! Join Whole Person Healing Center, LLC for a joyful day of healing, connection, and autumn vibes. Free to the public — all are welcome! Enjoy an outdoor vendor market featuring local providers, wellness products, and holistic services, plus free demonstrations from our providers.',
     location: '603 B Briarwood Drive, Myrtle Beach, SC 29572',
-    paymentLink: '',
-    admission: 'FREE ADMISSION · NO SIGN-UP NEEDED'
+    admission: 'FREE TO THE PUBLIC · ALL ARE WELCOME',
+    highlights: [
+      'Network Spinal & SOT — Dr. Jim Oppenheim',
+      'Brainspotting — Dr. Robin Reeves-Oppenheim',
+      'Holistic Physical Therapy — Dr. Elle Todd',
+      'PEMF & Vibrational Healing — Deborah Smith',
+      'Alexander Technique class — Lenita Silveira',
+      'Intuitive & Energy Healing — Stephany Kraft',
+      'Light and Sound Waves — Russell Preister',
+      'Ocean Therapy — Sondra Booth, LPC',
+      'Reiki Healing & Tarot Readings — Steff Welborn',
+      'Hafiz and Feng Shui Readings — Meheru McPherson'
+    ],
+    vendorInfo: 'Outdoor vendor market · Vendor tables available for $25 — reserve your spot today!',
+    refreshments: 'Refreshments provided by Le Bon Café & Bakery.',
+    closingNote: 'Expect laughter, learning, and light — all in one beautiful space.',
+    contactName: 'Dr. Robin Reeves-Oppenheim',
+    contactEmail: 'wholepersonhealingcenter@hushmail.com'
   }],
 '2026-10-25': [{
   time: '3:00 PM – 4:30 PM',
@@ -704,6 +729,20 @@ function openModal(dateStr) {
     if(ev.location){const loc=document.createElement('p');loc.className='event-meta';loc.textContent='📍 '+ev.location;section.appendChild(loc);}
     if(ev.admission){const admission=document.createElement('p');admission.className='event-admission';admission.textContent=ev.admission;section.appendChild(admission);}
     const desc=document.createElement('p');desc.className='event-description';desc.textContent=ev.description;section.appendChild(desc);
+    if(ev.vendorInfo){const vendor=document.createElement('p');vendor.className='event-vendor';vendor.textContent=ev.vendorInfo;section.appendChild(vendor);}
+    if(ev.highlights?.length){
+      const heading=document.createElement('h5');heading.className='event-provider-heading';heading.textContent='Meet Our Providers · Free Demonstrations';section.appendChild(heading);
+      const list=document.createElement('ul');list.className='event-providers';
+      for(const highlight of ev.highlights){const item=document.createElement('li');item.textContent=highlight;list.appendChild(item);}
+      section.appendChild(list);
+    }
+    if(ev.refreshments){const p=document.createElement('p');p.className='event-extra';p.textContent=ev.refreshments;section.appendChild(p);}
+    if(ev.closingNote){const p=document.createElement('p');p.className='event-extra';p.textContent=ev.closingNote;section.appendChild(p);}
+    if(ev.contactEmail){
+      const p=document.createElement('p');p.className='event-extra';p.append('Vendor reservations and event questions: '+(ev.contactName||'WPHC')+' · ');
+      const a=document.createElement('a');a.href='mailto:'+ev.contactEmail+'?subject='+encodeURIComponent('October Fall Health Fest Inquiry');a.textContent=ev.contactEmail;p.appendChild(a);section.appendChild(p);
+    }
+
     if(ev.paymentLink){const pay=document.createElement('a');pay.className='payment-link';pay.href=ev.paymentLink;pay.target='_blank';pay.rel='noopener noreferrer';pay.textContent='Register & Pay with Square';section.appendChild(pay);}
     if(ev.inquiryLink){const inquire=document.createElement('a');inquire.className='payment-link';inquire.href=ev.inquiryLink;inquire.textContent='Contact Us to Reserve';section.appendChild(inquire);}
     modalEvents.appendChild(section);
