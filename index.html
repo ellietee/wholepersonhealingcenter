@@ -327,5 +327,104 @@
 </div>
 </div>
 </footer>
+<!-- WPHC Fall Health Fest announcement: paste this entire snippet immediately before </body> on the homepage. -->
+<style>
+  .wphc-fest-overlay[hidden]{display:none!important}
+  .wphc-fest-overlay{position:fixed;inset:0;z-index:99999;background:rgba(26,28,31,.66);display:grid;place-items:center;padding:18px;backdrop-filter:blur(4px)}
+  .wphc-fest-modal{position:relative;box-sizing:border-box;width:min(680px,100%);max-height:min(88vh,850px);overflow-y:auto;overscroll-behavior:contain;background:#fffaf1;color:#33342e;border:1px solid #edc8a5;border-radius:20px;box-shadow:0 22px 75px rgba(0,0,0,.33);font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+  .wphc-fest-head{text-align:center;padding:29px 44px 23px;background:linear-gradient(140deg,#704b38,#a7633e 60%,#c48a4b);color:#fff9f0}
+  .wphc-fest-head .eyebrow{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin:0 0 9px}
+  .wphc-fest-head h2{font-size:clamp(1.7rem,5vw,2.5rem);line-height:1.13;color:#fff9f0;margin:0 0 11px}
+  .wphc-fest-head .date{font-weight:700;font-size:1.08rem;margin:0 0 5px}
+  .wphc-fest-head .address{font-size:.91rem;margin:0}
+  .wphc-fest-close{position:absolute;right:13px;top:11px;width:35px;height:35px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.6);border-radius:50%;background:rgba(0,0,0,.17);color:white;font-size:24px;cursor:pointer;line-height:1}
+  .wphc-fest-close:hover,.wphc-fest-close:focus-visible{background:rgba(0,0,0,.38)}
+  .wphc-fest-body{padding:22px clamp(18px,5vw,35px) 28px}
+  .wphc-fest-body h3{font-size:1.13rem;color:#73472f;margin:19px 0 9px}
+  .wphc-fest-body p{line-height:1.55;margin:8px 0}
+  .wphc-fest-free{display:inline-block;background:#e8f2df;color:#35512e;font-weight:800;border-radius:100px;padding:8px 15px;margin:11px 0}
+  .wphc-fest-body ul{margin:8px 0 13px;padding-left:21px;line-height:1.6}
+  .wphc-fest-body li{margin-bottom:5px}
+  .wphc-fest-note{background:#f9edda;border-left:4px solid #c47c3b;padding:11px 14px;border-radius:5px}
+  .wphc-fest-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+  .wphc-fest-actions a,.wphc-fest-actions button{display:inline-block;border-radius:9px;padding:12px 17px;font:700 .94rem system-ui,sans-serif;text-decoration:none;cursor:pointer}
+  .wphc-fest-actions a{background:#754c3b;color:white;border:1px solid #754c3b}
+  .wphc-fest-actions button{background:transparent;color:#754c3b;border:1px solid #ad8167}
+  .wphc-fest-small{font-size:.85rem;color:#5e6057}
+  .wphc-fest-body a{overflow-wrap:anywhere}
+  @media(max-width:520px){.wphc-fest-overlay{padding:9px}.wphc-fest-modal{max-height:94dvh;border-radius:13px}.wphc-fest-head{padding:26px 39px 19px}.wphc-fest-body{padding:17px}}
+  @media(prefers-reduced-motion:no-preference){.wphc-fest-modal{animation:wphcFestEnter .25s ease-out}@keyframes wphcFestEnter{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}}
+</style>
+<div id="wphc-fest-overlay" class="wphc-fest-overlay" hidden>
+  <section class="wphc-fest-modal" role="dialog" aria-modal="true" aria-labelledby="wphc-fest-title" aria-describedby="wphc-fest-intro" tabindex="-1">
+    <header class="wphc-fest-head">
+      <button class="wphc-fest-close" type="button" aria-label="Close event announcement" data-wphc-fest-close>&times;</button>
+      <p class="eyebrow">Whole Person Healing Center, LLC</p>
+      <h2 id="wphc-fest-title">🍁 October Fall Health Fest</h2>
+      <p class="date">Saturday, October 24, 2026 · 10 AM – 2 PM</p>
+      <p class="address">📍 603 B Briarwood Drive, Myrtle Beach, SC</p>
+    </header>
+    <div class="wphc-fest-body">
+      <h3>A Celebration of Wellness &amp; Community</h3>
+      <p id="wphc-fest-intro">Join us for a joyful day of healing, connection, and autumn vibes!</p>
+      <div class="wphc-fest-free">Free to the public — all are welcome!</div>
+      <h3>🍂 Outdoor Vendor Market</h3>
+      <p>Local providers, wellness products, and holistic services.</p>
+      <p class="wphc-fest-note"><strong>Vendor tables available for $25</strong> — reserve your spot today!</p>
+      <h3>✨ Meet Our Providers · Free Demonstrations</h3>
+      <ul>
+        <li>Network Spinal &amp; SOT — Dr. Jim Oppenheim</li>
+        <li>Brainspotting — Dr. Robin Reeves-Oppenheim</li>
+        <li>Holistic Physical Therapy — Dr. Elle Todd</li>
+        <li>PEMF &amp; Vibrational Healing — Deborah Smith</li>
+        <li>Alexander Technique class — Lenita Silveira</li>
+        <li>Intuitive &amp; Energy Healing — Stephany Kraft</li>
+        <li>Light and Sound Waves — Russell Preister</li>
+        <li>Ocean Therapy — Sondra Booth, LPC</li>
+        <li>Reiki Healing &amp; Tarot Readings — Steff Welborn</li>
+        <li>Hafiz and Feng Shui Readings — Meheru McPherson</li>
+      </ul>
+      <p><strong>☕ Refreshments provided by Le Bon Café &amp; Bakery</strong></p>
+      <p>Expect laughter, learning, and light — all in one beautiful space.</p>
+      <h3>Questions or vendor reservations?</h3>
+      <p>Contact Dr. Robin Reeves-Oppenheim at <a href="mailto:wholepersonhealingcenter@hushmail.com">wholepersonhealingcenter@hushmail.com</a>.</p>
+      <p class="wphc-fest-small"><a href="https://www.wholepersonhealingcenter.com" target="_blank" rel="noopener noreferrer">wholepersonhealingcenter.com</a> · Find us on Google Maps as “Whole Person Healing Center, LLC”</p>
+      <div class="wphc-fest-actions">
+        <a href="mailto:wholepersonhealingcenter@hushmail.com?subject=October%20Fall%20Health%20Fest%20Vendor%20Table">Reserve a Vendor Table</a>
+        <button type="button" data-wphc-fest-close>Explore Our Website</button>
+      </div>
+    </div>
+  </section>
+</div>
+<script>
+(function(){
+  const overlay=document.getElementById('wphc-fest-overlay');
+  if(!overlay)return;
+  const modal=overlay.querySelector('.wphc-fest-modal');
+  const key='wphc-fall-fest-2026-seen';
+  // After the event ends in Myrtle Beach (EDT), no longer show this announcement.
+  if(Date.now()>=Date.parse('2026-10-24T14:00:00-04:00'))return;
+  try{if(sessionStorage.getItem(key)==='yes')return;}catch(e){}
+  let previousFocus=document.activeElement;
+  function close(){overlay.hidden=true;document.removeEventListener('keydown',handleKey);if(previousFocus&&previousFocus.focus)previousFocus.focus();}
+  function handleKey(e){
+    if(e.key==='Escape'){close();return;}
+    if(e.key==='Tab'){
+      const focusables=[...modal.querySelectorAll('a[href],button:not([disabled])')];
+      if(!focusables.length)return;
+      const first=focusables[0],last=focusables[focusables.length-1];
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+    }
+  }
+  overlay.hidden=false;
+  try{sessionStorage.setItem(key,'yes');}catch(e){}
+  modal.querySelector('.wphc-fest-close').focus();
+  overlay.querySelectorAll('[data-wphc-fest-close]').forEach(btn=>btn.addEventListener('click',close));
+  overlay.addEventListener('click',e=>{if(e.target===overlay)close();});
+  document.addEventListener('keydown',handleKey);
+})();
+</script>
+
 </body>
 </html>
