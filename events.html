@@ -563,6 +563,24 @@ h1 {
 .event-registration p{margin-bottom:10px}
 
 .registration-form{display:grid;gap:12px}.registration-form label{display:block;font-size:14px;font-weight:500}.registration-form input:not([type=radio]):not([type=hidden]),.registration-form select{display:block;width:100%;padding:10px;border:1px solid #9db9ab;border-radius:8px;font:inherit;background:white;margin-top:4px}.registration-form fieldset{border:1px solid #c7e4d5;border-radius:8px;padding:10px}.registration-form fieldset label{margin:8px 0}.registration-form .payment-link{border:0;font-family:inherit;margin:0}.zelle-box{background:#e7f3e9;padding:12px;border-radius:10px}.zelle-box .btn{background:white;color:#28513f;margin-bottom:10px}.registration-status:empty{display:none}
+.series-date{display:block;width:100%;margin:10px 0;text-align:center;font:500 14px Montserrat,sans-serif;padding:14px;border:0;min-height:44px}
+
+/* Compact mobile calendar: full titles on desktop, highlighted dates on phones. */
+.mobile-event-trigger,.mobile-calendar-legend{display:none}
+@media(max-width:700px){
+  .calendar .days,.calendar .dates{grid-template-columns:repeat(7,minmax(0,1fr))}
+  .calendar .day{height:58px;min-height:0;padding:0;margin:2px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+  .calendar .day:hover{transform:none}
+  .calendar .date-number{margin:0;font-size:13px;opacity:1}
+  .calendar .day.has-event{background:#c7e4d5;border:1px solid #3c6e5a}
+  .calendar .day.has-event .date-number,.calendar .day .event{display:none}
+  .calendar .mobile-event-trigger{display:flex;position:absolute;inset:0;width:100%;height:100%;border:0;background:transparent;color:#284c40;align-items:center;justify-content:center;flex-direction:column;gap:5px;font:600 13px Montserrat,sans-serif;cursor:pointer}
+  .mobile-event-trigger::after{content:'View Event';display:block;max-width:100%;box-sizing:border-box;padding:2px 3px;border-radius:4px;background:#3c6e5a;color:#fff;font:600 9px/1.1 Montserrat,sans-serif;white-space:normal;text-align:center;overflow-wrap:normal;letter-spacing:0}
+  .mobile-event-trigger:focus-visible{outline:3px solid #a66b38;outline-offset:-4px}
+  .mobile-calendar-legend{display:flex;align-items:center;justify-content:center;gap:8px;font-size:12px;color:#2f5a4d;margin:12px 4px 4px;text-align:center}
+  .mobile-calendar-legend::before{content:'';width:12px;height:12px;border-radius:4px;background:#c7e4d5;border:1px solid #3c6e5a;flex-shrink:0}
+}
+
 </style>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -607,6 +625,7 @@ h1 {
 <div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
 </div>
 <div class="dates" id="dates"></div>
+<p class="mobile-calendar-legend">Tap a highlighted date to view event details</p>
 </div>
 </main>
 <!-- MODAL -->
@@ -702,7 +721,8 @@ const events = {
     "description": "Join renowned kirtan recording artist, mantra healer, and ngamka Lee Mirabai Harrington for weekly satsang in Myrtle Beach. We’ll chant healing mantras from the Tibetan Buddhist and Vedic traditions to help calm the mind, open the heart, heal the body, and purify the voice.\n\n$10 advance registration; $15 at the door. Space is very limited, so reservations are recommended.\n\nPlease bring cushions or backjacks as needed.\n\nThis is a precious opportunity to chant in an intimate setting with Lee, who has sung mantras at Madison Square Garden and led kirtans and workshops at such venues as Tibet House, Menla, Kripalu, Omega, Sivananda Bahamas, Yogaville, and more.",
     "location": "603 B Briarwood Drive, Myrtle Beach, SC 29572",
     "admission": "$10 ADVANCE · $15 AT THE DOOR",
-    "registrationEmail": "WPHCcontact@gmail.com"
+    "registrationEmail": "WPHCcontact@gmail.com",
+    "registrationSeries": "kirtan"
 }],
   '2026-12-09': [{
     "time": "7:00 PM – 8:30 PM",
@@ -710,7 +730,8 @@ const events = {
     "description": "Join renowned kirtan recording artist, mantra healer, and ngamka Lee Mirabai Harrington for weekly satsang in Myrtle Beach. We’ll chant healing mantras from the Tibetan Buddhist and Vedic traditions to help calm the mind, open the heart, heal the body, and purify the voice.\n\n$10 advance registration; $15 at the door. Space is very limited, so reservations are recommended.\n\nPlease bring cushions or backjacks as needed.\n\nThis is a precious opportunity to chant in an intimate setting with Lee, who has sung mantras at Madison Square Garden and led kirtans and workshops at such venues as Tibet House, Menla, Kripalu, Omega, Sivananda Bahamas, Yogaville, and more.",
     "location": "603 B Briarwood Drive, Myrtle Beach, SC 29572",
     "admission": "$10 ADVANCE · $15 AT THE DOOR",
-    "registrationEmail": "WPHCcontact@gmail.com"
+    "registrationEmail": "WPHCcontact@gmail.com",
+    "registrationSeries": "kirtan"
 }],
   '2026-12-16': [{
     "time": "7:00 PM – 8:30 PM",
@@ -718,7 +739,8 @@ const events = {
     "description": "Join renowned kirtan recording artist, mantra healer, and ngamka Lee Mirabai Harrington for weekly satsang in Myrtle Beach. We’ll chant healing mantras from the Tibetan Buddhist and Vedic traditions to help calm the mind, open the heart, heal the body, and purify the voice.\n\n$10 advance registration; $15 at the door. Space is very limited, so reservations are recommended.\n\nPlease bring cushions or backjacks as needed.\n\nThis is a precious opportunity to chant in an intimate setting with Lee, who has sung mantras at Madison Square Garden and led kirtans and workshops at such venues as Tibet House, Menla, Kripalu, Omega, Sivananda Bahamas, Yogaville, and more.",
     "location": "603 B Briarwood Drive, Myrtle Beach, SC 29572",
     "admission": "$10 ADVANCE · $15 AT THE DOOR",
-    "registrationEmail": "WPHCcontact@gmail.com"
+    "registrationEmail": "WPHCcontact@gmail.com",
+    "registrationSeries": "kirtan"
 }]
 };
 let currentDate = new Date();
@@ -750,6 +772,12 @@ function renderCalendar() {
     if(day===today.getDate()&&month===today.getMonth()&&year===today.getFullYear()) cell.classList.add('today');
     if(events[dateStr]) {
       cell.classList.add('event-day','has-event');
+      const mobileTrigger=document.createElement('button');
+      mobileTrigger.type='button';mobileTrigger.className='mobile-event-trigger';
+      mobileTrigger.textContent=day;
+      mobileTrigger.setAttribute('aria-label',`${formatDate(dateStr)}: ${events[dateStr].map(ev=>ev.title).join('; ')}. View details`);
+      mobileTrigger.addEventListener('click',()=>openModal(dateStr));
+      cell.appendChild(mobileTrigger);
       for(const ev of events[dateStr]) {
         const item=document.createElement('button');
         item.type='button';item.className='event';
@@ -822,7 +850,8 @@ function openModal(dateStr) {
   }
   modal.classList.add('active');
   document.body.classList.add('modal-open');
-  backButton.focus();
+  modal.querySelector(".modal-content").scrollTop=0;
+  backButton.focus({preventScroll:true});
 }
 function closeModal(){
   if(!modal.classList.contains('active')) return;
@@ -841,7 +870,41 @@ document.addEventListener('keydown',e=>{
     else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
   }
 });
+// Shareable registration links: ?register=YYYY-MM-DD or ?register=kirtan
+function openRegistrationDate(dateStr){
+  const [year,month]=dateStr.split('-').map(Number);
+  currentDate=new Date(year,month-1,1);
+  renderCalendar();
+  openModal(dateStr);
+}
+function openRegistrationSeries(series){
+  const dates=Object.keys(events).filter(date=>events[date].some(ev=>ev.registrationSeries===series)).sort();
+  if(!dates.length)return;
+  const upcoming=dates.filter(date=>new Date(date+'T23:59:59')>=new Date());
+  lastFocusedElement=document.activeElement;
+  document.getElementById('modalDate').textContent='Mantra Meditation and Kirtan with Lee Mirabai Harrington';
+  modalEvents.replaceChildren();
+  const intro=document.createElement('p');
+  intro.textContent=upcoming.length?'Choose your Wednesday session. 7–8:30 PM · $10 advance registration per person.':'Registration for this series has ended.';
+  modalEvents.appendChild(intro);
+  for(const date of upcoming){
+    const button=document.createElement('button');
+    button.type='button';button.className='btn btn-primary series-date';
+    button.textContent=formatDate(date);
+    button.addEventListener('click',()=>openRegistrationDate(date));
+    modalEvents.appendChild(button);
+  }
+  modal.classList.add('active');document.body.classList.add('modal-open');
+  modal.querySelector('.modal-content').scrollTop=0;
+  (modalEvents.querySelector('button')||backButton).focus({preventScroll:true});
+}
 renderCalendar();
+const registrationTarget=new URLSearchParams(window.location.search).get('register');
+if(registrationTarget && /^\d{4}-\d{2}-\d{2}$/.test(registrationTarget) && Object.hasOwn(events,registrationTarget)){
+  openRegistrationDate(registrationTarget);
+}else if(registrationTarget==='kirtan'){
+  openRegistrationSeries(registrationTarget);
+}
 </script>
 </body>
 </html>
