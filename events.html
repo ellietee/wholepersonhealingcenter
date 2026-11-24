@@ -556,6 +556,13 @@ h1 {
 .event-extra{margin:12px 0!important}
 .event-extra a{color:#285d4a;text-decoration:underline;overflow-wrap:anywhere}
 
+/* Registration instructions for email and Zelle events */
+.event-description{white-space:pre-line}
+.event-registration{background:#f6fbf8;border:1px solid #c7e4d5;border-radius:12px;padding:16px;margin-top:18px;overflow-wrap:anywhere}
+.event-registration h5{font-family:'Playfair Display',serif;font-size:19px;margin-bottom:12px}
+.event-registration p{margin-bottom:10px}
+
+.registration-form{display:grid;gap:12px}.registration-form label{display:block;font-size:14px;font-weight:500}.registration-form input:not([type=radio]):not([type=hidden]),.registration-form select{display:block;width:100%;padding:10px;border:1px solid #9db9ab;border-radius:8px;font:inherit;background:white;margin-top:4px}.registration-form fieldset{border:1px solid #c7e4d5;border-radius:8px;padding:10px}.registration-form fieldset label{margin:8px 0}.registration-form .payment-link{border:0;font-family:inherit;margin:0}.zelle-box{background:#e7f3e9;padding:12px;border-radius:10px}.zelle-box .btn{background:white;color:#28513f;margin-bottom:10px}.registration-status:empty{display:none}
 </style>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -688,6 +695,31 @@ const events = {
   paymentLink: '',
   inquiryLink: 'contactform.html?inquiry=client'
 }]
+,
+  '2026-12-02': [{
+    "time": "7:00 PM – 8:30 PM",
+    "title": "Mantra Meditation and Kirtan with Lee Mirabai Harrington",
+    "description": "Join renowned kirtan recording artist, mantra healer, and ngamka Lee Mirabai Harrington for weekly satsang in Myrtle Beach. We’ll chant healing mantras from the Tibetan Buddhist and Vedic traditions to help calm the mind, open the heart, heal the body, and purify the voice.\n\n$10 advance registration; $15 at the door. Space is very limited, so reservations are recommended.\n\nPlease bring cushions or backjacks as needed.\n\nThis is a precious opportunity to chant in an intimate setting with Lee, who has sung mantras at Madison Square Garden and led kirtans and workshops at such venues as Tibet House, Menla, Kripalu, Omega, Sivananda Bahamas, Yogaville, and more.",
+    "location": "603 B Briarwood Drive, Myrtle Beach, SC 29572",
+    "admission": "$10 ADVANCE · $15 AT THE DOOR",
+    "registrationEmail": "WPHCcontact@gmail.com"
+}],
+  '2026-12-09': [{
+    "time": "7:00 PM – 8:30 PM",
+    "title": "Mantra Meditation and Kirtan with Lee Mirabai Harrington",
+    "description": "Join renowned kirtan recording artist, mantra healer, and ngamka Lee Mirabai Harrington for weekly satsang in Myrtle Beach. We’ll chant healing mantras from the Tibetan Buddhist and Vedic traditions to help calm the mind, open the heart, heal the body, and purify the voice.\n\n$10 advance registration; $15 at the door. Space is very limited, so reservations are recommended.\n\nPlease bring cushions or backjacks as needed.\n\nThis is a precious opportunity to chant in an intimate setting with Lee, who has sung mantras at Madison Square Garden and led kirtans and workshops at such venues as Tibet House, Menla, Kripalu, Omega, Sivananda Bahamas, Yogaville, and more.",
+    "location": "603 B Briarwood Drive, Myrtle Beach, SC 29572",
+    "admission": "$10 ADVANCE · $15 AT THE DOOR",
+    "registrationEmail": "WPHCcontact@gmail.com"
+}],
+  '2026-12-16': [{
+    "time": "7:00 PM – 8:30 PM",
+    "title": "Mantra Meditation and Kirtan with Lee Mirabai Harrington",
+    "description": "Join renowned kirtan recording artist, mantra healer, and ngamka Lee Mirabai Harrington for weekly satsang in Myrtle Beach. We’ll chant healing mantras from the Tibetan Buddhist and Vedic traditions to help calm the mind, open the heart, heal the body, and purify the voice.\n\n$10 advance registration; $15 at the door. Space is very limited, so reservations are recommended.\n\nPlease bring cushions or backjacks as needed.\n\nThis is a precious opportunity to chant in an intimate setting with Lee, who has sung mantras at Madison Square Garden and led kirtans and workshops at such venues as Tibet House, Menla, Kripalu, Omega, Sivananda Bahamas, Yogaville, and more.",
+    "location": "603 B Briarwood Drive, Myrtle Beach, SC 29572",
+    "admission": "$10 ADVANCE · $15 AT THE DOOR",
+    "registrationEmail": "WPHCcontact@gmail.com"
+}]
 };
 let currentDate = new Date();
 let lastFocusedElement = null;
@@ -762,6 +794,28 @@ function openModal(dateStr) {
       const a=document.createElement('a');a.href='mailto:'+ev.contactEmail+'?subject='+encodeURIComponent('October Fall Health Fest Inquiry');a.textContent=ev.contactEmail;p.appendChild(a);section.appendChild(p);
     }
 
+    if(ev.registrationEmail && new Date(dateStr+'T23:59:59') >= new Date()){
+      const box=document.createElement('div');box.className='event-registration';
+      box.innerHTML=`<h5>Advance Registration</h5><p>$10 per person in advance · $15 at the door</p>
+      <form class="registration-form">
+      <label>Full name *<input name="name" autocomplete="name" required></label>
+      <label>Email address *<input type="email" name="email" autocomplete="email" required></label>
+      <label>Phone number (optional)<input type="tel" name="phone" autocomplete="tel"></label>
+      <label>Number of attendees *<select name="Attendees" required><option>1</option><option>2</option><option>3</option><option>4</option></select></label>
+      <div class="zelle-box"><strong>Advance payment via Zelle</strong><p class="total">$10 total</p><p>Whole Person Healing Center, LLC<br>wholepersonhealingcenter@hushmail.com</p><button type="button" class="btn copy-zelle">Copy Zelle email</button><p>Please include your name and event date in the payment memo. Verify the recipient before sending payment.</p></div>
+      <fieldset><legend>Payment status *</legend><label><input type="radio" name="Payment status" value="Already sent" required> I have already sent my Zelle payment.</label><label><input type="radio" name="Payment status" value="Will send shortly" required> I will send my Zelle payment shortly.</label></fieldset>
+      <button type="submit" class="payment-link">Submit Registration</button><p>Registration is subject to availability and payment confirmation.</p><p role="status" class="registration-status"></p></form>`;
+      const form=box.querySelector('form');
+      const fields={'_subject':'Registration: '+ev.title+' — '+formatDate(dateStr),'Event':ev.title,'Event date':formatDate(dateStr),'Event time':ev.time,'_template':'table','_honey':''};
+      for(const [name,value] of Object.entries(fields)){const input=document.createElement('input');input.type='hidden';input.name=name;input.value=value;form.appendChild(input);}
+      form.elements.Attendees.addEventListener('change',()=>box.querySelector('.total').textContent='$'+10*Number(form.elements.Attendees.value)+' total');
+      box.querySelector('.copy-zelle').addEventListener('click',async e=>{try{await navigator.clipboard.writeText('wholepersonhealingcenter@hushmail.com');e.target.textContent='Copied!';}catch{e.target.textContent='Please copy the email above';}});
+      form.addEventListener('submit',async e=>{
+        e.preventDefault();const button=form.querySelector('[type=submit]');const status=form.querySelector('.registration-status');button.disabled=true;status.textContent='Submitting…';
+        try{const response=await fetch('https://formsubmit.co/ajax/'+ev.registrationEmail,{method:'POST',headers:{Accept:'application/json'},body:new FormData(form)});const result=await response.json();if(!response.ok||String(result.success)!=='true'||/activat|confirm your email/i.test(result.message||''))throw new Error('Submission not confirmed');form.replaceChildren();const message=document.createElement('p');message.setAttribute('role','status');message.textContent="Thank you for registering! Your registration request has been received. Please complete your $10 per person advance payment via Zelle if you haven't already. Your reservation is subject to availability and payment confirmation. We look forward to seeing you!";form.appendChild(message);backButton.focus();}
+        catch{status.textContent='We could not confirm your submission. Please contact WPHCcontact@gmail.com to check your registration before trying again.';button.disabled=false;}
+      });section.appendChild(box);
+    }
     if(ev.paymentLink){const pay=document.createElement('a');pay.className='payment-link';pay.href=ev.paymentLink;pay.target='_blank';pay.rel='noopener noreferrer';pay.textContent='Register & Pay with Square';section.appendChild(pay);}
     if(ev.inquiryLink){const inquire=document.createElement('a');inquire.className='payment-link';inquire.href=ev.inquiryLink;inquire.textContent='Contact Us to Reserve';section.appendChild(inquire);}
     modalEvents.appendChild(section);
@@ -781,7 +835,7 @@ document.addEventListener('keydown',e=>{
   if(!modal.classList.contains('active'))return;
   if(e.key==='Escape')closeModal();
   if(e.key==='Tab'){
-    const focusable=[...modal.querySelectorAll('a[href],button:not([disabled])')];
+    const focusable=[...modal.querySelectorAll('a[href],button:not([disabled]),input:not([type=hidden]),select,textarea')];
     const first=focusable[0],last=focusable[focusable.length-1];
     if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
     else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
